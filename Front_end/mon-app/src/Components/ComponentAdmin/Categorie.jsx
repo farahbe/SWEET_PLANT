@@ -2,8 +2,13 @@ import React from 'react'
 import axios from 'axios'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-import { con } from '../../../../../Back_end/Database/DB'
 import {Link} from 'react-router-dom';
+
+//store
+import {connect} from 'react-redux'
+import {ajout_article} from '../../store/action/ajout_article'
+
+
 
 class Categorie extends React.Component {
 
@@ -81,4 +86,4 @@ const mapStateToProps = (state /*, ownPrps*/) => {
 const mapDispatchToProps = {ajout_article}
     //mapDispatchToProps dispatche l'action a toutes les props
 
-export default con(mapStateToProps, mapDispatchToProps)(Categorie);
+export default connect(mapStateToProps, mapDispatchToProps)(Categorie);
