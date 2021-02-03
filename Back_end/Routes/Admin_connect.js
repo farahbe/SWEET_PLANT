@@ -136,6 +136,15 @@ router.get('/get_articles/:id', function (req, res) {
     }
 })
 
+router.get('/getarticles', function (req, res) {
+    con.query('SELECT * FROM articles', function (err, results){
+        if (err) res.status(203).send(err)
+        res.send(results)
+    })
+
+})
+
+
 
 //-----------------------------------CATEGORIE----------------------------------
 

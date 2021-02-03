@@ -10,7 +10,7 @@ import {ajout_article} from '../../store/action/ajout_article'
 
 
 
-class Categorie extends React.Component {
+class ToutArticles extends React.Component {
 
     state = {
         categorielist: [],
@@ -20,12 +20,12 @@ class Categorie extends React.Component {
     componentDidMount() {
 
         // On recupere la liste entiere
-        axios.get(`http://localhost:4000/categorie`)
+        axios.get(`http://localhost:4000/admin/getarticles`)
             .then(res => {
                 this.setState({ categorielist: res.data });
                 // insere les data dans categorielist
 
-                this.props.enregistreProducts(res.data)
+                this.props.ajout_article(res.data)
                 // enregistre les data dans la props 'enregistreProducts'
 
             })
@@ -38,6 +38,8 @@ class Categorie extends React.Component {
             <div>
                 {console.log(this.state.categorielist)}
                 {/* log les produits contenue dans le tableau categorielist */}
+
+                <h1>Galerie d'article</h1>
 
 
                 {this.props.article && this.props.article.map((elem, i) => {
@@ -86,4 +88,4 @@ const mapStateToProps = (state /*, ownPrps*/) => {
 const mapDispatchToProps = {ajout_article}
     //mapDispatchToProps dispatche l'action a toutes les props
 
-export default connect(mapStateToProps, mapDispatchToProps)(Categorie);
+export default connect(mapStateToProps, mapDispatchToProps)(ToutArticles);

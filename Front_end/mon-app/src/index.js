@@ -17,7 +17,7 @@ import SignUp from './Components/ComponentAdmin/SignUp'
 import SignInUser from './Components/ComponentUser/SignInUser'
 import SignUpUser from './Components/ComponentUser/SignUpUser'
 import CreateArticle from './Components/ComponentAdmin/CreateArticle';
-import Categorie from './Components/ComponentAdmin/Categorie'
+import ToutArticle from './Components/ComponentAdmin/ToutArticles'
 import Header from './Components/ComponentAdmin/Header'
 import PrivateRoute from './privateroute.js/index'
 
@@ -38,7 +38,7 @@ const myRouter = (
       <Route path="/SignInUser" component={SignInUser} />
       <Route path="/SignUpUser" component={SignUpUser} />
       <Route path="/CreateArticle" component={CreateArticle} />
-      <Route path="/Categorie" component={Categorie} />
+      <Route path="/ToutArticle" component={ToutArticle} />
 
 
       </Switch>
