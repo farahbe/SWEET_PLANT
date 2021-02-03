@@ -1,7 +1,7 @@
 import React from 'react'
 import jwt from 'jsonwebtoken'
 import { connect } from 'react-redux'
-import { signinadmin, logout } from '../../store/action/admin'
+import { signinadmin } from '../../store/action/admin'
 import { Link, withRouter } from 'react-router-dom'
 
 
@@ -23,7 +23,7 @@ class headerAdmin extends React.Component {
         decoded: {}
     };
 
-    logOutSubmit = () => {
+    logoutSubmit = () => {
         this.props.logoutAdmin()
         this.props.history.push('/Home');
     }
@@ -80,10 +80,13 @@ console.log(this);
                             // sinon loguer ca
                         ) : (
                                 <span>
-                                    <li><Link to="/Home">Je suis un admin</Link></li>
+                                    <li><Link to="/Home">Home</Link></li>
                                     <li><Link to="/Dashboard">Dashboard</Link></li>
                                     <li><Link to="/CreateArticle">CreateArticle</Link></li>
+                                    <li><Link to="/Categorie">Categorie</Link></li>
+
                                     <li onClick={this.logout}>Logout</li>
+
 
                                 </span>
                             )}
@@ -109,7 +112,7 @@ console.log(this);
                 <div>
                     <ul>
                         {/* recupere le token contenue dans le state du store */}
-                        {(this.props.location.pathname == '/SignIn' || this.props.location.pathname==="/SignUp") ? (
+                        {(this.props.location.pathname === '/SignIn' || this.props.location.pathname==="/SignUp") ? (
                             <span>
                             {/* // si il n'y a pas de token loguer ca */}
 

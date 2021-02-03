@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './Header';
+// import Header from './Header';
 
 
 
@@ -11,7 +11,7 @@ class Dashboard extends React.Component {
             <div>
 
                 {/* < Header /> */}
-                <h1> Bianvenue sur votre Dashboard</h1>         
+                <h1> Bienvenue sur votre Dashboard</h1>         
             </div>
         )
     }
