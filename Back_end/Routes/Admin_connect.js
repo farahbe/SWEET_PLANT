@@ -160,7 +160,7 @@ router.post('/categorie', function (req, res) {
     }
 })
 
-router.get('/categorie', function (req, res) {
+router.get('/getcategorie', function (req, res) {
     con.query(`SELECT * FROM categorie`, (err, result) => {
         if (err) res.send(err)
         res.json(result)

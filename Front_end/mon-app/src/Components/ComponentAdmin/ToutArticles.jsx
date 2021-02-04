@@ -26,7 +26,7 @@ class ToutArticles extends React.Component {
                 // insere les data dans categorielist
 
                 this.props.ajout_article(res.data)
-                // enregistre les data dans la props 'enregistreProducts'
+                // enregistre les data dans la props ajout_article
 
             })
     }

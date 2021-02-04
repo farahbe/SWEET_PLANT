@@ -1,18 +1,15 @@
 const initialStates = {
-    categories: ''
+    categories: [],
 };
 
 const categoriereducer = (state = initialStates, action) => {
     switch (action.type) {
-        case "ENREGISTRE_CATEGORIES":
+        case "ENREGISTRE_CATEGORIE":
             return {
                 ...state,
                 categories: action.categories,
-            }
-            default:
-                return {
-                    ...state,
-                };
+            };
+        
     }
 };
 

@@ -2,7 +2,12 @@ import React from 'react'
 import axios from 'axios'
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
-// import {Link} from 'react-router-dom';
+import {Link} from 'react-router-dom';
+
+//----Store
+import {connect} from 'react-redux'
+import {enregistrecategorie} from '../../store/action/categories'
+
 
 
 class Categories extends React.Component {
@@ -11,7 +16,14 @@ class Categories extends React.Component {
     }
 
     componentDidMount() {
-        axios.get(`http://localhost:4000/admin/categorie`)
+        axios.get(`http://localhost:4000/admin/getcategorie`)
+                .then(res => {
+                    this.setState({categorielist: res.data});
+
+                    this.props.enregistrecategorie(res.data)
+
+                    
+                })
 
     }
 
@@ -19,29 +31,39 @@ class Categories extends React.Component {
     render() {
         return(
             <div>
-                {console.log(this.state.categorielist)}
+                {/* {console.log(this.state.categorielist)} */}
+
                 <h1>Categorie d'article</h1>
 
+                {this.props.categories && this.props.categories.map((elem ,i) => {
+
                 return(
-                <div>
+
+                <div key={elem.id_nom_categorie}>
+
                     <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src="holder.js/100px180" />
                     <Card.Body>
-                        <Card.Title>Card Title</Card.Title>
-                        <Card.Text>
-                        Some quick example text to build on the card title and make up the bulk of
-                        the card's content.
-                        </Card.Text>
-                        <Button variant="primary">Go somewhere</Button>
+                        <Card.Title>T{elem.Nom_categorie}</Card.Title>                     
+                        <Link to={`/categorie/${elem.id_nom_categorie}`}> <Button variant= "primary">Submit</Button></Link>
                     </Card.Body>
                     </Card>
 
                 </div>
-                )
+                )}
+
+                )}
 
             </div>
         )
     }
 }
 
-export default Categories;
+const mapStateToProps = (state/*, ownProps*/) => {
+    return {
+        categories: state.categoriereducer.categories
+    }
+}
+
+const mapDispatchToProps = {enregistrecategorie}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Categories);

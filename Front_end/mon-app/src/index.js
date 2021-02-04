@@ -18,7 +18,7 @@ import SignInUser from './Components/ComponentUser/SignInUser'
 import SignUpUser from './Components/ComponentUser/SignUpUser'
 import CreateArticle from './Components/ComponentAdmin/CreateArticle';
 import ToutArticle from './Components/ComponentAdmin/ToutArticles'
-import Header from './Components/ComponentAdmin/Header'
+import Header from './Components/ComponentAdmin/Header';
 import Categories from './Components/ComponentAdmin/Categories'
 //------Private Route
 import PrivateRoute from './privateroute.js/index'

@@ -1,6 +1,5 @@
-import Categories from "../../Components/ComponentAdmin/Categories";
 
-export const enregistreArticle = (allcategories) => ({
+export const enregistrecategorie = (allcategories) => ({
     type: 'ENREGISTRE_CATEGORIES',
     categories: allcategories
 })
