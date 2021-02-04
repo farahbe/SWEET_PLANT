@@ -13,7 +13,7 @@ import {ajout_article} from '../../store/action/ajout_article'
 class ToutArticles extends React.Component {
 
     state = {
-        categorielist: [],
+        articlelist: [],
     }
 
 
@@ -22,7 +22,7 @@ class ToutArticles extends React.Component {
         // On recupere la liste entiere
         axios.get(`http://localhost:4000/admin/getarticles`)
             .then(res => {
-                this.setState({ categorielist: res.data });
+                this.setState({ articlelist: res.data });
                 // insere les data dans categorielist
 
                 this.props.ajout_article(res.data)
@@ -31,12 +31,10 @@ class ToutArticles extends React.Component {
             })
     }
 
-
-
     render() {
         return (
             <div>
-                {console.log(this.state.categorielist)}
+                {console.log(this.state.articlelist)}
                 {/* log les produits contenue dans le tableau categorielist */}
 
                 <h1>Galerie d'article</h1>

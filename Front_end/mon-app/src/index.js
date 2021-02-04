@@ -19,8 +19,12 @@ import SignUpUser from './Components/ComponentUser/SignUpUser'
 import CreateArticle from './Components/ComponentAdmin/CreateArticle';
 import ToutArticle from './Components/ComponentAdmin/ToutArticles'
 import Header from './Components/ComponentAdmin/Header'
+import Categories from './Components/ComponentAdmin/Categories'
+//------Private Route
 import PrivateRoute from './privateroute.js/index'
 
+
+// creer le store
 const store = createStore(
   mainReducer, /* preloadedState, */
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
@@ -32,14 +36,16 @@ const myRouter = (
       <Header />
       <Switch> 
       <Route path="/Home" component={Home} />
-      <PrivateRoute path="/Dashboard" component={Dashboard} />
       <Route path="/SignIn" component={SignIn} />
       <Route path="/SignUp" component={SignUp} />
       <Route path="/SignInUser" component={SignInUser} />
       <Route path="/SignUpUser" component={SignUpUser} />
       <Route path="/CreateArticle" component={CreateArticle} />
       <Route path="/ToutArticle" component={ToutArticle} />
+      <Route path="/Categories" component={Categories} />
 
+      {/* //Private route */}
+      <PrivateRoute path="/Dashboard" component={Dashboard} />
 
       </Switch>
   </Router>

@@ -84,7 +84,7 @@ console.log(this);
                                     <li><Link to="/Dashboard">Dashboard</Link></li>
                                     <li><Link to="/CreateArticle">CreateArticle</Link></li>
                                     <li><Link to="/ToutArticle">ToutArticle</Link></li>
-
+                                    <li><Link to="/Categories">Categories</Link></li>
                                     <li onClick={this.logout}>Logout</li>
 
 
