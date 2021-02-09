@@ -31,17 +31,19 @@ class ToutArticles extends React.Component {
             })
     }
 
-    render() {
+    render() { 
+        console.log(this.state.articlelist)
         return (
+            
             <div>
-                {console.log(this.state.articlelist)}
+               
                 {/* log les produits contenue dans le tableau categorielist */}
 
                 <h1>Galerie d'article</h1>
 
 
                 {this.props.article && this.props.article.map((elem, i) => {
-                    // parcours le tableau article dans le reducer grace a .map et insere dans elem et le products de reducer
+                 // parcours le tableau article dans le reducer grace a .map et insere dans elem et le products de reducer
 
                     return (
 

@@ -43,6 +43,8 @@ const myRouter = (
       <Route path="/CreateArticle" component={CreateArticle} />
       <Route path="/ToutArticle" component={ToutArticle} />
       <Route path="/Categories" component={Categories} />
+      {/* <Route path="/article/:id" component={articledetails} /> */}
+
 
       {/* //Private route */}
       <PrivateRoute path="/Dashboard" component={Dashboard} />

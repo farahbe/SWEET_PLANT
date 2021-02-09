@@ -19,6 +19,7 @@ class Categories extends React.Component {
         axios.get(`http://localhost:4000/admin/getcategorie`)
                 .then(res => {
                     this.setState({categorielist: res.data});
+                    console.log(res.data);
 
                     this.props.enregistrecategorie(res.data)
 
@@ -28,22 +29,25 @@ class Categories extends React.Component {
     }
 
 
-    render() {
+    render() {  
+         console.log(this.state.categorielist)
+
         return(
             <div>
-                {/* {console.log(this.state.categorielist)} */}
+             
+                {/* log les produits contenue dans le tableau categorielist */}
 
                 <h1>Categorie d'article</h1>
 
                 {this.props.categories && this.props.categories.map((elem ,i) => {
+                 // parcours le tableau categories dans le reducer grace a .map et insere dans elem et le categories de reducer
+                return (
 
-                return(
-
-                <div key={elem.id_nom_categorie}>
+                <div key={elem.id_nom_categorie} >
 
                     <Card style={{ width: '18rem' }}>
                     <Card.Body>
-                        <Card.Title>T{elem.Nom_categorie}</Card.Title>                     
+                        <Card.Title>{elem.Nom_categorie}</Card.Title>                     
                         <Link to={`/categorie/${elem.id_nom_categorie}`}> <Button variant= "primary">Submit</Button></Link>
                     </Card.Body>
                     </Card>
