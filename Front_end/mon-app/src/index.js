@@ -17,7 +17,7 @@ import SignUp from './Components/ComponentAdmin/SignUp'
 import SignInUser from './Components/ComponentUser/SignInUser'
 import SignUpUser from './Components/ComponentUser/SignUpUser'
 import CreateArticle from './Components/ComponentAdmin/CreateArticle';
-import ToutArticle from './Components/ComponentAdmin/ToutArticles'
+import ToutArticles from './Components/ComponentAdmin/ToutArticles'
 import Header from './Components/ComponentAdmin/Header';
 import Categories from './Components/ComponentAdmin/Categories'
 //------Private Route
@@ -40,14 +40,21 @@ const myRouter = (
       <Route path="/SignUp" component={SignUp} />
       <Route path="/SignInUser" component={SignInUser} />
       <Route path="/SignUpUser" component={SignUpUser} />
-      <Route path="/CreateArticle" component={CreateArticle} />
-      <Route path="/ToutArticle" component={ToutArticle} />
+      {/* <Route path="/Dashboard" component={Dashboard} /> */}
+      {/* <Route path="/CreateArticle" component={CreateArticle} /> */}
+      <Route path="/Galerie" component={ToutArticles} />
       <Route path="/Categories" component={Categories} />
       {/* <Route path="/article/:id" component={articledetails} /> */}
 
 
-      {/* //Private route */}
-      <PrivateRoute path="/Dashboard" component={Dashboard} />
+      {/* //Private route admin */}
+      <PrivateRoute path="/CreateArticle" component={CreateArticle} />
+
+        {/* //Private route user */}
+        <PrivateRoute path="/Dashboard" component={Dashboard} />
+      
+      
+      
 
       </Switch>
   </Router>

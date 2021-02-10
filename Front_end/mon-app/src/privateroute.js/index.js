@@ -14,10 +14,13 @@ class PrivateRoute extends React.Component {
 
         console.log(this.props.component);
         console.log(decoded);
+
+        if (decoded && decoded.admin === true) {
         return (
             <>
-              {decoded && decoded.admin ? (// demande si decoded.admin = true
-                <Route component={this.props.component} path={this.props.path} /> // decoded = a decoded.admin alors il aura acces a tout les component 
+               {decoded && decoded.admin ? (// demande si decoded.admin = true
+                <Route component={this.props.component} path={this.props.path} /> 
+                // decoded = a decoded.admin alors il aura acces a tout les component 
                 //qui contient les private route et accedera a sa route attibuer
               ) : (
                 <Redirect
@@ -27,7 +30,29 @@ class PrivateRoute extends React.Component {
                 />
               )}
             </>
+
           );
+        }else if (decoded && decoded.user === true) {
+          return (
+              <>
+              {decoded && decoded.user ? (<Route component={this.props.component} path={this.props.path} />
+              ) : (
+                <Redirect
+                to={{
+                  pathname: '/Home',
+                }}
+                />
+              )}
+              </>
+            )} else {
+              return (
+                <Redirect
+                to={{
+                  pathname: '/Home',
+                }}
+                />
+              )
+            }
     }
 
   }
