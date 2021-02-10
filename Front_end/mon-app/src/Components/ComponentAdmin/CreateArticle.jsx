@@ -66,7 +66,7 @@ class CreateArticle extends Component {
             //Creation du store pour ajouter un article ajout de la const dans le store action
            this.props.creatstorearticle(article)
 
-           this.setRedirect()
+           this.setRedirect();
            //Redirige vers Dashboard
     })
     .catch(error => {

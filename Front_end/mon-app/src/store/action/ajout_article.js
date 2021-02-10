@@ -3,10 +3,9 @@ export const ajout_article = (all_article) => ({
     article: all_article
 })
 
-export const creatstorearticle = (storearticle,admin) => ({ //creer une const et un argument (storearticle)
+export const creatstorearticle = (storearticle) => ({ //creer une const et un argument (storearticle)
     type: "CREATE_STORE_ARTICLE",// quel type 
-    createarticleforstore: storearticle, // createarticleforstore recoit storearticle
-    id: admin.id,
+    id: storearticle.id_admin,
     payload: storearticle
 })
 

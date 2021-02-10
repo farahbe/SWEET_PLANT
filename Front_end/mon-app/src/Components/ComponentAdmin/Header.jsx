@@ -28,21 +28,22 @@ class headerAdmin extends React.Component {
         this.props.history.push('/Home');
     }
 
-    // stocker le token 
+    // recuperer le token dans le localstorage 
     componentDidMount() {
 
         if (localStorage.getItem("token")) {
-            let decodetoken = jwt.decode(localStorage.getItem("token"))// si il y'a token, le stocker dans localstorage
-            console.log("bbbbbbbb",decodetoken);
+            let decodetoken = jwt.decode(localStorage.getItem("token"))// decode le token
+            console.log("decodetoken");
             if (decodetoken) {
-                this.props.signinadmin({ id: decodetoken.id, email: decodetoken.email, token: localStorage.getItem("token") })
+                this.props.signinadmin({ id: decodetoken.id, email: decodetoken.email, token: localStorage.getItem("token") })//si token le stocker dans store
                 this.setState({ decoded: decodetoken })
-                //Si decode token est un token admin le stocker dans store
+                //enregistre dans les state du component header
             }
 
         }
     }
 
+    //appeler des que les states de mon component son modifier
     componentDidUpdate() {
         if (localStorage.getItem("token") && this.state.decoded === {}) {
             let decodetoken = jwt.decode(localStorage.getItem("token"))// si il y'a token, le stocker dans localstorage
@@ -50,7 +51,7 @@ class headerAdmin extends React.Component {
             if (decodetoken) {
                 this.props.signinadmin({ id: decodetoken.id, email: decodetoken.email, token: localStorage.getItem("token") })
                 this.setState({ decoded: decodetoken })
-                //Si decode token est un token admin le stocker dans store
+                
             }
 
         }
@@ -70,15 +71,7 @@ console.log(this);
                 <div>
                     <ul>
                         {/* recupere le token contenue dans le state du store */}
-                        {!this.props.token ? (
-                            <span>
-                                {/* // si il n'y a pas de token loguer ca */}
-
-                                <li><Link to="/SignUp">S'enregistrer en tant qadmin</Link></li>
-                                <li><Link to="/SignIn">Se connecter</Link></li>
-                            </span>
-                            // sinon loguer ca
-                        ) : (
+                       
                                 <span>
                                     <li><Link to="/Home">Home</Link></li>
                                     <li><Link to="/Dashboard">Dashboard</Link></li>
@@ -89,7 +82,7 @@ console.log(this);
 
 
                                 </span>
-                            )}
+                            
 
                     </ul>
 
@@ -99,7 +92,7 @@ console.log(this);
 
         //-------------USER
 
-        } else if (this.state.decoded.user === true) {
+        } else if (this.state.decoded.user === true) {//si tes un user connecter
             return (
                 <span>
                 <li><Link to="/Home">Page d'Accueil</Link></li>
@@ -107,7 +100,7 @@ console.log(this);
 
             </span>
             )
-        } else {
+        } else {// pas connecter du tout
             return (
                 <div>
                     <ul>
