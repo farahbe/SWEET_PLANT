@@ -8,6 +8,14 @@ class articlePage extends Component{
         article: {}
     }
 
+    componentDidMount() {
+
+        const {id_article} = this.props.match.params
+
+        axios.get(`http://localhost:4000/articles/${id_article}`)
+
+    }
+
 render () {
     return(
         <div>

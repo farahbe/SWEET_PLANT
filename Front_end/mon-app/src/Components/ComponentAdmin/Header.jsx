@@ -107,17 +107,20 @@ console.log(this);
                         {/* recupere le token contenue dans le state du store */}
                         {(this.props.location.pathname === '/SignIn' || this.props.location.pathname==="/SignUp") ? (
                             <span>
-                            {/* // si il n'y a pas de token loguer ca */}
-
+                           
                             <li><Link to="/SignUp">S'enregistrer</Link></li>
                             <li><Link to="/SignIn">Se connecter</Link></li>
                         </span>
                         ) : (
                             <span>
-                            {/* // si il n'y a pas de token loguer ca */}
-
+                            
                             <li><Link to="/SignUpUser">S'enregistrer</Link></li>
                             <li><Link to="/SignInUser">Se connecter</Link></li>
+                            <li><Link to="/ToutArticle">ToutArticle</Link></li>
+                            <li><Link to="/Categories">Categories</Link></li>
+
+
+
                         </span>
                         )}
                        

@@ -20,6 +20,7 @@ import CreateArticle from './Components/ComponentAdmin/CreateArticle';
 import ToutArticles from './Components/ComponentAdmin/ToutArticles'
 import Header from './Components/ComponentAdmin/Header';
 import Categories from './Components/ComponentAdmin/Categories'
+import ArticleDetails from './Components/ComponentAdmin/ArticleDetails'
 //------Private Route
 import PrivateRoute from './privateroute.js/privateRouteAdmin'
 import PrivateRouteUser from './privateroute.js/privateRouteUser'
@@ -46,7 +47,7 @@ const myRouter = (
       {/* <Route path="/CreateArticle" component={CreateArticle} /> */}
       <Route path="/Galerie" component={ToutArticles} />
       <Route path="/Categories" component={Categories} />
-      {/* <Route path="/article/:id" component={articledetails} /> */}
+      <Route path="/Article" component={ArticleDetails} />
 
 
       {/* //PRIVATE ROUTE ADMIN */}
