@@ -21,10 +21,12 @@ import ToutArticles from './Components/ComponentAdmin/ToutArticles'
 import Header from './Components/ComponentAdmin/Header';
 import Categories from './Components/ComponentAdmin/Categories'
 //------Private Route
-import PrivateRoute from './privateroute.js/index'
+import PrivateRoute from './privateroute.js/privateRouteAdmin'
+import PrivateRouteUser from './privateroute.js/privateRouteUser'
 
 
-// creer le store
+
+// CREER LE STORE
 const store = createStore(
   mainReducer, /* preloadedState, */
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
@@ -47,11 +49,11 @@ const myRouter = (
       {/* <Route path="/article/:id" component={articledetails} /> */}
 
 
-      {/* //Private route admin */}
+      {/* //PRIVATE ROUTE ADMIN */}
       <PrivateRoute path="/CreateArticle" component={CreateArticle} />
 
-        {/* //Private route user */}
-        <PrivateRoute path="/Dashboard" component={Dashboard} />
+        {/* //PRIVATE ROUTE USER */}
+        <PrivateRouteUser path="/Dashboard" component={Dashboard} />
       
       
       
