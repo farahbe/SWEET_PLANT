@@ -47,7 +47,7 @@ const myRouter = (
       {/* <Route path="/CreateArticle" component={CreateArticle} /> */}
       <Route path="/Galerie" component={ToutArticles} />
       <Route path="/Categories" component={Categories} />
-      <Route path="/Article" component={ArticleDetails} />
+      <Route path="/Article/:id" component={ArticleDetails} />
 
 
       {/* //PRIVATE ROUTE ADMIN */}

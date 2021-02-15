@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form';
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom';
+//------STORE--------
 import { connect } from 'react-redux';
 import { creatstorearticle } from '../../store/action/ajout_article';// const dans l'action
 

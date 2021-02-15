@@ -3,36 +3,47 @@ import axios from 'axios'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 
-class articlePage extends Component{
+class articlePage extends Component {
     state = {
         article: {}
     }
 
     componentDidMount() {
+        console.log(this);
 
-        const {id_article} = this.props.match.params
+        const {id} = this.props.match.params 
+        // On passe les props a la const id_article
 
-        axios.get(`http://localhost:4000/articles/${id_article}`)
+        axios.get(`http://localhost:4000/admin/get_article/${id}`)
+        // Recupere article + ${id_article} correspondant
+        .then(res => {
+            console.log(res.data);
+            this.setState({article: res.data[0] });
+         // element recoit les data de lobjet correspondant a lID envoyer 
 
+        })
     }
 
-render () {
+render() {
     return(
+        <>
+    {this.state.article && (
         <div>
             <h1>Voici l'article selectionner</h1>
 
-                    <Card className="text-center">
-                    <Card.Header>Featured</Card.Header>
-                    <Card.Body>
-                        <Card.Title>Special title treatment</Card.Title>
-                        <Card.Text>
-                        With supporting text below as a natural lead-in to additional content.
-                        </Card.Text>
-                        <Button variant="primary">Go somewhere</Button>
-                    </Card.Body>
-                    <Card.Footer className="text-muted">2 days ago</Card.Footer>
-                    </Card>
+                <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src={this.state.article.image} />
+                <Card.Body>
+                    <Card.Title>{this.state.article.Titre}</Card.Title>
+                    <Card.Text>
+                    {this.state.article.paragraphe}
+                    </Card.Text>
+                    <Button variant="primary">Go somewhere</Button>
+                </Card.Body>
+                </Card>
         </div>
+    )}
+    </>
     )
 }
 

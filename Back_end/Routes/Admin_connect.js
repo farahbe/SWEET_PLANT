@@ -121,12 +121,27 @@ router.delete('/articles/:id_article', function (req, res) {
 
 })
 
-//_Recuperer toutes les articles posté par un user
+//_Recuperer toutes les articles posté par un admin id= id de l'dmin
 router.get('/get_articles/:id', function (req, res) {
     try {
 
         let idarticle = req.params.id
         let articleadmin = `SELECT administrateur.email, articles.Titre, articles.paragraphe, articles.image, articles.Date_de_publication FROM administrateur INNER JOIN articles on administrateur.id_admin = articles.id_admin WHERE articles.id_admin = '${idarticle}'`
+        con.query(articleadmin, function (err, results) {
+            if (err) res.status(203).send(err)
+            res.send(results)
+        })
+    } catch (error) {
+        res.status(203).send(error)
+    }
+})
+
+//Recuperer un seul article
+router.get('/get_article/:id', function (req, res) {
+    try {
+
+        let idarticle = req.params.id
+        let articleadmin = `SELECT * FROM articles WHERE id_article = '${idarticle}'`
         con.query(articleadmin, function (err, results) {
             if (err) res.status(203).send(err)
             res.send(results)

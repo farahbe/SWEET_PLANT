@@ -58,7 +58,7 @@ class ToutArticles extends React.Component {
                                     <Card.Text>
                                         {elem.paragraphe}
                                     </Card.Text>
-                                    <Link to={`/articles/${elem.id_article}`}> <Button variant= "primary"  >Submit</Button></Link>
+                                    <Link to={`/Article/${elem.id_article}`}> <Button variant= "primary"  >Submit</Button></Link>
                                     {/* ${elem.id_articles} recupere le id de la bdd et le log dans URL ETAPE 2 */ } 
 
                                 </Card.Body>
