@@ -1,8 +1,12 @@
 import React from 'react'
 import jwt from 'jsonwebtoken'
-import { connect } from 'react-redux'
 import { signinadmin } from '../../store/action/admin'
 import { Link, withRouter } from 'react-router-dom'
+import axios from 'axios'
+//store
+import {ajout_article} from '../../store/action/ajout_article'
+import { connect } from 'react-redux'
+
 
 
 class headerAdmin extends React.Component {
@@ -41,6 +45,14 @@ class headerAdmin extends React.Component {
             }
 
         }
+
+        axios.get(`http://localhost:4000/admin/getarticles`)
+        .then(res => {
+
+            this.props.ajout_article(res.data)
+            // j'enregistre les articles dans mon store ici
+
+        })
     }
 
     //appeler des que les states de mon component son modifier
@@ -143,7 +155,7 @@ const mapStateToProps = (state /* ownProps*/) => {
     }
 }
 
-const mapDispatchToProps = { signinadmin }
+const mapDispatchToProps = { signinadmin,ajout_article }
 
 export default withRouter(connect(
     mapStateToProps,

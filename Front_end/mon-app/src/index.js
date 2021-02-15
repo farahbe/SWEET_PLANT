@@ -50,7 +50,7 @@ const myRouter = (
       <Route path="/Galerie" component={ToutArticles} />
       <Route path="/Recherche" component={Recherche} />
       <Route path="/Article/:id" component={ArticleDetails} />
-      <Route path="/Categorie" component={Categorie} />
+      <Route path="/Categorie/:id" component={Categorie} />
 
 
       {/* //PRIVATE ROUTE ADMIN */}

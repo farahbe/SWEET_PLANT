@@ -2,53 +2,76 @@ import axios from 'axios';
 import React from 'react'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
+import { connect } from 'react-redux'
 
 class articlescategorie extends React.Component {
 
-state = {
- articlesdelacategorie: {}
-}
+    state = {
+        articlesdelacategorie: [],
+    }
 
-componentDidMount() {
-    console.log(this);
+    componentDidMount() {
+        // console.log(this.props.article);
 
-    const {id} = this.props.match.params
 
-    axios.get(`http://localhost:4000/admin/getcategorie/${id}`)
-        .then(res => {
-            this.setState({articlesdelacategorie: res.data });
-            console.log(res.data);
+        // axios.get(`http://localhost:4000/admin/getcategorie/${id}`)
+        //     .then(res => {
+        //         this.setState({articlesdelacategorie: res.data });
+        //         console.log(res.data);
 
+
+        //     })
+    }
+
+
+    render() {
+        // console.log(this.state.articlesdelacategorie);
+        console.log(this.props.article);
+
+        const { id } = this.props.match.params
+        let tableau = this.props.article.filter(elem => elem.id_categorie == id)
+        // this.setState({ articlesdelacategorie: this.props.article.filter(elem => elem.id_categorie == id) });
+        console.log(tableau);
+        return (
+                  
+                    <div>
+                            <h1>la categorie blabla</h1>
+                {tableau.length && tableau.map(elem => {
+                    return (
+                  
+
+                            <Card style={{ width: '18rem' }}>
+                                <Card.Img variant="top" src={elem.image} />
+                                <Card.Body>
+                                    <Card.Title>{elem.Titre}</Card.Title>
+                                    <Card.Text>
+                                        {elem.paragraphe}
+                                    </Card.Text>
+                                    <Button variant="primary">Go somewhere</Button>
+                                </Card.Body>
+                            </Card>
+
+                    )
+                })
+               
+
+            }
+            </div>
             
-        })
+        )
+    }
+
 }
 
+const mapStateToProps = (state /*, ownPrps*/) => {
+    //mapStateToProps permet de parcourir les props
 
-render() {
+    return {
+        article: state.articlereducer.article
+    }
+}
 
-    return(
-        <>
-        {this.state.articlesdelacategorie && (
+// const mapDispatchToProps = {ajout_article}
+//mapDispatchToProps dispatche l'action a toutes les props
 
-        <div>
-            <h1>la categorie blabla</h1>
-
-            <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={this.state.articlesdelacategorie.image} />
-            <Card.Body>
-                <Card.Title>{this.state.articlesdelacategorie.Titre}</Card.Title>
-                <Card.Text>
-                {this.state.articlesdelacategorie.paragraphe}
-                </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-            </Card>
-
-        </div>
-    )}
-    </>
-    )}
-
-} 
-
-export default articlescategorie;
+export default connect(mapStateToProps)(articlescategorie);

@@ -1,12 +1,12 @@
 import React from 'react'
-import axios from 'axios'
+
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import {Link} from 'react-router-dom';
-
 //store
 import {connect} from 'react-redux'
 import {ajout_article} from '../../store/action/ajout_article'
+
 
 
 
@@ -19,16 +19,10 @@ class ToutArticles extends React.Component {
 
     componentDidMount() {
 
-        // On recupere la liste entiere
-        axios.get(`http://localhost:4000/admin/getarticles`)
-            .then(res => {
-                this.setState({ articlelist: res.data });
-                // insere les data dans articlelist
+     this.setState({ articlelist: this.props.article });
+      // insere les data dans articlelist
 
-                this.props.ajout_article(res.data)
-                // enregistre les data dans la props ajout_article
-
-            })
+       
     }
 
     render() { 
@@ -85,7 +79,7 @@ const mapStateToProps = (state /*, ownPrps*/) => {
     }
 }
 
-const mapDispatchToProps = {ajout_article}
+// const mapDispatchToProps = {ajout_article}
     //mapDispatchToProps dispatche l'action a toutes les props
 
-export default connect(mapStateToProps, mapDispatchToProps)(ToutArticles);
+export default connect(mapStateToProps)(ToutArticles);
