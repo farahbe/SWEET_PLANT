@@ -182,6 +182,20 @@ router.get('/getcategorie', function (req, res) {
     })
 })
 
+router.get('/getcategorie/:id', function (req, res) {
+    try {
+
+        let idcategorie = req.params.id
+        let categoriechoisie = `SELECT * FROM categorie WHERE id_nom_categorie = '${idcategorie}'`
+        con.query(categoriechoisie, function (err, results) {
+            if (err) res.status(203).send(err)
+            res.send(results)
+        })
+    } catch (error) {
+        res.status(203).send(error)
+    }
+})
+
    
  
 

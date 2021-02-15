@@ -19,8 +19,10 @@ import SignUpUser from './Components/ComponentUser/SignUpUser'
 import CreateArticle from './Components/ComponentAdmin/CreateArticle';
 import ToutArticles from './Components/ComponentAdmin/ToutArticles'
 import Header from './Components/ComponentAdmin/Header';
-import Categories from './Components/ComponentAdmin/Categories'
+import Recherche from './Components/ComponentAdmin/Recherche'
 import ArticleDetails from './Components/ComponentAdmin/ArticleDetails'
+import Categorie from './Components/ComponentAdmin/Categorie'
+
 //------Private Route
 import PrivateRoute from './privateroute.js/privateRouteAdmin'
 import PrivateRouteUser from './privateroute.js/privateRouteUser'
@@ -46,8 +48,9 @@ const myRouter = (
       {/* <Route path="/Dashboard" component={Dashboard} /> */}
       {/* <Route path="/CreateArticle" component={CreateArticle} /> */}
       <Route path="/Galerie" component={ToutArticles} />
-      <Route path="/Categories" component={Categories} />
+      <Route path="/Recherche" component={Recherche} />
       <Route path="/Article/:id" component={ArticleDetails} />
+      <Route path="/Categorie" component={Categorie} />
 
 
       {/* //PRIVATE ROUTE ADMIN */}

@@ -23,7 +23,7 @@ class ToutArticles extends React.Component {
         axios.get(`http://localhost:4000/admin/getarticles`)
             .then(res => {
                 this.setState({ articlelist: res.data });
-                // insere les data dans categorielist
+                // insere les data dans articlelist
 
                 this.props.ajout_article(res.data)
                 // enregistre les data dans la props ajout_article

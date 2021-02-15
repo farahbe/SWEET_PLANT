@@ -47,8 +47,8 @@ class Categories extends React.Component {
 
                     <Card style={{ width: '18rem' }}>
                     <Card.Body>
-                        <Card.Title>{elem.Nom_categorie}</Card.Title>                     
-                        <Link to={`/categorie/${elem.id_nom_categorie}`}> <Button variant= "primary">Submit</Button></Link>
+                                            
+                        <Link to={`/categorie/${elem.id_nom_categorie}`}><Card.Title>{elem.Nom_categorie}</Card.Title>  </Link>
                     </Card.Body>
                     </Card>
 
