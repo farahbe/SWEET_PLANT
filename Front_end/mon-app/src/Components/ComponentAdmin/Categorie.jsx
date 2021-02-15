@@ -16,7 +16,7 @@ componentDidMount() {
 
     axios.get(`http://localhost:4000/admin/getcategorie/${id}`)
         .then(res => {
-            this.setState({articlesdelacategorie: res.data[0] });
+            this.setState({articlesdelacategorie: res.data });
             console.log(res.data);
 
             
@@ -34,11 +34,11 @@ render() {
             <h1>la categorie blabla</h1>
 
             <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={this.state.articlescategorie.image} />
+            <Card.Img variant="top" src={this.state.articlesdelacategorie.image} />
             <Card.Body>
-                <Card.Title>{this.state.articlescategorie.Titre}</Card.Title>
+                <Card.Title>{this.state.articlesdelacategorie.Titre}</Card.Title>
                 <Card.Text>
-                {this.state.articlescategorie.paragraphe}
+                {this.state.articlesdelacategorie.paragraphe}
                 </Card.Text>
                 <Button variant="primary">Go somewhere</Button>
             </Card.Body>
