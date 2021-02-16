@@ -22,6 +22,7 @@ import Header from './Components/ComponentAdmin/Header';
 import Recherche from './Components/ComponentAdmin/Recherche'
 import ArticleDetails from './Components/ComponentAdmin/ArticleDetails'
 import Categorie from './Components/ComponentAdmin/Categorie'
+import Nav from './Components/ComponentAdmin/Nav'
 
 //------Private Route
 import PrivateRoute from './privateroute.js/privateRouteAdmin'
@@ -51,6 +52,7 @@ const myRouter = (
       <Route path="/Recherche" component={Recherche} />
       <Route path="/Article/:id" component={ArticleDetails} />
       <Route path="/Categorie/:id" component={Categorie} />
+      <Route path="/Nav" component={Nav} />
 
 
       {/* //PRIVATE ROUTE ADMIN */}

@@ -109,13 +109,14 @@ class SignIn extends Component {
         return (
             <Jumbotron>
                 {this.renderRedirect()}
-            <h1>Admin Connectez-vous!</h1>
+
+                 <h1>SE CONNECTER</h1>
         
                     <Form onSubmit={this.buttonsubmit}>
                         {/* on appel OnSubmit dans le form */}
 
                         <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Email address</Form.Label>
+                            <Form.Label>Adresse email</Form.Label>
                             <Form.Control type="email" placeholder="Enter email" onChange={this.inputemail} />
                             <Form.Text className="text-muted">
                            Ne partagez votre adresse mail avec personne
@@ -123,8 +124,8 @@ class SignIn extends Component {
                         </Form.Group>
 
                         <Form.Group controlId="formBasicPassword">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" onChange={this.inputpassword} />
+                            <Form.Label>Mot de passe</Form.Label>
+                            <Form.Control type="password" placeholder="Entrer mot de passe" onChange={this.inputpassword} />
                         </Form.Group>
                        
                         <Button variant="primary" type="submit">
