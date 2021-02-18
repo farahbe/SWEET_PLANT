@@ -1,11 +1,10 @@
 import React from 'react'
-
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import {Link} from 'react-router-dom';
 //store
 import {connect} from 'react-redux'
-import {ajout_article} from '../../store/action/ajout_article'
+// import {ajout_article} from '../../store/action/ajout_article'
 
 
 

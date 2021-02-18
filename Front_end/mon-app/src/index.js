@@ -22,11 +22,12 @@ import Header from './Components/ComponentAdmin/Header';
 import Recherche from './Components/ComponentAdmin/Recherche'
 import ArticleDetails from './Components/ComponentAdmin/ArticleDetails'
 import Categorie from './Components/ComponentAdmin/Categorie'
-import Nav from './Components/ComponentAdmin/Nav'
+import ModifierArticle from './Components/ComponentAdmin/ModifierArticle'
+// import Nav from './Components/ComponentAdmin/Nav'
 
 //------Private Route
 import PrivateRoute from './privateroute.js/privateRouteAdmin'
-import PrivateRouteUser from './privateroute.js/privateRouteUser'
+// import PrivateRouteUser from './privateroute.js/privateRouteUser'
 
 
 
@@ -52,14 +53,17 @@ const myRouter = (
       <Route path="/Recherche" component={Recherche} />
       <Route path="/Article/:id" component={ArticleDetails} />
       <Route path="/Categorie/:id" component={Categorie} />
-      <Route path="/Nav" component={Nav} />
+      {/* <Route path="/ModifierArticle" component={ModifierArticle} /> */}
+      {/* <Route path="/Nav" component={Nav} /> */}
 
 
       {/* //PRIVATE ROUTE ADMIN */}
       <PrivateRoute path="/CreateArticle" component={CreateArticle} />
+      <PrivateRoute path="/Dashboard" component={Dashboard} />
+      <PrivateRoute path="/ModifierArticle/:id" component={ModifierArticle} />
 
         {/* //PRIVATE ROUTE USER */}
-        <PrivateRouteUser path="/Dashboard" component={Dashboard} />
+       
       
       
       

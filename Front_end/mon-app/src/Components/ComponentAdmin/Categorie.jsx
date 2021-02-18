@@ -1,10 +1,11 @@
-import axios from 'axios';
+// import axios from 'axios';
 import React from 'react'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import { connect } from 'react-redux'
 
 class articlescategorie extends React.Component {
+   
 
     state = {
         articlesdelacategorie: [],
@@ -23,15 +24,20 @@ class articlescategorie extends React.Component {
         //     })
     }
 
+    
+
 
     render() {
         // console.log(this.state.articlesdelacategorie);
         console.log(this.props.article);
 
         const { id } = this.props.match.params
-        let tableau = this.props.article.filter(elem => elem.id_categorie == id)
+        let tableau = this.props.article.filter(elem => elem.id_categorie === id)
         // this.setState({ articlesdelacategorie: this.props.article.filter(elem => elem.id_categorie == id) });
         console.log(tableau);
+
+     
+
         return (
                   
                     <div>

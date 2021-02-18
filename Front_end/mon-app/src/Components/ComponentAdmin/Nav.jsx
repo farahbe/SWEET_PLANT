@@ -1,8 +1,8 @@
-import React from 'react';
+// import React from 'react';
 
 
-function Nav() {
-    return <div>hello </div>
-}
+// function Nav() {
+//     return <div>hello  </div>
+// }
 
-export default Nav;
+// export default Nav;
