@@ -81,12 +81,12 @@ class ModifierArticle extends Component {
     deleteRow = (id) =>{
        
     
-    axios.delete(`http://localhost:4000/admin/articles/${id}`)
+    axios.delete(`http://localhost:4000/admin/articles/${id}`,{headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }})
     .then(res => {
         console.log(res);
         console.log(res.data);
 
-        const { id } = this.props.match.params
+        
 
     })
 }
@@ -175,7 +175,7 @@ class ModifierArticle extends Component {
                                 </Button>
 
 
-                                 <Button variant="primary" type="submit" onClick={this.deleteRow(this.state.article.id_article)}>
+                                 <Button variant="primary" onClick={this.deleteRow(this.state.article.id_article)}>
                                    Supprimer
                                 </Button>
                             </Form>
