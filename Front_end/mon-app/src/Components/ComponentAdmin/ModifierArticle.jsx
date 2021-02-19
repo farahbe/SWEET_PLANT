@@ -41,15 +41,20 @@ class ModifierArticle extends Component {
 
     //Onchange
     inputtitre = event => {
-        let test ={...this.state.article,Titre: event.target.value }
-        console.log(test);
+        let Titre ={...this.state.article,Titre: event.target.value }
+        console.log(Titre);
         this.setState({ article:{...this.state.article,Titre: event.target.value }});
     }
     inputparagraphe = event => {
-        this.setState({ paragraphe: event.target.value });
+        let paragraphe ={...this.state.article,paragraphe: event.target.value }
+        console.log(paragraphe);
+        this.setState({ article:{...this.state.article,paragraphe: event.target.value}});
     }
     inputimage = event => {
-        this.setState({ image: event.target.value });
+        let image ={...this.state.article,image: event.target.value }
+        //image recoit dans ces states l'image qui est dans le tableau article : event recupere la valeur de l'input
+        console.log(image);
+        this.setState({ article: {...this.state.article,image: event.target.value }});
     }
 
 
@@ -68,7 +73,24 @@ class ModifierArticle extends Component {
          // element recoit les data de lobjet correspondant a lID envoyer 
 
         })
+
+    
+    
     }
+    
+    deleteRow = (id) =>{
+       
+    
+    axios.delete(`http://localhost:4000/admin/articles/${id}`)
+    .then(res => {
+        console.log(res);
+        console.log(res.data);
+
+        const { id } = this.props.match.params
+
+    })
+}
+
 
     //onSubmit
     buttonsubmit = event => {
@@ -81,6 +103,8 @@ class ModifierArticle extends Component {
             id_admin: this.props.id
 
         };
+
+
 
         const { id } = this.props.match.params
         // On passe les props a la const id_article
@@ -101,7 +125,12 @@ class ModifierArticle extends Component {
                 //Redirige vers Dashboard
 
             })
+            
+    
     }
+    
+
+   
 
     render() {
 
@@ -127,7 +156,7 @@ class ModifierArticle extends Component {
 
                                 <Form.Group controlId="formBasicparagraphe">
                                     <Form.Label>Paragraphe</Form.Label>
-                                    <Form.Control as="textarea" placeholder="Paragraphe" onChange={this.inputparagraphe} />
+                                    <Form.Control as="textarea" value={this.state.article.paragraphe} onChange={this.inputparagraphe} />
                                     <Form.Text className="text-muted">
                                         Entrez votre paragraphe
                         </Form.Text>
@@ -135,7 +164,7 @@ class ModifierArticle extends Component {
 
                                 <Form.Group controlId="formBasicimage">
                                     <Form.Label>Image</Form.Label>
-                                    <Form.Control type="picture" placeholder="Image" onChange={this.inputimage} />
+                                    <Form.Control type="picture" value={this.state.article.image} onChange={this.inputimage} />
                                     <Form.Text className="text-muted">
                                         Selectionnez votre image
                         </Form.Text>
@@ -143,8 +172,15 @@ class ModifierArticle extends Component {
 
                                 <Button variant="primary" type="submit">
                                     Entrer
-                    </Button>
+                                </Button>
+
+
+                                 <Button variant="primary" type="submit" onClick={this.deleteRow(this.state.article.id_article)}>
+                                   Supprimer
+                                </Button>
                             </Form>
+
+                           
 
                         </Jumbotron>
                     </div>

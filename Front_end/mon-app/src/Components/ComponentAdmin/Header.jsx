@@ -90,6 +90,7 @@ console.log(this);
                                     <li><Link to="/CreateArticle">CreateArticle</Link></li>
                                     <li><Link to="/Galerie">ToutArticle</Link></li>
                                     <li><Link to="/Recherche">Recherche</Link></li>
+                                    <li><Link to="/About">About</Link></li>
 
                                     <li onClick={this.logout}>Logout</li>
 

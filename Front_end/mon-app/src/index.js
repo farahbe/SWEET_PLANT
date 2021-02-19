@@ -23,6 +23,7 @@ import Recherche from './Components/ComponentAdmin/Recherche'
 import ArticleDetails from './Components/ComponentAdmin/ArticleDetails'
 import Categorie from './Components/ComponentAdmin/Categorie'
 import ModifierArticle from './Components/ComponentAdmin/ModifierArticle'
+import About from './Components/ComponentAdmin/About'
 // import Nav from './Components/ComponentAdmin/Nav'
 
 //------Private Route
@@ -55,6 +56,7 @@ const myRouter = (
       <Route path="/Categorie/:id" component={Categorie} />
       {/* <Route path="/ModifierArticle" component={ModifierArticle} /> */}
       {/* <Route path="/Nav" component={Nav} /> */}
+      <Route path="/About" component={About} />
 
 
       {/* //PRIVATE ROUTE ADMIN */}
