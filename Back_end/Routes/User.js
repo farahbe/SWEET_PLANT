@@ -153,6 +153,16 @@ router.delete('/postcomments/:id', function (req, res){
    
 })
 
+router.get('/postcomments', (req, res)=> {
+    try {
+        con.query("SELECT FROM commentaires_user WHERE  ")
+
+    } catch (error) {
+        res.status(400);
+    }
+
+})
+
 //-----------------------------------------------------ARTICLES--------------------------------------------------
 
 //Affiche tout les articles

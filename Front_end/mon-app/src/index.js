@@ -25,6 +25,7 @@ import Categorie from './Components/ComponentAdmin/Categorie'
 import ModifierArticle from './Components/ComponentAdmin/ModifierArticle'
 import About from './Components/ComponentAdmin/About'
 import Nav from './Components/Nav'
+import Footer from "./Components/Footer"
 // import Nav from './Components/ComponentAdmin/Nav'
 
 //------Private Route
@@ -43,6 +44,7 @@ const myRouter = (
   <Provider store={store}>
   <Router forceRefresh={true}>
       <Header />
+     
       <Switch> 
       <Route path="/Home" component={Home} />
       <Route path="/SignIn" component={SignIn} />
@@ -71,7 +73,8 @@ const myRouter = (
       
       
 
-      </Switch>
+      </Switch> 
+      <Footer />
   </Router>
   </Provider>
 
