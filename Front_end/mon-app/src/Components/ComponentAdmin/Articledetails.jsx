@@ -5,7 +5,8 @@ import Card from 'react-bootstrap/Card'
 
 class articlePage extends Component {
     state = {
-        article: {}
+        article: {},
+        commentaire:{}
     }
 
     componentDidMount() {
@@ -17,11 +18,23 @@ class articlePage extends Component {
         axios.get(`http://localhost:4000/admin/get_article/${id}`)
         // Recupere article + ${id_article} correspondant
         .then(res => {
-            console.log(res.data);
+            // console.log(res.data);
             this.setState({article: res.data[0] });
          // element recoit les data de lobjet correspondant a lID envoyer 
 
         })
+
+        axios.get(`http://localhost:4000/user/postcomments`)
+        .then(res => {
+            console.log(res.data);
+            this.setState({commentaire: res.data[0] });
+         // element recoit les data de lobjet correspondant a lID envoyer 
+
+        })
+
+
+
+
     }
 
 render() {
@@ -40,11 +53,37 @@ render() {
                     </Card.Text>
                     <Button variant="primary">Go somewhere</Button>
                 </Card.Body>
-                </Card>
+                </Card> 
+                
         </div>
+
+      
     )}
+
+    {this.state.commentaire && (
+        <div>
+            <h1>commentaires</h1>
+
+                <Card style={{ width: '18rem' }}>
+                <Card.Img variant="top" src={this.state.commentaire.avatar} />
+                <Card.Body>
+                    <Card.Title>{this.state.commentaire.pseudo}</Card.Title>
+                    <Card.Text>
+                    {this.state.commentaire.commentaire}
+                    </Card.Text>
+                    {/* <Button variant="primary">Go somewhere</Button> */}
+                </Card.Body>
+                </Card> 
+                
+        </div>
+
+      
+    )}
+   
     </>
+ 
     )
+        
 }
 
 

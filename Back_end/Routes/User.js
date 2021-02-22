@@ -102,7 +102,7 @@ router.put('/user/:id_user', function (req, res) {
  //------------------------------------------------COMMENTAIRE USER--------------------------------------------
 
 // Poster un commentaire utilisateur
-router.use('/postcomments', middleware.tokenuser)
+// router.use('/postcomments', middleware.tokenuser)
 
 router.post('/postcomments', (req, res)=> {
     try {
@@ -153,15 +153,31 @@ router.delete('/postcomments/:id', function (req, res){
    
 })
 
-router.get('/postcomments', (req, res)=> {
+// recupere commentaire du user (ID)
+router.get('/postcomments/:id', (req, res)=> {
     try {
-        con.query("SELECT FROM commentaires_user WHERE  ")
-
+       
+        let iduser = req.params.id
+        let commentaireuser = `SELECT * FROM commentaires_user WHERE id_commentaire_user = '${iduser}'`
+        con.query(commentaireuser, function (err, results){
+            if (err) res.status(203).send(err)
+            res.send(results)
+        })
+    
     } catch (error) {
-        res.status(400);
+        res.status(203).send(error)
     }
 
 })
+//recupere tout les commentaires
+
+router.get('/postcomments', function (req, res) {
+    con.query(`SELECT * FROM commentaires_user `, (err, result) => {
+        if (err) res.send(err)
+        res.json(result)
+    })
+})
+
 
 //-----------------------------------------------------ARTICLES--------------------------------------------------
 
