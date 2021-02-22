@@ -132,6 +132,7 @@ console.log(this);
                             <li><Link to="/SignInUser">Se connecter</Link></li>
                             <li><Link to="/Galerie">Galerie</Link></li>
                             <li><Link to="/Categories">Categories</Link></li>
+                              <li><Link to="/About">About</Link></li>
 
 
 

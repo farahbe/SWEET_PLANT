@@ -78,20 +78,7 @@ class ModifierArticle extends Component {
     
     }
     
-    deleteRow = (id) =>{
-       
     
-    axios.delete(`http://localhost:4000/admin/articles/${id}`,{headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }})
-    .then(res => {
-        console.log(res);
-        console.log(res.data);
-
-        
-
-    })
-}
-
-
     //onSubmit
     buttonsubmit = event => {
         event.preventDefault();
@@ -117,10 +104,15 @@ class ModifierArticle extends Component {
                 this.setState({ paragraphe: '' });
                 this.setState({ image: '' });
 
+                if(res.status === 200){
+                    console.log(res);
+                    console.log(res.data);
+                    this.setState({msgSuccess: "Produit modifié avec succès"})
+
                 this.setState({ article: res.data[0] });
                 // element recoit les data de lobjet correspondant a lID envoyer 
 
-
+                }
                 this.setRedirect();
                 //Redirige vers Dashboard
 
@@ -129,6 +121,19 @@ class ModifierArticle extends Component {
     
     }
     
+deleteRow = (id) =>{
+       
+    
+    axios.delete(`http://localhost:4000/admin/articles/${id}`,{headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }})
+    .then(res => {
+        console.log(res);
+        console.log(res.data);
+
+
+
+    })
+}
+
 
    
 
