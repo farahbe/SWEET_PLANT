@@ -3,6 +3,7 @@ import jwt from 'jsonwebtoken'
 import { signinadmin } from '../../store/action/admin'
 import { Link, withRouter } from 'react-router-dom'
 import axios from 'axios'
+import Nav from "../Nav"
 //store
 import {ajout_article} from '../../store/action/ajout_article'
 import { connect } from 'react-redux'
@@ -81,6 +82,7 @@ console.log(this);
             return (
 
                 <div>
+                     <Nav />
                     <ul>
                         {/* recupere le token contenue dans le state du store */}
                        

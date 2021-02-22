@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-// import Header from "./Header"
+// import Nav from "./ComponentAdmin/Nav"
 
 class Home extends Component {
     state = {}
     render() {
         return (
             <div>
-             {/* <Header /> */}
+             {/* <Nav /> */}
            
 
                 <h1>Bienvenue sur le site Sweet Plant</h1>

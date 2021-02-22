@@ -1,0 +1,62 @@
+
+/*------- Police */
+@import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway&family=Tajawal:wght@300&display=swap');
+
+
+
+body {
+background-color:white;
+color: black;
+padding: 40px;
+ 
+}
+h1{
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+}
+   
+.image .txt1{
+
+height: 300px;
+width: 600px;
+font-family: Arial;
+/* text-align: left;   */
+ font-size: 30px;
+  font-family: 'Tajawal', sans-serif; 
+  display: flex;
+  /* margin-right: 100px; */
+  position: absolute;
+  z-index: 1;
+}
+.image .txt2{
+   
+    height: 450px;
+    width: 800px;
+    font-family: 'Tajawal', sans-serif; 
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center; 
+    z-index: 1;
+    margin-left: 60px;
+}
+.image{
+
+height: auto;
+display: flex;
+/* justify-content: flex-end; */
+align-items: flex-start;
+padding: 5%;
+}
+.image .imageplante{
+  
+    display: flex;
+    position: absolute;
+    margin-left: 600px;
+
+
+   
+    
+}
