@@ -80,7 +80,7 @@ class ModifierArticle extends Component {
     
     
     //onSubmit
-    buttonsubmit = event => {
+    handlesubmit = event => {
         event.preventDefault();
 
         const modifarticle = {
@@ -90,7 +90,8 @@ class ModifierArticle extends Component {
             id_admin: this.props.id
 
         };
-
+       console.log(modifarticle);
+     
 
 
         const { id } = this.props.match.params
@@ -150,7 +151,7 @@ deleteRow = (id) =>{
                             {this.renderRedirect()}
                             <h1>Voici l'article selectionner</h1>
 
-                            <Form onSubmit={this.buttonsubmit}>
+                            <Form onSubmit={this.handlesubmit}>
                                 <Form.Group controlId="formBasictitre">
                                     <Form.Label>Titre</Form.Label>
                                     <Form.Control type="text" value={this.state.article.Titre} onChange={this.inputtitre} />
@@ -178,12 +179,12 @@ deleteRow = (id) =>{
                                 <Button variant="primary" type="submit">
                                     Entrer
                                 </Button>
+                        </Form>
 
-
-                                 <Button variant="primary" onClick={this.deleteRow(this.state.article.id_article)}>
+                                 <Button variant="primary" onClick={() => { this.deleteRow(this.state.article.id_article)}}>
                                    Supprimer
                                 </Button>
-                            </Form>
+                            
 
                            
 

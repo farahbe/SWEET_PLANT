@@ -13,6 +13,7 @@ class CreateArticle extends Component {
      titre: '',
       paragraphe: '',
       image: '',
+      Date_de_publication: '',
       redirect: false
     }
 
@@ -41,26 +42,36 @@ class CreateArticle extends Component {
     inputimage = event => {
         this.setState({ image: event.target.value });
     }
+    inputimage = event => {
+        this.setState({ Date_de_publication: event.target.value });
+    }
+    
+
     
     //onSubmit
     buttonsubmit = event => {
         event.preventDefault();
 
+
         const article = {
             titre: this.state.titre,
             paragraphe: this.state.paragraphe,
             image: this.state.image,
+            Date_de_publication: this.state.Date_de_publication,
             id_admin: this.props.id
            
         };
 
+        
         axios.post('http://localhost:4000/admin/articles',article, {headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }})
         //{headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }} recupere le header du token dans le Adminconnect
         .then(res => {
-            console.log(res.data);
+            console.log(article);
+            // console.log(res.data);
             this.setState({titre:''});
             this.setState({paragraphe:''});
             this.setState({image:''});
+            this.setState({Date_de_publication:''});
            //Modifie les donnees et les rboots avec ""
 
 
@@ -99,13 +110,18 @@ class CreateArticle extends Component {
                         </Form.Text>
                     </Form.Group>
 
-                    <Form.Group controlId="formBasicimage">
-                        <Form.Label>Image</Form.Label>
-                        <Form.Control type="picture" placeholder="Image"onChange={this.inputimage} />
-                        <Form.Text className="text-muted">
-                        Selectionnez votre image
-                        </Form.Text>
-                    </Form.Group>
+                    <Form.Group controlId="formBasicPicture">
+                            <Form.Label>Picture</Form.Label>
+                            <Form.Control type="jpeg" placeholder="Enter a Picture link" onChange={this.inputimage} />
+                        </Form.Group>
+                    
+                    <Form.Group controlId="formBasicDate_de_publication">
+                            <Form.Label> Date de cretation article</Form.Label>
+                            <Form.Control type="date" name="Date_de_publication" placeholder="Enter date de creation article" onChange={this.inputDate_de_publication} />
+                            {/* <div className="errorMsg">{this.state.errors.Date_de_publication}</div> */}
+                            <Form.Text className="text-muted"> Veuillez rentrer votre Date de Publication </Form.Text>
+                        </Form.Group>
+
                     
                     <Button variant="primary" type="submit">
                         Entrer

@@ -26,7 +26,7 @@ import ModifierArticle from './Components/ComponentAdmin/ModifierArticle'
 import About from './Components/ComponentAdmin/About'
 import Nav from './Components/Nav'
 import Footer from "./Components/Footer"
-// import Nav from './Components/ComponentAdmin/Nav'
+
 
 //------Private Route
 import PrivateRoute from './privateroute.js/privateRouteAdmin'
@@ -82,15 +82,6 @@ const myRouter = (
 ReactDOM.render(myRouter, document.getElementById('root'));
 
 
-
-
-
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
 
 
 reportWebVitals();

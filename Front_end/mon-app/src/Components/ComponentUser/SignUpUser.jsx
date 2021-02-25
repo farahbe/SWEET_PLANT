@@ -160,7 +160,7 @@ class SignUpUser extends Component {
         }
 
         if (typeof this.state["date_de_naissance"] !== "undefined") {
-            if (!this.state["date_de_naissance"].match(/^[1-9]{4}-[0-9]{2}-[0-9]{2}$/)) {
+            if (!this.state["date_de_naissance"].match(/^[0-9]{2}-[0-9]{2}-[0-9]{4}$/)) {
                 formIsValid = false;
                 errors["date_de_naissance"] = "*Entrez une date de naissance valide.";
             }
@@ -170,9 +170,6 @@ class SignUpUser extends Component {
             errors: errors
         });
         return formIsValid;
-
-
-
 
     }
 
@@ -226,10 +223,11 @@ class SignUpUser extends Component {
                             <Form.Text className="text-muted"> Veuillez rentrer votre Date de naissance </Form.Text>
                         </Form.Group>
 
-                        <Form.Group controlId="formBasicavatar">
-                            <Form.Label> Avatar </Form.Label>
-                            <Form.Control type="text" name="avatar" placeholder="Selectionnez un avatar" onChange={this.inputavatar} />
-                            <Form.Text className="text-muted"> Veuillez Selectionnez un avatar </Form.Text>
+                       
+
+                        <Form.Group>
+                        <Form.Label> Avatar </Form.Label>
+                             <Form.File id="exampleFormControlFile1" label="Choisir votre Avatar" />
                         </Form.Group>
 
                         <Button variant="primary" type="submit">

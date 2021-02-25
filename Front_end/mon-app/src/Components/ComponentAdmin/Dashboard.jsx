@@ -1,83 +1,71 @@
-import React from 'react';
-import Table from 'react-bootstrap/Table'
+import React, { Component } from 'react';
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+import {Link} from 'react-router-dom';
+
 // import Button from 'react-bootstrap/Button'
 //---STORE
-// import {connect} from 'react-redux'
+import {connect} from 'react-redux'
 
-class Dashboard extends React.Component {
-    constructor (props) {
 
-    super (props)
-
-    this.state = {
-        dashboardarticle: []
+class Dashboard extends Component {
+   
+    state = {
+        dashboardarticle: [],
     }
-}
 
-deletearticle(id_article) {
 
-}
+// deletearticle(id_article) {
+
+// }
 
     componentDidMount() {
 
         this.setState({ articledashboard: this.props.article });
-         // insere les data dans articlelist
+         // insere les data dans dashboardarticle
           
        }
 
-
     render() {
-        console.log(this.state.articledashboard)
         return(
-
             <div>
-                <h1> Bienvenue sur votre Dashboard</h1>
-               {this.props.article && this.props.article.map((elem, i) => {
+                {console.log(this.state.dashboardarticle)}
+                <h1>Dashboard</h1>
 
+                {this.props.article && this.props.article.map((elem, i) => {
 
-                return(
-                    <div key={elem.id_article}>
-                <Table striped bordered hover size="sm">
-                    <thead>
-                        <tr>
-                        <th>Id</th>
-                        <th>Titre</th>
-                        <th>Paragraphe</th>
-                        <th>Image</th>
-                        <th>Modifier</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                        <td>1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
-                        </tr>
-                        <tr>
-                        <td>2</td>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                        <td>@fat</td>
-                        </tr>
-                        <tr>
-                        <td>3</td>
-                        <td colSpan="2">Larry the Bird</td>
-                        <td>@twitter</td>
-                        <td>@twitter</td>
-                        </tr>
-                    </tbody>
-                </Table>
-            </div>
-                )
-        }
+                    return (
+                        <div key={elem.id_article}>
+                             <Card style={{ width: '18rem' }}>
+                                <Card.Img variant="top" src={elem.image} />
+                                {/* Recupere image dans elem */}
+                                <Card.Body>
+                                    <Card.Title>{elem.Titre}</Card.Title>
+                                    <Card.Text>
+                                        {elem.paragraphe}
+                                    </Card.Text>
+                                    <Link to={`/ModifierArticle/${elem.id_article}`}> <Button variant= "primary"  >Modifier</Button></Link>
+                                    {/* ${elem.id_articles} recupere le id de la bdd et le log dans URL ETAPE 2 */ } 
+ 
+                                </Card.Body>
+                               
+                            </Card>
+                        </div>
+                    )
+                }
+            
         )}
     </div>
-    )
-    
+        )}
+}
+   
+const mapStateToProps = (state /*, ownPrps*/) => {
+    //mapStateToProps permet de parcourir les props
+
+    return {
+        article: state.articlereducer.article
     }
-        }
-      
-    export default Dashboard;
+}
+
+
+export default connect(mapStateToProps)(Dashboard);

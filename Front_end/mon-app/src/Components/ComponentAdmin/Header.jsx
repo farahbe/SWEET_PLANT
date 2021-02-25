@@ -112,7 +112,7 @@ console.log(this);
             return (
                 <span>
                 <li><Link to="/Home">Page d'Accueil</Link></li>
-                <li onClick={this.logout}>Logout</li>
+                
 
             </span>
             )
@@ -135,6 +135,7 @@ console.log(this);
                             <li><Link to="/Galerie">Galerie</Link></li>
                             <li><Link to="/Categories">Categories</Link></li>
                               <li><Link to="/About">About</Link></li>
+                              <li onClick={this.logout}>Logout</li>
 
 
 

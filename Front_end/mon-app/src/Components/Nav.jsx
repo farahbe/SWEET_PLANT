@@ -6,9 +6,9 @@ class Nav extends Component {
 
     render() {
     return( 
-    <div class='titre'> 
+    <div className='titre'> 
        <h5>SWEET PLANT </h5>
-        <div class='burger'>
+        <div className='burger'>
 
         </div>  
     </div>

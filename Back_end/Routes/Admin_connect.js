@@ -90,9 +90,9 @@ router.use("/articles/:id_article", middleware.tokenadmin)
 
 router.put('/articles/:id_article', function (req, res) {
     try {
-
-        let change_articles = `UPDATE articles SET titre = '${req.body.titre}', paragraphe = '${req.body.paragraphe}', 
-        image = '${req.body.image}', date_de_publication = '${req.body.date_de_publication}' WHERE id_article = '${req.params.id_article}'`;
+console.log(req.body);
+        let change_articles = `UPDATE articles SET Titre = '${req.body.titre}', paragraphe = '${req.body.paragraphe}', 
+        image = '${req.body.image}' WHERE id_article = '${req.params.id_article}'`;
 
         con.query(change_articles, function (err, result) {
             if (err) throw err;
