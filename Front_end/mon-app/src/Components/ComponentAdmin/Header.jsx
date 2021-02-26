@@ -3,10 +3,12 @@ import jwt from 'jsonwebtoken'
 import { signinadmin } from '../../store/action/admin'
 import { Link, withRouter } from 'react-router-dom'
 import axios from 'axios'
-import Nav from "../Nav"
+
 //store
 import {ajout_article} from '../../store/action/ajout_article'
 import { connect } from 'react-redux'
+// CSS
+import './CSS/Header.css'
 
 
 
@@ -80,14 +82,16 @@ console.log(this);
          if (this.state.decoded.admin === true) { //si c'est un admin
 
             return (
+                
 
-                <div>
-                     <Nav />
+                <div className='headerdiv'>
+                   
+                     
                     <ul>
-                        {/* recupere le token contenue dans le state du store */}
                        
+                       <h6>SWEET PLANT</h6>
                                 <span>
-                                    <li><Link to="/Home">Home</Link></li>
+                                    <li><Link to="/Home"style={{ textDecoration: 'none' }}> Home</Link></li>
                                     <li><Link to="/Dashboard">Dashboard</Link></li>
                                     <li><Link to="/CreateArticle">CreateArticle</Link></li>
                                     <li><Link to="/Galerie">ToutArticle</Link></li>

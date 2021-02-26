@@ -24,8 +24,12 @@ import ArticleDetails from './Components/ComponentAdmin/ArticleDetails'
 import Categorie from './Components/ComponentAdmin/Categorie'
 import ModifierArticle from './Components/ComponentAdmin/ModifierArticle'
 import About from './Components/ComponentAdmin/About'
-import Nav from './Components/Nav'
 import Footer from "./Components/Footer"
+// import Burgeradmin from "./Components/ComponentAdmin/Burgeradmin"
+
+import '@fortawesome/fontawesome-free/css/all.min.css';
+import 'bootstrap-css-only/css/bootstrap.min.css';
+import 'mdbreact/dist/css/mdb.css';
 
 
 //------Private Route
@@ -44,6 +48,8 @@ const myRouter = (
   <Provider store={store}>
   <Router forceRefresh={true}>
       <Header />
+      {/* <Burgeradmin /> */}
+     
      
       <Switch> 
       <Route path="/Home" component={Home} />
@@ -58,7 +64,7 @@ const myRouter = (
       <Route path="/Article/:id" component={ArticleDetails} />
       <Route path="/Categorie/:id" component={Categorie} />
       {/* <Route path="/ModifierArticle" component={ModifierArticle} /> */}
-      <Route path="/Nav" component={Nav} />
+      {/* <Route path="/Nav" component={Nav} /> */}
       <Route path="/About" component={About} />
 
 

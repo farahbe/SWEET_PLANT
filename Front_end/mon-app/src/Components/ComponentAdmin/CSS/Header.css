@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri&family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@500&display=swap');
+
+h6{
+    font-family: 'Amiri', serif;
+}
+ul{
+    border: 2px solid pink;
+    width: 1100px;
+    height: auto;
+    display: flex;
+    justify-content: space-around;
+   align-items: baseline;
+   padding: 10px;
+   
+   
+   font-family: 'Cormorant Infant', serif;
+     
+}
+span{
+   
+    display: flex;
+    justify-content: space-between;
+   align-items: center;
+}
+li{
+   
+    width: 110px;
+    display: flex;
+    justify-content: flex-start;
+    text-decoration: none;
+    color: black;
+
+}
+

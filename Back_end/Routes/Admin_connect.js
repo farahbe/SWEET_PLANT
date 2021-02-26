@@ -76,6 +76,7 @@ router.use("/articles", middleware.tokenadmin)
 
 router.post('/articles', function (req, res) {
     try {
+        console.log(req.body);
         let addarticle = `INSERT INTO articles (titre,paragraphe,image,date_de_publication,id_admin,aime) VALUES ('${req.body.titre}','${req.body.paragraphe}','${req.body.image}','${req.body.date_de_publication}','${req.body.id_admin}','${req.body.aime}')`;
         con.query(addarticle, function (err, result) {
             res.status(200).json('articles ajoute')

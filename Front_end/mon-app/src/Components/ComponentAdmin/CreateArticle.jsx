@@ -10,11 +10,14 @@ import { creatstorearticle } from '../../store/action/ajout_article';// const da
 
 class CreateArticle extends Component {
     state = {
+        
+    selectedFile: null, 
      titre: '',
       paragraphe: '',
       image: '',
       Date_de_publication: '',
       redirect: false
+      
     }
 
     setRedirect = () =>{
@@ -42,9 +45,9 @@ class CreateArticle extends Component {
     inputimage = event => {
         this.setState({ image: event.target.value });
     }
-    inputimage = event => {
-        this.setState({ Date_de_publication: event.target.value });
-    }
+    // inputimage = event => {
+    //     this.setState({ Date_de_publication: event.target.value });
+    // }
     
 
     
@@ -86,6 +89,8 @@ class CreateArticle extends Component {
     })
 }
 
+
+
     render() {
         console.log(this.props.token);
         return(
@@ -110,11 +115,12 @@ class CreateArticle extends Component {
                         </Form.Text>
                     </Form.Group>
 
+                    
                     <Form.Group controlId="formBasicPicture">
                             <Form.Label>Picture</Form.Label>
-                            <Form.Control type="jpeg" placeholder="Enter a Picture link" onChange={this.inputimage} />
-                        </Form.Group>
-                    
+                            <Form.Control type="texte" placeholder="Enter a Picture link" onChange={this.inputimage} />
+                        </Form.Group> 
+
                     <Form.Group controlId="formBasicDate_de_publication">
                             <Form.Label> Date de cretation article</Form.Label>
                             <Form.Control type="date" name="Date_de_publication" placeholder="Enter date de creation article" onChange={this.inputDate_de_publication} />
@@ -127,6 +133,8 @@ class CreateArticle extends Component {
                         Entrer
                     </Button>
                     </Form>
+                    <button onClick={this.fileUploadHandler}>Upload</button>
+
                 </Jumbotron>
             </div>
         )

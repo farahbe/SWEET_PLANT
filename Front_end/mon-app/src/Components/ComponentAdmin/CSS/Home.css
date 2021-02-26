@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri&family=Raleway&display=swap');
+.header{
+    border: solid 2px yellow;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+   
+
+}
+h2.titrecard{
+    font-family: 'Amiri', serif;
+}
+.cardHome{
+    border:blue 2px solid;
+    width: 250px;
+    height: 200px;
+
+}
+
+.jpp{
+border:pink 2px solid;
+height: 700px;
+/* display: block; */
+align-content: center;
+}

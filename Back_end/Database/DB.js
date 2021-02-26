@@ -62,7 +62,13 @@ con.connect(error => {
                  Date_de_naissance DATE NOT NULL,
                  Avatar BLOB NOT NULL, 
                 inscrit_a_la_newsletter BOOLEAN NOT NULL)`);
-
-            
+                
+                con.query(`CREATE TABLE IF NOT EXISTS newsletter
+                (id_newsletter INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+                id_user INT,
+                FOREIGN KEY (id_user) REFERENCES user(id_user))`);
+               
+               
+               
                                    
 module.exports = con;
