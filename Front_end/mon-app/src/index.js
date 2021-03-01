@@ -25,8 +25,10 @@ import Categorie from './Components/ComponentAdmin/Categorie'
 import ModifierArticle from './Components/ComponentAdmin/ModifierArticle'
 import About from './Components/ComponentAdmin/About'
 import Footer from "./Components/Footer"
+import Newsletter from "./Components/ComponentUser/Newsletter"
 // import Burgeradmin from "./Components/ComponentAdmin/Burgeradmin"
 
+//------importe Police et css
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import 'bootstrap-css-only/css/bootstrap.min.css';
 import 'mdbreact/dist/css/mdb.css';
@@ -66,6 +68,7 @@ const myRouter = (
       {/* <Route path="/ModifierArticle" component={ModifierArticle} /> */}
       {/* <Route path="/Nav" component={Nav} /> */}
       <Route path="/About" component={About} />
+      <Route path="/Newsletter" component={Newsletter} />
 
 
       {/* //PRIVATE ROUTE ADMIN */}

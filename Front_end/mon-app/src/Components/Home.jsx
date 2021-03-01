@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 // import Nav from "./ComponentAdmin/Nav"
 import Card from 'react-bootstrap/Card'
-// import Button from 'react-bootstrap/Button'
-// import { Link } from 'react-router-dom';
+
 import CardColumns from 'react-bootstrap/CardColumns'
 //-----CSS
 import './ComponentAdmin/CSS/Home.css'
@@ -10,17 +9,22 @@ import './ComponentAdmin/CSS/Home.css'
 import bananier from '../Components/Images/bananier.jpg';
 //store
 import { connect } from 'react-redux'
-// import {ajout_article} from '../../store/action/ajout_article'
+// import {ajout_email} from '../store/action/newsletter'
+//-----import component
+import Newsletter from './ComponentUser/Newsletter'
+
+
 
 
 class Home extends Component {
     state = {
         articlelist: [],
+     
     }
 
+    
 
     componentDidMount() {
-
 
         this.setState({ articlelist: this.props.article });
         // insere les data dans articlelis
@@ -50,11 +54,12 @@ class Home extends Component {
                                     <Card.Body>
                                         <h2 className='titrecard'><Card.Title>{elem.Titre}</Card.Title></h2>
                                         <Card.Text>
-                                            {elem.paragraphe.slice(0, 2)}...
+                                            {elem.paragraphe.slice(0, 22)}...
                                             </Card.Text>
                                     </Card.Body>
                                     <Card.Footer>
-                                        <small className="text-muted">Last updated 3 mins ago</small>
+                                     
+                                        <small className="text-muted">0 comments</small>
                                     </Card.Footer>
                                 </Card>
 
@@ -62,15 +67,16 @@ class Home extends Component {
                         }
                         )}
                     </CardColumns>
-
+                    < Newsletter />
+             
                 </div>
 
             </div>
+         
         )
+   
     }
 }
-
-
 
 
 const mapStateToProps = (state /*, ownPrps*/) => {
@@ -81,7 +87,7 @@ const mapStateToProps = (state /*, ownPrps*/) => {
     }
 }
 
-// const mapDispatchToProps = {ajout_article}
+// const mapDispatchToProps = {ajout_email}
 //mapDispatchToProps dispatche l'action a toutes les props
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps,)(Home);

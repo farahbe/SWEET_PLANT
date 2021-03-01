@@ -196,20 +196,7 @@ router.get('/getcategorie/:id', function (req, res) {
         res.status(203).send(error)
     }
 })
-//------------------------Newsletter
 
-router.post('/ajoutadresse', function (req, res) {
-    try {
-        let newsletter = `INSERT INTO newsletter (Email) VALUES ('${req.body.Email}')`;
-        con.query(newsletter, function (err, result) {
-           
-            if (err) res.status(203).send(err) 
-            res.status(200).json('Email ajoute')
-        })
-    }catch (error) {
-        res.status(203).send(error)
-    }
-})
    
  
 

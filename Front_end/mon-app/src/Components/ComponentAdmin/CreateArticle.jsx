@@ -133,8 +133,6 @@ class CreateArticle extends Component {
                         Entrer
                     </Button>
                     </Form>
-                    <button onClick={this.fileUploadHandler}>Upload</button>
-
                 </Jumbotron>
             </div>
         )
