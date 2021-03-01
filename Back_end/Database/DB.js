@@ -65,6 +65,7 @@ con.connect(error => {
                 
                 con.query(`CREATE TABLE IF NOT EXISTS newsletter
                 (id_newsletter INT PRIMARY KEY AUTO_INCREMENT NOT NULL,
+                Email VARCHAR (250) NOT NULL,
                 id_user INT,
                 FOREIGN KEY (id_user) REFERENCES user(id_user))`);
                

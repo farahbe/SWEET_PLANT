@@ -42,34 +42,23 @@ class Home extends Component {
                         {this.props.article && this.props.article.map((elem, i) => {
                             // parcours le tableau article dans le reducer grace a .map et insere dans elem et le products de reducer
 
-
-
                             return (
 
-                               
+                                <Card className='cardHome p-4' >
 
-
-                                    <Card className='cardHome p-4' >
-                                        
-                                        <Card.Img variant="top" src={elem.image} />
-                                        <Card.Body>
-                                            <h2 className='titrecard'><Card.Title>{elem.Titre}</Card.Title></h2>
-                                            <Card.Text>
-                                                {elem.paragraphe.slice(0,2)}...
+                                    <Card.Img variant="top" src={elem.image} />
+                                    <Card.Body>
+                                        <h2 className='titrecard'><Card.Title>{elem.Titre}</Card.Title></h2>
+                                        <Card.Text>
+                                            {elem.paragraphe.slice(0, 2)}...
                                             </Card.Text>
-                                        </Card.Body>
-                                        <Card.Footer>
-                                            <small className="text-muted">Last updated 3 mins ago</small>
-                                        </Card.Footer>
-                                    </Card>
-
-
-                                
-
-
+                                    </Card.Body>
+                                    <Card.Footer>
+                                        <small className="text-muted">Last updated 3 mins ago</small>
+                                    </Card.Footer>
+                                </Card>
 
                             )
-
                         }
                         )}
                     </CardColumns>
