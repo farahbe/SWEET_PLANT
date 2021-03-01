@@ -78,9 +78,7 @@ const myRouter = (
 
         {/* //PRIVATE ROUTE USER */}
        
-      
-      
-      
+    
 
       </Switch> 
       <Footer />

@@ -9,6 +9,8 @@ import { ajout_email } from '../../store/action/newsletter'
 
 import axios from 'axios';
 
+import '../ComponentAdmin/CSS/Newsletter.css'
+
 class Newsletter extends Component {
     state = {
         Email: '',
@@ -43,16 +45,25 @@ class Newsletter extends Component {
         return (
             <div>
 
-                <div>
+                <div className='div'>
 
                     <Form onSubmit={this.buttonsubmit}>
 
                         <Form.Group controlId="formBasicpseudo">
-                            <Form.Control type="text" name="Email" placeholder="Entez votre Email" onChange={this.inputemail} />
+                        <Form.Label className='titre'>Newsletter</Form.Label>
+                       
+                        <Form.Control className='input' type="text" name="Email" placeholder="Entez votre Email" onChange={this.inputemail} />
+                       <hr></hr>
                         </Form.Group>
-                        <Button variant="primary" type="submit">
-                         Submit
+                        <Form.Text className="text-muted">
+                        Entrez votre Adresse email pour recevoir notre Newsletter
+                        </Form.Text>
+                        <div className='boutton'>
+                        <Button className='b' variant="primary" type="submit">
+                         Entrer
                         </Button>
+                        </div>
+                       
                     </Form>
 
                 </div>

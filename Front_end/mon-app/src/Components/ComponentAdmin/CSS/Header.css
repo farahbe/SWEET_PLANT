@@ -5,15 +5,13 @@ h6{
     font-family: 'Amiri', serif;
 }
 ul{
-    border: 2px solid pink;
+   
     width: 1100px;
     height: auto;
     display: flex;
     justify-content: space-around;
    align-items: baseline;
    padding: 10px;
-   
-   
    font-family: 'Cormorant Infant', serif;
      
 }

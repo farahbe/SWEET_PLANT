@@ -8,6 +8,8 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { creatstorearticle } from '../../store/action/ajout_article';// const dans l'action
 
+import '../ComponentAdmin/CSS/CreatArticle.css'
+
 class CreateArticle extends Component {
     state = {
         
@@ -94,44 +96,41 @@ class CreateArticle extends Component {
     render() {
         console.log(this.props.token);
         return(
-            <div>
+            <div >
                 <Jumbotron>
                 {this.renderRedirect()}
-                    <h1>Article!</h1>
+                    <h2>Creer votre Article ici!</h2>
                     <Form onSubmit={this.buttonsubmit}>
                     <Form.Group controlId="formBasictitre">
-                        <Form.Label>Titre</Form.Label>
-                        <Form.Control type="text" placeholder="Enter titre" onChange={this.inputtitre} />
-                        <Form.Text className="text-muted">
-                        Entrez un titre a votre article
-                        </Form.Text>
+
+                        <Form.Label className='titre'>Titre</Form.Label>
+                        <Form.Control className='text2' type="text" placeholder="Enter titre" onChange={this.inputtitre} />
+                        
                     </Form.Group>
 
                     <Form.Group controlId="formBasicparagraphe">
-                        <Form.Label>Paragraphe</Form.Label>
-                        <Form.Control as="textarea" placeholder="Paragraphe" onChange={this.inputparagraphe} />
-                        <Form.Text className="text-muted">
-                        Entrez votre paragraphe
-                        </Form.Text>
+                        <Form.Label className='para'>Paragraphe</Form.Label>
+                        <Form.Control className="text2" as="textarea" placeholder="Entrez votre paragraphe" onChange={this.inputparagraphe} />
+                       
                     </Form.Group>
 
                     
                     <Form.Group controlId="formBasicPicture">
-                            <Form.Label>Picture</Form.Label>
-                            <Form.Control type="texte" placeholder="Enter a Picture link" onChange={this.inputimage} />
+                            <Form.Label >Image</Form.Label>
+                            <Form.Control className='text3' type="texte" placeholder="Entrer une image" onChange={this.inputimage} />
                         </Form.Group> 
 
                     <Form.Group controlId="formBasicDate_de_publication">
-                            <Form.Label> Date de cretation article</Form.Label>
-                            <Form.Control type="date" name="Date_de_publication" placeholder="Enter date de creation article" onChange={this.inputDate_de_publication} />
+                            <Form.Label className='date'> Date de cretation article</Form.Label>
+                            <Form.Control className='text4' type="date" name="Date_de_publication" placeholder="Enter date de creation article" onChange={this.inputDate_de_publication} />
                             {/* <div className="errorMsg">{this.state.errors.Date_de_publication}</div> */}
-                            <Form.Text className="text-muted"> Veuillez rentrer votre Date de Publication </Form.Text>
                         </Form.Group>
 
-                    
-                    <Button variant="primary" type="submit">
+                    <div className='boutton'>
+                    <Button className='button' variant="primary" type="submit">
                         Entrer
                     </Button>
+                    </div>
                     </Form>
                 </Jumbotron>
             </div>

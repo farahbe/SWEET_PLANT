@@ -6,7 +6,7 @@ import CardColumns from 'react-bootstrap/CardColumns'
 //-----CSS
 import './ComponentAdmin/CSS/Home.css'
 //------Images
-import bananier from '../Components/Images/bananier.jpg';
+import green from '../Components/Images/green.jpeg';
 //store
 import { connect } from 'react-redux'
 // import {ajout_email} from '../store/action/newsletter'
@@ -19,10 +19,10 @@ import Newsletter from './ComponentUser/Newsletter'
 class Home extends Component {
     state = {
         articlelist: [],
-     
+
     }
 
-    
+
 
     componentDidMount() {
 
@@ -37,7 +37,7 @@ class Home extends Component {
         return (
             <div>
                 <header className='header'>
-                    <img class="imagehead" src={bananier} alt="plantes bananier" width="750" height="300" />
+                    <img class="imagehead" src={green} alt="plantes bananier" width="1100" height="400" />
                 </header>
 
 
@@ -50,17 +50,17 @@ class Home extends Component {
 
                                 <Card className='cardHome p-4' >
 
-                                    <Card.Img variant="top" src={elem.image} />
+
                                     <Card.Body>
                                         <h2 className='titrecard'><Card.Title>{elem.Titre}</Card.Title></h2>
-                                        <Card.Text>
+                                        <Card.Img variant="top" src={elem.image} />
+                                        <p className='paragraphe'><Card.Text>
                                             {elem.paragraphe.slice(0, 22)}...
-                                            </Card.Text>
+                                            </Card.Text></p>
                                     </Card.Body>
-                                    <Card.Footer>
-                                     
-                                        <small className="text-muted">0 comments</small>
-                                    </Card.Footer>
+                                    <hr></hr>
+                                    <Card.Text> 0 comment</Card.Text>
+                                 
                                 </Card>
 
                             )
@@ -68,13 +68,13 @@ class Home extends Component {
                         )}
                     </CardColumns>
                     < Newsletter />
-             
+
                 </div>
 
             </div>
-         
+
         )
-   
+
     }
 }
 
