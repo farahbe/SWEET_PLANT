@@ -10,25 +10,22 @@ import { connect } from 'react-redux'
 // CSS
 import './CSS/Header.css'
 
-
-
 class headerAdmin extends React.Component {
 
     constructor(props) {
         super(props)
         console.log(this.props.location)}
+             state = {
+                email: '',
+                 password: '',
+                 decoded: {}
+            };
 
     logout = () => {
         localStorage.clear();
         window.location.href = "/Home";
         // Clean le local storage et le renvoie a la page signin une fois cleaner
       }
-
-    state = {
-        email: '',
-        password: '',
-        decoded: {}
-    };
 
     logoutSubmit = () => {
         this.props.logoutAdmin()
@@ -73,20 +70,12 @@ class headerAdmin extends React.Component {
     }
 
     render() {
-
         //-----------------ADMIN
-
-        // if (this.props.location.pathname==="/SignIn"||this.props.location.pathname==="/SignUp" ) { 
-            //Si le chemin correspond a... alors afficher ca
 console.log(this);
          if (this.state.decoded.admin === true) { //si c'est un admin
 
             return (
-                
-
-                <div className='headerdiv'>
-                   
-                     
+                <div className='headerdiv'>                                  
                     <ul>
                        
                        <h6>SWEET PLANT</h6>
@@ -99,17 +88,10 @@ console.log(this);
                                     <li><Link to="/About">About</Link></li>
 
                                     <li onClick={this.logout}>Logout</li>
-
-
                                 </span>
-                            
-
                     </ul>
-
-
                 </div>
             )
-
         //-------------USER
 
         } else if (this.state.decoded.user === true) {//si tes un user connecter
@@ -126,30 +108,22 @@ console.log(this);
                     <ul>
                         {/* recupere le token contenue dans le state du store */}
                         {(this.props.location.pathname === '/SignIn' || this.props.location.pathname==="/SignUp") ? (
-                            <span>
-                           
+                            <span>                          
                             <li><Link to="/SignUp">S'enregistrer</Link></li>
                             <li><Link to="/SignIn">Se connecter</Link></li>
                         </span>
                         ) : (
-                            <span>
-                            
+                            <span>                           
                             <li><Link to="/SignUpUser">S'enregistrer</Link></li>
                             <li><Link to="/SignInUser">Se connecter</Link></li>
                             <li><Link to="/Galerie">Galerie</Link></li>
                             <li><Link to="/Categories">Categories</Link></li>
                               <li><Link to="/About">About</Link></li>
                               <li onClick={this.logout}>Logout</li>
-
-
-
-
                         </span>
                         )}
                        
                     </ul>
-
-
                 </div>
             )
         }

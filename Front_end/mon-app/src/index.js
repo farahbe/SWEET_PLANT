@@ -26,6 +26,8 @@ import ModifierArticle from './Components/ComponentAdmin/ModifierArticle'
 import About from './Components/ComponentAdmin/About'
 import Footer from "./Components/Footer"
 import Newsletter from "./Components/ComponentUser/Newsletter"
+import Dashboarduser from "./Components/ComponentUser/Dashboarduser"
+import Modifierinfosuser from "./Components/ComponentUser/Modifierinfosuser"
 // import Burgeradmin from "./Components/ComponentAdmin/Burgeradmin"
 
 //------importe Police et css
@@ -69,6 +71,8 @@ const myRouter = (
       {/* <Route path="/Nav" component={Nav} /> */}
       <Route path="/About" component={About} />
       <Route path="/Newsletter" component={Newsletter} />
+      <Route path="/Dashboarduser" component={Dashboarduser} />
+      <Route path="/Modifierinfosuser/:id" component={Modifierinfosuser} />
 
 
       {/* //PRIVATE ROUTE ADMIN */}

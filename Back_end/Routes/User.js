@@ -65,6 +65,22 @@ router.post('/sign-in', function (req, res) {
     }
 })
 
+router.get('/user/:id', (req, res)=> {
+    try {
+       
+        let id_user_infos = req.params.id
+        let infosuser = `SELECT * FROM user WHERE id_user = '${id_user_infos}'`
+        con.query(infosuser, function (err, results){
+            if (err) res.status(203).send(err)
+            res.send(results)
+        })
+    
+    } catch (error) {
+        res.status(203).send(error)
+    }
+
+})
+
 
 // Suprimmer son compte user
 router.delete('/user/:id', function (req, res){
@@ -84,7 +100,7 @@ router.put('/user/:id_user', function (req, res) {
     try {
 
         let change_user = `UPDATE user SET pseudo = '${req.body.pseudo}', prenom = '${req.body.prenom}', 
-        Email = '${req.body.email}', Password = '${req.body.password}', Date_de_naissance = '${req.body.date_de_naissance}', avatar = '${req.body.avatar}', inscrit_a_la_newsletter = '${req.body.inscrit_a_la_newsletter}' WHERE id_user = '${req.params.id_user}'`;
+        Email = '${req.body.email}', Password = '${req.body.password}', Date_de_naissance = '${req.body.date_de_naissance}', avatar = '${req.body.avatar}', WHERE id_user = '${req.params.id_user}'`;
 
     con.query(change_user, function(err, result){
         if (err) throw err;

@@ -17,14 +17,14 @@ class ModifierArticle extends Component {
         this.state = {
             article: 0,
 
-        titre: '',
-        paragraphe: '',
-        image: '',
-        redirect: false
+            titre: '',
+            paragraphe: '',
+            image: '',
+            redirect: false
 
         }
     }
-    
+
     setRedirect = () => {
         this.setState({
             redirect: true
@@ -41,42 +41,43 @@ class ModifierArticle extends Component {
 
     //Onchange
     inputtitre = event => {
-        let Titre ={...this.state.article,Titre: event.target.value }
+        let Titre = { ...this.state.article, Titre: event.target.value }
         console.log(Titre);
-        this.setState({ article:{...this.state.article,Titre: event.target.value }});
+        this.setState({ article: { ...this.state.article, Titre: event.target.value } });
     }
     inputparagraphe = event => {
-        let paragraphe ={...this.state.article,paragraphe: event.target.value }
+        let paragraphe = { ...this.state.article, paragraphe: event.target.value }
         console.log(paragraphe);
-        this.setState({ article:{...this.state.article,paragraphe: event.target.value}});
+        this.setState({ article: { ...this.state.article, paragraphe: event.target.value } });
     }
     inputimage = event => {
-        let image ={...this.state.article,image: event.target.value }
+        let image = { ...this.state.article, image: event.target.value }
         //image recoit dans ces states l'image qui est dans le tableau article : event recupere la valeur de l'input
         console.log(image);
-        this.setState({ article: {...this.state.article,image: event.target.value }});
+        this.setState({ article: { ...this.state.article, image: event.target.value } });
     }
 
 
     //---------DIDMOUNT
     componentDidMount() {
+        // -------Recuperer l'article selectionnne
         console.log(this);
 
-        const {id} = this.props.match.params 
+        const { id } = this.props.match.params
         // On passe les props a la const id_article
 
         axios.get(`http://localhost:4000/admin/get_article/${id}`)
-        // Recupere article + ${id_article} correspondant
-        .then(res => {
-            console.log(res.data);
-            this.setState({article: res.data[0] });
-         // element recoit les data de lobjet correspondant a lID envoyer 
+            // Recupere article + ${id_article} correspondant
+            .then(res => {
+                console.log(res.data);
+                this.setState({ article: res.data[0] });
+                // element recoit les data de lobjet correspondant a lID envoyer 
 
-        })
-    
+            })
+
     }
-    
-    
+
+
     //onSubmit
     handlesubmit = event => {
         event.preventDefault();
@@ -88,14 +89,14 @@ class ModifierArticle extends Component {
             id_admin: this.props.id
 
         };
-       console.log(modifarticle);
-     
+        console.log(modifarticle);
 
 
+        //--------------- PUT
         const { id } = this.props.match.params
         // On passe les props a la const id_article
 
-        axios.put(`http://localhost:4000/admin/articles/${id}`, modifarticle, {headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }})
+        axios.put(`http://localhost:4000/admin/articles/${id}`, modifarticle, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
             // Recupere article + ${id_article} correspondant
             .then(res => {
                 console.log(res.data);
@@ -103,44 +104,45 @@ class ModifierArticle extends Component {
                 this.setState({ paragraphe: '' });
                 this.setState({ image: '' });
 
-                if(res.status === 200){
+                if (res.status === 200) {
                     console.log(res);
                     console.log(res.data);
-                    this.setState({msgSuccess: "Produit modifié avec succès"})
+                    this.setState({ msgSuccess: "Produit modifié avec succès" })
 
-                this.setState({ article: res.data[0] });
-                // element recoit les data de lobjet correspondant a lID envoyer 
+                    this.setState({ article: res.data[0] });
+                    // element recoit les data de lobjet correspondant a lID envoyer 
 
                 }
+                // ----REDIRECT
                 this.setRedirect();
                 //Redirige vers Dashboard
 
             })
-            
-    
+
+
     }
-    
-deleteRow = (id) =>{
-       
-    
-    axios.delete(`http://localhost:4000/admin/articles/${id}`,{headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }})
-    .then(res => {
-        console.log(res);
-        console.log(res.data);
+//----- FUNCTION DELETE
+    deleteRow = (id) => {
+
+
+        axios.delete(`http://localhost:4000/admin/articles/${id}`, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
 
 
 
-    })
-}
+            })
+    }
 
 
-   
+
 
     render() {
 
-        
-     console.log('ici');
-     console.log(this.state.article);
+
+     
+        console.log(this.state.article);
         return (
             <>
                 {this.state.article && (
@@ -177,14 +179,14 @@ deleteRow = (id) =>{
                                 <Button variant="primary" type="submit">
                                     Entrer
                                 </Button>
-                        </Form>
+                            </Form>
 
-                                 <Button variant="primary" onClick={() => { this.deleteRow(this.state.article.id_article)}}>
-                                   Supprimer
+                            <Button variant="primary" onClick={() => { this.deleteRow(this.state.article.id_article) }}>
+                                Supprimer
                                 </Button>
-                            
 
-                           
+
+
 
                         </Jumbotron>
                     </div>

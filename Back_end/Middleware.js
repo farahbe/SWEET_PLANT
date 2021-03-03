@@ -1,6 +1,7 @@
 const jwt = require("jsonwebtoken")
 const DB = require('./Database/DB')
 
+//--------Token Admin
 const tokenadmin = (req, res, next) => {
   
     //  let token = req.headers.authorization.split(" ")[1]
@@ -21,6 +22,7 @@ const tokenadmin = (req, res, next) => {
         }
 }
 
+//------------Token User
 const tokenuser = (req, res, next) => {
     let token = req.headers.authorization.split(" ")[1]
     console.log(token);
