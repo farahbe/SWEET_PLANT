@@ -52,7 +52,7 @@ class Newsletter extends Component {
                         <Form.Group controlId="formBasicpseudo">
                         <Form.Label className='titre'>Newsletter</Form.Label>
                        
-                        <Form.Control className='input' type="text" name="Email" placeholder="Entez votre Email" onChange={this.inputemail} />
+                        <Form.Control className='input' type="text"  name="Email" placeholder="Entez votre Email" onChange={this.inputemail} />
                        <hr></hr>
                         </Form.Group>
                         <Form.Text className="text-muted">

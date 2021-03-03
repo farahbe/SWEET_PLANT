@@ -20,29 +20,32 @@ class Modifierinfosuser extends Component {
     }
     //---ONCHANGE
     inputpseudo = event => {
-        let Pseudo = { ...this.state.infosuser, Pseudo: event.target.value }
+        let Pseudo = { ...this.state.infosuser, pseudo: event.target.value }
+        console.log(event);
+        console.log(event.target);
+        console.log(event.target.value);
         console.log(Pseudo);
-        this.setState({infosuser: {...this.state.infosuser, Pseudo: event.target.value }})
+        this.setState({infosuser: Pseudo});
     }
     inputprenom = event => {
         let Prenom = { ...this.state.infosuser, Prenom: event.target.value }
         console.log(Prenom);
-        this.setState({infosuser: {...this.state.infosuser, Prenom: event.target.value }})
+        this.setState({infosuser: {...this.state.infosuser, Prenom: event.target.value }});
     }
-    inputpseudo = event => {
+    inputemail = event => {
         let Email = { ...this.state.infosuser,  Email:event.target.value }
         console.log(Email);
-        this.setState({infosuser: {...this.state.infosuser, Email: event.target.value }})
+        this.setState({infosuser: {...this.state.infosuser, Email: event.target.value }});
     }
-    inputpseudo = event => {
+    inputpassword = event => {
         let Password = { ...this.state.infosuser, Password: event.target.value }
         console.log(Password);
-        this.setState({infosuser: {...this.state.infosuser, Password: event.target.value }})
+        this.setState({infosuser: {...this.state.infosuser, Password: event.target.value }});
     }
-    inputpseudo = event => {
+    inputpavatar = event => {
         let Avatar = { ...this.state.infosuser, Avatar: event.target.value }
         console.log(Avatar);
-        this.setState({infosuser: {...this.state.infosuser, Avatar: event.target.value }})
+        this.setState({infosuser: {...this.state.infosuser, Avatar: event.target.value }});
     }
 
     //----ONSUBMIT
@@ -50,18 +53,46 @@ class Modifierinfosuser extends Component {
         event.preventDefault();
 
         const modifierinfos = {
+            // recupere les infos qui sont dans la bdd et les met dans le tableau
             pseudo: this.state.infosuser.pseudo,
             prenom: this.state.infosuser.prenom,
             email: this.state.infosuser.email,
             password: this.state.infosuser.password,
             avatar: this.state.infosuser.avatar,
-        }
+        };
+
+        console.log(modifierinfos);
+    //------PUT MODIFIER LES INFOS USER
+
+    const { id } = this.props.match.params
+    // On passe les props a la const id_article
+
+axios.put(`http://localhost:4000/user/user/${id}`,modifierinfos)
+        .then(res => {
+            console.log(res.data);
+            this.setState({ pseudo: '' });
+            this.setState({ prenom: '' });
+            this.setState({ email: '' });
+            this.setState({ password: '' });
+            this.setState({ avatar: '' });
+
+            if (res.status === 200) {
+                console.log(res);
+                console.log(res.data);
+                this.setState({ msgSuccess: "infos modifié avec succès" })
+
+                this.setState({ infosuser: res.data[0] });
+                // element recoit les data de lobjet correspondant a lID envoyer 
+
+            }
+        })
+        
     }
 
 
-
+// -----RECUPERE INFOS USER
     componentDidMount() {
-        // Recupere toutes les infos d'un user
+       
         const { id } = this.props.match.params
 
         axios.get(`http://localhost:4000/user/user/${id}`)
@@ -72,34 +103,41 @@ class Modifierinfosuser extends Component {
             })
     }
 
-
-
-
-
-
-
-
     render() {
         return (
+            <>
+            {this.state.infosuser && (
             <div>
                 <Jumbotron>
                     <h1> Modifier infos user</h1>
 
-                    <Form>
-                        <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" />
-                            <Form.Text className="text-muted">
-                                We'll never share your email with anyone else.
-                        </Form.Text>
+                    <Form onSubmit={this.handlesubmit} >
+                        <Form.Group controlId="formBasicpseudo">
+                            <Form.Label>Pseudo</Form.Label>
+                            <Form.Control type="text" value={this.state.infosuser.pseudo} onChange={this.inputpseudo} />
                         </Form.Group>
 
-                        <Form.Group controlId="formBasicPassword">
-                            <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" />
+                        <Form.Group controlId="formBasicprenom">
+                            <Form.Label>Prenom</Form.Label>
+                            <Form.Control type="text" value={this.state.infosuser.prenom} onChange={this.inputprenom} />
                         </Form.Group>
-                        <Form.Group controlId="formBasicCheckbox">
+
+                        <Form.Group controlId="formBasicemail">
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control type="email" value={this.state.infosuser.email} onChange={this.inputemail} />
                         </Form.Group>
+
+                        <Form.Group controlId="formBasicpassword">
+                            <Form.Label>Mot de passse</Form.Label>
+                            <Form.Control type="text" value={this.state.infosuser.password} onChange={this.inputpassword} />
+                        </Form.Group>
+
+                        <Form.Group controlId="formBasicavatar">
+                            <Form.Label>Avatar</Form.Label>
+                            <Form.Control type="picture"  value={this.state.infosuser.avatar} onChange={this.inputavatar} />
+                        </Form.Group>
+
+                        
 
                         <Button variant="primary" type="submit">
                             Submit
@@ -107,6 +145,8 @@ class Modifierinfosuser extends Component {
                     </Form>
                 </Jumbotron>
             </div>
+        )}
+        </>
         )
     }
 }

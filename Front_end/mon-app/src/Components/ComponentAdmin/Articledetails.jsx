@@ -5,6 +5,8 @@ import Card from 'react-bootstrap/Card'
 //store
 import { connect } from 'react-redux'
 import { enregistrecommentaire } from '../../store/action/commentaires'
+import Ecrirecommentaire from '../ComponentUser/Ecrirecommentaire'
+
 
 class articlePage extends Component {
     state = {
@@ -28,7 +30,7 @@ class articlePage extends Component {
 
         this.setState({ commentaire: this.props.usercommentaires })
 
-        axios.get(`http://localhost:4000/user/postcomments`)
+        axios.get(`http://localhost:4000/user/commentsbypostid/${id}`)
             .then(res => {
                 console.log(res.data);
                 this.props.enregistrecommentaire(res.data)
@@ -41,8 +43,10 @@ class articlePage extends Component {
     render() {
         return (
             <>
+            
                 {this.state.article && (
                     <div>
+                        
                         <h1>Voici l'article selectionner</h1>
 
                         <Card style={{ width: '18rem' }}>
@@ -60,8 +64,9 @@ class articlePage extends Component {
 
 
                 )}
-               <h1>commentaires</h1>
 
+               <h3>commentaires</h3>
+                    < Ecrirecommentaire />
                    
                 {this.state.commentaire && this.state.commentaire.map((elem, i) => {
 

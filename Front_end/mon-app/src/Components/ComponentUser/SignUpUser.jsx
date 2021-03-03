@@ -11,7 +11,7 @@ class SignUpUser extends Component {
         password: '',
         pseudo: '',
         prenom: '',
-        date_de_naissance: '',
+        // date_de_naissance: '',
         avatar: '',
         redirect: false,
         //redirection fausse par defaut
@@ -51,9 +51,9 @@ class SignUpUser extends Component {
     inputprenom = (event) => {
         this.setState({ prenom: event.target.value });
     };
-    inputdate_de_naissance = (event) => {
-        this.setState({ date_de_naissance: event.target.value });
-    };
+    // inputdate_de_naissance = (event) => {
+    //     this.setState({ date_de_naissance: event.target.value });
+    // };
     inputavatar = (event) => {
         this.setState({ avatar: event.target.value });
     };
@@ -67,7 +67,7 @@ class SignUpUser extends Component {
                 password: this.state.password,
                 pseudo: this.state.pseudo,
                 prenom: this.state.prenom,
-                date_de_naissance: this.state.date_de_naissance,
+                // date_de_naissance: this.state.date_de_naissance,
                 avatar: this.state.avatar,
                 // usersignup contient les data de email et password
 
@@ -79,7 +79,7 @@ class SignUpUser extends Component {
                     this.setState({ password: '' });
                     this.setState({ pseudo: '' });
                     this.setState({ prenom: '' });
-                    this.setState({ date_de_naissance: '' });
+                    // this.setState({ date_de_naissance: '' });
                     this.setState({ avatar: '' });
                     //Modifie les donnees et les rboots avec ""
 
@@ -154,17 +154,17 @@ class SignUpUser extends Component {
         }
 
         //----Date de naissance
-        if (!this.state["date_de_naissance"]) {
-            formIsValid = false;
-            errors["date_de_naissance"] = "*Entrez votre date de naissance.";
-        }
+        // if (!this.state["date_de_naissance"]) {
+        //     formIsValid = false;
+        //     errors["date_de_naissance"] = "*Entrez votre date de naissance.";
+        // }
 
-        if (typeof this.state["date_de_naissance"] !== "undefined") {
-            if (!this.state["date_de_naissance"].match(/^[0-9]{2}-[0-9]{2}-[0-9]{4}$/)) {
-                formIsValid = false;
-                errors["date_de_naissance"] = "*Entrez une date de naissance valide.";
-            }
-        }
+        // if (typeof this.state["date_de_naissance"] !== "undefined") {
+        //     if (!this.state["date_de_naissance"].match(/^[0-9]{2}-[0-9]{2}-[0-9]{4}$/)) {
+        //         formIsValid = false;
+        //         errors["date_de_naissance"] = "*Entrez une date de naissance valide.";
+        //     }
+        // }
 
         this.setState({
             errors: errors
@@ -216,19 +216,27 @@ class SignUpUser extends Component {
                     </Form.Text>
                         </Form.Group>
 
-                        <Form.Group controlId="formBasic_date_de_naissance">
+                        {/* <Form.Group controlId="formBasic_date_de_naissance">
                             <Form.Label> Date de naissance </Form.Label>
                             <Form.Control type="date" name="date_de_naissance" placeholder="Enter date de naissance" onChange={this.inputdate_de_naissance} />
                             <div className="errorMsg">{this.state.errors.date_de_naissance}</div>
                             <Form.Text className="text-muted"> Veuillez rentrer votre Date de naissance </Form.Text>
-                        </Form.Group>
+                        </Form.Group> */}
 
                        
 
-                        <Form.Group>
+                        {/* <Form.Group>
                         <Form.Label> Avatar </Form.Label>
                              <Form.File id="exampleFormControlFile1" label="Choisir votre Avatar" />
-                        </Form.Group>
+                        </Form.Group> */}
+
+                        <Form.Group controlId="formBasicimage">
+                                    <Form.Label>Image</Form.Label>
+                                    <Form.Control type="picture"  />
+                                    <Form.Text className="text-muted">
+                                        Selectionnez votre image
+                        </Form.Text>
+                                </Form.Group>
 
                         <Button variant="primary" type="submit">
                             Submit

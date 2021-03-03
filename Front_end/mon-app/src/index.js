@@ -28,6 +28,7 @@ import Footer from "./Components/Footer"
 import Newsletter from "./Components/ComponentUser/Newsletter"
 import Dashboarduser from "./Components/ComponentUser/Dashboarduser"
 import Modifierinfosuser from "./Components/ComponentUser/Modifierinfosuser"
+// import Ecrirecommentaire from "./Components/ComponentUser/Ecrirecommentaire"
 // import Burgeradmin from "./Components/ComponentAdmin/Burgeradmin"
 
 //------importe Police et css
@@ -73,6 +74,7 @@ const myRouter = (
       <Route path="/Newsletter" component={Newsletter} />
       <Route path="/Dashboarduser" component={Dashboarduser} />
       <Route path="/Modifierinfosuser/:id" component={Modifierinfosuser} />
+      {/* <Route path="/Ecrirecommentaire/:id" component={Ecrirecommentaire} /> */}
 
 
       {/* //PRIVATE ROUTE ADMIN */}

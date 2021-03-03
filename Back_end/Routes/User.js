@@ -18,7 +18,7 @@ router.post('/sign-up', (req, res) => {
         if (!req.body.prenom) throw 'NO prenom';
         if (!req.body.email) throw 'NO Email';
         if (!req.body.password) throw 'NO password';
-        if (!req.body.Date_de_naissance) throw 'NO Date de naissance';
+        // if (!req.body.Date_de_naissance) throw 'NO Date de naissance';
         if (!req.body.Avatar) throw 'NO Avatar';
         bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
             console.log(hash);
@@ -122,7 +122,7 @@ router.put('/user/:id_user', function (req, res) {
 
 router.post('/postcomments', (req, res)=> {
     try {
-        let addcomment = `INSERT INTO commentaires_user (pseudo, commentaire, avatar, date_de_commentaire, id_article, id_user) VALUE ('${req.body.pseudo}','${req.body.commentaire}','${req.body.avatar}','${req.body.date_de_commentaire}','${req.body.id_article}','${req.body.id_user}')`;
+        let addcomment = `INSERT INTO commentaires_user (pseudo, commentaire, avatar, date_de_commentaire, id_article, id_user) VALUE ('NULL','${req.body.commentaire}','NULL','${new Date}','${req.body.id_article}','${req.body.id_user}')`;
         con.query(addcomment, function (err, result) {
             if (err) throw err;
             console.log(result);
@@ -185,6 +185,23 @@ router.get('/postcomments/:id', (req, res)=> {
     }
 
 })
+
+router.get('/commentsbypostid/:id', (req, res)=> {
+    try {
+       
+        let idarticle = req.params.id
+        let commentaireuser = `SELECT * FROM commentaires_user WHERE id_article = '${idarticle}'`
+        con.query(commentaireuser, function (err, results){
+            if (err) res.status(203).send(err)
+            res.send(results)
+        })
+    
+    } catch (error) {
+        res.status(203).send(error)
+    }
+
+})
+
 //recupere tout les commentaires
 
 router.get('/postcomments', function (req, res) {
