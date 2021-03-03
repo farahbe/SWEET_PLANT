@@ -87,8 +87,9 @@ const myRouter = (
     
 
       </Switch> 
-      <Footer />
+      
   </Router>
+  <Footer />
   </Provider>
 
 )

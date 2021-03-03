@@ -38,6 +38,9 @@ class articlePage extends Component {
                 this.setState({ commentaire: res.data });
             })
 
+        axios.get(`http://localhost:4000/user/:id`)
+  
+
     }
 
     render() {

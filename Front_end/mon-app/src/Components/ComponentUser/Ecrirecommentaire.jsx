@@ -35,7 +35,7 @@ let decodetoken = jwt.decode(localStorage.getItem("token"))
             id_user: decodetoken.id,
         }
         
-        axios.post('http://localhost:4000/postcomments',para)
+        axios.post('http://localhost:4000/user/postcomments',para)
         .then(res => {
             this.setState({paragraphe: ''});
 
@@ -52,6 +52,8 @@ let decodetoken = jwt.decode(localStorage.getItem("token"))
         .catch(error => {
             console.error(error)
         })
+
+
     }
 
     render() {

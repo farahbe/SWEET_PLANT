@@ -5,7 +5,7 @@ import { Link, withRouter } from 'react-router-dom'
 import axios from 'axios'
 
 //store
-import {ajout_article} from '../../store/action/ajout_article'
+import { ajout_article } from '../../store/action/ajout_article'
 import { connect } from 'react-redux'
 // CSS
 import './CSS/Header.css'
@@ -14,18 +14,19 @@ class headerAdmin extends React.Component {
 
     constructor(props) {
         super(props)
-        console.log(this.props.location)}
-             state = {
-                email: '',
-                 password: '',
-                 decoded: {}
-            };
+        console.log(this.props.location)
+    }
+    state = {
+        email: '',
+        password: '',
+        decoded: {}
+    };
 
     logout = () => {
         localStorage.clear();
         window.location.href = "/Home";
         // Clean le local storage et le renvoie a la page signin une fois cleaner
-      }
+    }
 
     logoutSubmit = () => {
         this.props.logoutAdmin()
@@ -37,7 +38,7 @@ class headerAdmin extends React.Component {
 
         if (localStorage.getItem("token")) {
             let decodetoken = jwt.decode(localStorage.getItem("token"))// decode le token
-            console.log("decodetoken");
+            console.log(decodetoken);
             if (decodetoken) {
                 this.props.signinadmin({ id: decodetoken.id, email: decodetoken.email, token: localStorage.getItem("token") })//si token le stocker dans store
                 this.setState({ decoded: decodetoken })
@@ -47,82 +48,94 @@ class headerAdmin extends React.Component {
         }
 
         axios.get(`http://localhost:4000/admin/getarticles`)
-        .then(res => {
+            .then(res => {
 
-            this.props.ajout_article(res.data)
-            // j'enregistre les articles dans mon store ici
+                this.props.ajout_article(res.data)
+                // j'enregistre les articles dans mon store ici
 
-        })
+            })
     }
 
     //appeler des que les states de mon component son modifier
     componentDidUpdate() {
         if (localStorage.getItem("token") && this.state.decoded === {}) {
             let decodetoken = jwt.decode(localStorage.getItem("token"))// si il y'a token, le stocker dans localstorage
-            console.log("bbbbbbbb",decodetoken);
-            if (decodetoken) {
-                this.props.signinadmin({ id: decodetoken.id, email: decodetoken.email, token: localStorage.getItem("token") })
-                this.setState({ decoded: decodetoken })
-                
-            }
+            console.log("bbbbbbbb", decodetoken);
+            // if (decodetoken) {
+            //     this.props.signinadmin({ id: decodetoken.id, email: decodetoken.email, token: localStorage.getItem("token") })
+            //     this.setState({ decoded: decodetoken })
+
+            // }
 
         }
     }
 
     render() {
         //-----------------ADMIN
-console.log(this);
-         if (this.state.decoded.admin === true) { //si c'est un admin
+        console.log(this);
+        if (this.state.decoded.admin === true) { //si c'est un admin
 
             return (
-                <div className='headerdiv'>                                  
+                <div className='headerdiv'>
                     <ul>
-                       
-                       <h6>SWEET PLANT</h6>
-                                <span>
-                                    <li><Link to="/Home"style={{ textDecoration: 'none' }}> Home</Link></li>
-                                    <li><Link to="/Dashboard">Dashboard</Link></li>
-                                    <li><Link to="/CreateArticle">CreateArticle</Link></li>
-                                    <li><Link to="/Galerie">ToutArticle</Link></li>
-                                    <li><Link to="/Recherche">Recherche</Link></li>
-                                    <li><Link to="/About">About</Link></li>
 
-                                    <li onClick={this.logout}>Logout</li>
-                                </span>
+                        <h6>SWEET PLANT</h6>
+                        <span>
+                            <li><Link to="/Home" style={{ textDecoration: 'none' }}> Home</Link></li>
+                            <li><Link to="/Dashboard">Dashboard</Link></li>
+                            <li><Link to="/CreateArticle">CreateArticle</Link></li>
+                            <li><Link to="/Galerie">ToutArticle</Link></li>
+                            <li><Link to="/Recherche">Recherche</Link></li>
+                            <li><Link to="/About">About</Link></li>
+
+                            <li onClick={this.logout}>Logout</li>
+                        </span>
                     </ul>
                 </div>
             )
-        //-------------USER
+            //-------------USER
 
         } else if (this.state.decoded.user === true) {//si tes un user connecter
             return (
-                <span>
-                <li><Link to="/Home">Page d'Accueil</Link></li>
-                
+                <div className='headerdiv'>
+                <ul>
 
-            </span>
+                    <h6>SWEET PLANT</h6>
+                    
+                <span>
+                    <li><Link to="/Home">Page d'Accueil</Link></li>
+                    <li><Link to="/Galerie">Galerie</Link></li>
+                    <li><Link to="/Categories">Categories</Link></li>
+                    <li><Link to="/About">About</Link></li>
+                    <li onClick={this.logout}>Logout</li>
+
+
+                </span>
+                </ul>
+                </div>
             )
         } else {// pas connecter du tout
             return (
-                <div>
+                <div className="headerdiv">
                     <ul>
+                    <h6>SWEET PLANT</h6>
                         {/* recupere le token contenue dans le state du store */}
-                        {(this.props.location.pathname === '/SignIn' || this.props.location.pathname==="/SignUp") ? (
-                            <span>                          
-                            <li><Link to="/SignUp">S'enregistrer</Link></li>
-                            <li><Link to="/SignIn">Se connecter</Link></li>
-                        </span>
+                        {(this.props.location.pathname === '/SignIn' || this.props.location.pathname === "/SignUp") ? (
+                            <span>
+                                <li><Link to="/SignUp">S'enregistrer</Link></li>
+                                <li><Link to="/SignIn">Se connecter</Link></li>
+                            </span>
                         ) : (
-                            <span>                           
-                            <li><Link to="/SignUpUser">S'enregistrer</Link></li>
-                            <li><Link to="/SignInUser">Se connecter</Link></li>
-                            <li><Link to="/Galerie">Galerie</Link></li>
-                            <li><Link to="/Categories">Categories</Link></li>
-                              <li><Link to="/About">About</Link></li>
-                              <li onClick={this.logout}>Logout</li>
-                        </span>
-                        )}
-                       
+                                <span>
+                                    <li><Link to="/SignUpUser">S'enregistrer</Link></li>
+                                    <li><Link to="/SignInUser">Se connecter</Link></li>
+                                    <li><Link to="/Galerie">Galerie</Link></li>
+                                    <li><Link to="/Categories">Categories</Link></li>
+                                    <li><Link to="/About">About</Link></li>
+                                    <li onClick={this.logout}>Logout</li>
+                                </span>
+                            )}
+
                     </ul>
                 </div>
             )
@@ -138,7 +151,7 @@ const mapStateToProps = (state /* ownProps*/) => {
     }
 }
 
-const mapDispatchToProps = { signinadmin,ajout_article }
+const mapDispatchToProps = { signinadmin, ajout_article }
 
 export default withRouter(connect(
     mapStateToProps,

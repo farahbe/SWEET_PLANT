@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Modifierinfosuser from './Modifierinfosuser'
 
 class Dashboarduser extends Component {
     state = {
@@ -7,7 +8,9 @@ class Dashboarduser extends Component {
 
     render() {
         return(
+           
             <div>
+             < Modifierinfosuser />
                <h1> Dashboard user</h1>
             </div>
         )

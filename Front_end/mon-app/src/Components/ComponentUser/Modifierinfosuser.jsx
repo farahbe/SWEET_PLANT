@@ -21,31 +21,30 @@ class Modifierinfosuser extends Component {
     //---ONCHANGE
     inputpseudo = event => {
         let Pseudo = { ...this.state.infosuser, pseudo: event.target.value }
-        console.log(event);
-        console.log(event.target);
-        console.log(event.target.value);
         console.log(Pseudo);
         this.setState({infosuser: Pseudo});
+        
     }
     inputprenom = event => {
-        let Prenom = { ...this.state.infosuser, Prenom: event.target.value }
+        let Prenom = { ...this.state.infosuser, prenom: event.target.value }
         console.log(Prenom);
-        this.setState({infosuser: {...this.state.infosuser, Prenom: event.target.value }});
+        this.setState({infosuser: Prenom});
     }
     inputemail = event => {
-        let Email = { ...this.state.infosuser,  Email:event.target.value }
+        let Email = { ...this.state.infosuser,  email:event.target.value }
         console.log(Email);
-        this.setState({infosuser: {...this.state.infosuser, Email: event.target.value }});
+        this.setState({infosuser: Email});
     }
     inputpassword = event => {
-        let Password = { ...this.state.infosuser, Password: event.target.value }
+        let Password = { ...this.state.infosuser, password: event.target.value }
         console.log(Password);
-        this.setState({infosuser: {...this.state.infosuser, Password: event.target.value }});
+        this.setState({infosuser: Password});
     }
     inputpavatar = event => {
-        let Avatar = { ...this.state.infosuser, Avatar: event.target.value }
+        let Avatar = { ...this.state.infosuser, avatar: event.target.value }
         console.log(Avatar);
-        this.setState({infosuser: {...this.state.infosuser, Avatar: event.target.value }});
+        this.setState({infosuser: Avatar});
+
     }
 
     //----ONSUBMIT

@@ -98,14 +98,16 @@ router.delete('/user/:id', function (req, res){
 // Modifier le compte user
 router.put('/user/:id_user', function (req, res) {
     try {
+        bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
 
         let change_user = `UPDATE user SET pseudo = '${req.body.pseudo}', prenom = '${req.body.prenom}', 
-        Email = '${req.body.email}', Password = '${req.body.password}', Date_de_naissance = '${req.body.date_de_naissance}', avatar = '${req.body.avatar}', WHERE id_user = '${req.params.id_user}'`;
+        email = '${req.body.email}', password = '${hash}', Date_de_naissance = '${req.body.date_de_naissance}', avatar = '${req.body.avatar}', WHERE id_user = '${req.params.id_user}'`;
 
     con.query(change_user, function(err, result){
         if (err) throw err;
         console.log(result);
         res.status(200).send(result)
+    })
     })      
     } catch (error) {
         res.status(400);
