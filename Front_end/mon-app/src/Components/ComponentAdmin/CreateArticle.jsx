@@ -8,7 +8,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { creatstorearticle } from '../../store/action/ajout_article';// const dans l'action
 
-import '../ComponentAdmin/CSS/CreatArticle.css'
+// import '../ComponentAdmin/CSS/CreatArticle.css'
 
 class CreateArticle extends Component {
     state = {

@@ -4,7 +4,7 @@ import Card from 'react-bootstrap/Card'
 
 import CardColumns from 'react-bootstrap/CardColumns'
 //-----CSS
-import './ComponentAdmin/CSS/Home.css'
+// import './ComponentAdmin/CSS/Home.css'
 //------Images
 import green from '../Components/Images/green.jpeg';
 //store
@@ -13,6 +13,13 @@ import { connect } from 'react-redux'
 //-----import component
 import Newsletter from './ComponentUser/Newsletter'
 // import video from './Videos/video.mp4'
+//----CSS
+import './ComponentAdmin/CSS/Cards/Cards.css'
+import'./ComponentAdmin/CSS/Cards/Cardsbody.css'
+import "./ComponentAdmin/CSS/Cards/Cardstitle.css"
+import "./ComponentAdmin/CSS/Cards/Buttonjaune.css"
+import "./ComponentAdmin/CSS/Cards/Cardstext.css"
+
 
 
 

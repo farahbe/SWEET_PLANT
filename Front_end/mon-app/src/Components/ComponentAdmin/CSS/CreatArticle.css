@@ -25,7 +25,10 @@
   border:none !important;
   opacity: 0.5;
   padding: none !important;  
+  
 }
+
+
 .text2{
     font-family: 'Nunito', sans-serif;
     background-color: #1D261F!important;
@@ -50,11 +53,11 @@
   padding-right: 120px !important;  
 }
 .carte{
-    position:absolute;
+  border: solid 2px #1D261F;
+  position:absolute;
 	left:50%;
 	top:50%;
-	transform: translate(-50%,-50%);
-    background-color: #1D261F;
-	border-radius:3px;
-	padding:50px 100px;   
+	transform: translate(-50%,-50%); 
+	border-radius:5px;
+	padding:50px 60px;   
 }

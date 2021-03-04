@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Arvo&family=Cormorant+Garamond:wght@500&display=swap');
+
+.toutarticle{
+    border: royalblue 3px solid;
+    display:inline-flexbox;
+    /* display: flex; */
+    justify-content: center;
+   align-items: baseline;
+   
+
+}
+.card{
+    /* background-color: pink !important; */
+   
+    position: absolute;
+    left:0;
+    margin: 10px;
+   
+}
+.card:hover{
+    box-shadow: 5px 10px 20px 1px rgba(0,0,0, 254)!important;
+}
+.card-body{
+    border: saddlebrown 3px solid;
+    padding: 1rem 0!important;
+    display: flex;
+    align-items: center;
+    flex-direction: column;  
+}
+.card-title{
+    color: black;
+    font-family: 'Cormorant Garamond', serif;
+}
+.card-text{
+    border: seagreen solid 3px;
+    font-size: 0.6rem;
+}
+/* .card-button{
+    color: yellow;
+    background-color: seashell;
+} */
+.bouton-.btn{
+    color: yellow;
+}

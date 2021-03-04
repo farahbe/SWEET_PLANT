@@ -3,6 +3,7 @@ import axios from 'axios'
 import Card from 'react-bootstrap/Card'
 // import Button from 'react-bootstrap/Button'
 import {Link} from 'react-router-dom';
+// import './CSS/Rechercher.css'
 
 //----Store
 import {connect} from 'react-redux'
@@ -33,11 +34,11 @@ class Categories extends React.Component {
          console.log(this.state.categorielist)
 
         return(
-            <div>
+            <div className="tout">
              
                 {/* log les produits contenue dans le tableau categorielist */}
 
-                <h1>Categorie d'article</h1>
+                <h1>CATEGORIES </h1>
 
                 {this.props.categories && this.props.categories.map((elem ,i) => {
                  // parcours le tableau categories dans le reducer grace a .map et insere dans elem et le categories de reducer
@@ -45,10 +46,10 @@ class Categories extends React.Component {
 
                 <div key={elem.id_nom_categorie} >
 
-                    <Card style={{ width: '18rem' }}>
-                    <Card.Body>
+                    <Card className='card' style={{ width: '16rem' }}>
+                    <Card.Body className='cardrecherche'>
                                             
-                        <Link to={`/categorie/${elem.id_nom_categorie}`}><Card.Title>{elem.Nom_categorie}</Card.Title>  </Link>
+                        <Link to={`/categorie/${elem.id_nom_categorie}`}><Card.Title className='titrerecherche'>{elem.Nom_categorie}</Card.Title>  </Link>
                     </Card.Body>
                     </Card>
 

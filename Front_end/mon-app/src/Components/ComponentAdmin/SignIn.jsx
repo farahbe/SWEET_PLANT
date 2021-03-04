@@ -10,7 +10,7 @@ import { Redirect} from 'react-router-dom';
 //--------------STORE----
 import {connect} from 'react-redux'
 import {signinadmin} from '../../store/action/admin';
-import './CSS/SignIn.css'
+// import './CSS/SignIn.css'
 // import fff from '../Images/fff.jpg';
 
 

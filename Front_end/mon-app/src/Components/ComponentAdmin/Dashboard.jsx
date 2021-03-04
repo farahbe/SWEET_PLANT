@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import {Link} from 'react-router-dom';
+// import './CSS/Dashboard.css';
 
 // import Button from 'react-bootstrap/Button'
 //---STORE
@@ -28,23 +29,25 @@ class Dashboard extends Component {
 
     render() {
         return(
-            <div>
+            
+            <div className='toutarticle'>
                 {console.log(this.state.dashboardarticle)}
-                <h1>Dashboard</h1>
+                
 
                 {this.props.article && this.props.article.map((elem, i) => {
 
                     return (
-                        <div key={elem.id_article}>
-                             <Card style={{ width: '18rem' }}>
+                      
+                        <div className="carddashboard" key={elem.id_article}>
+                             <Card style={{ width: '14rem' }} >
                                 <Card.Img variant="top" src={elem.image} />
                                 {/* Recupere image dans elem */}
-                                <Card.Body>
+                                <Card.Body className='body'>
                                     <Card.Title>{elem.Titre}</Card.Title>
                                     <Card.Text>
                                         {elem.paragraphe}
                                     </Card.Text>
-                                    <Link to={`/ModifierArticle/${elem.id_article}`}> <Button variant= "primary"  >Modifier</Button></Link>
+                                   <Link to={`/ModifierArticle/${elem.id_article}`}> <Button className='btn'  variant= 'outline-light' size='sm' outline={true}>Modifier</Button></Link>
                                     {/* ${elem.id_articles} recupere le id de la bdd et le log dans URL ETAPE 2 */ } 
  
                                 </Card.Body>
