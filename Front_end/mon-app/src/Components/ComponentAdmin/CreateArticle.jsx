@@ -96,33 +96,36 @@ class CreateArticle extends Component {
     render() {
         console.log(this.props.token);
         return(
-            <div >
+        <div>
+        <h2>CREER VOTRE ARTICLE</h2>
+        
+            <div>
                 <Jumbotron>
                 {this.renderRedirect()}
-                    <h2>Creer votre Article ici!</h2>
-                    <Form onSubmit={this.buttonsubmit}>
+                    
+                    <Form className='carte' onSubmit={this.buttonsubmit}>
                     <Form.Group controlId="formBasictitre">
 
-                        <Form.Label className='titre'>Titre</Form.Label>
-                        <Form.Control className='text2' type="text" placeholder="Enter titre" onChange={this.inputtitre} />
+                        
+                        <Form.Control className='text1' placeholder="Titre" type="text"  onChange={this.inputtitre} />
                         
                     </Form.Group>
 
                     <Form.Group controlId="formBasicparagraphe">
-                        <Form.Label className='para'>Paragraphe</Form.Label>
-                        <Form.Control className="text2" as="textarea" placeholder="Entrez votre paragraphe" onChange={this.inputparagraphe} />
+                       
+                        <Form.Control className="text2" as="textarea" placeholder="Paragraphe" onChange={this.inputparagraphe} />
                        
                     </Form.Group>
 
                     
                     <Form.Group controlId="formBasicPicture">
-                            <Form.Label >Image</Form.Label>
-                            <Form.Control className='text3' type="texte" placeholder="Entrer une image" onChange={this.inputimage} />
+                        
+                            <Form.Control className='text3' type="texte"  placeholder="Image"  onChange={this.inputimage} />
                         </Form.Group> 
 
                     <Form.Group controlId="formBasicDate_de_publication">
-                            <Form.Label className='date'> Date de cretation article</Form.Label>
-                            <Form.Control className='text4' type="date" name="Date_de_publication" placeholder="Enter date de creation article" onChange={this.inputDate_de_publication} />
+                           
+                            <Form.Control className='text4' type="date"name="Date_de_publication"  onChange={this.inputDate_de_publication} />
                             {/* <div className="errorMsg">{this.state.errors.Date_de_publication}</div> */}
                         </Form.Group>
 
@@ -133,6 +136,7 @@ class CreateArticle extends Component {
                     </div>
                     </Form>
                 </Jumbotron>
+            </div>
             </div>
         )
         }

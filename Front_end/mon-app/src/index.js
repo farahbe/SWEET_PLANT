@@ -25,7 +25,7 @@ import Categorie from './Components/ComponentAdmin/Categorie'
 import ModifierArticle from './Components/ComponentAdmin/ModifierArticle'
 import About from './Components/ComponentAdmin/About'
 import Footer from "./Components/Footer"
-import Newsletter from "./Components/ComponentUser/Newsletter"
+// import Newsletter from "./Components/ComponentUser/Newsletter"
 import Dashboarduser from "./Components/ComponentUser/Dashboarduser"
 import Modifierinfosuser from "./Components/ComponentUser/Modifierinfosuser"
 // import Ecrirecommentaire from "./Components/ComponentUser/Ecrirecommentaire"
@@ -71,7 +71,7 @@ const myRouter = (
       {/* <Route path="/ModifierArticle" component={ModifierArticle} /> */}
       {/* <Route path="/Nav" component={Nav} /> */}
       <Route path="/About" component={About} />
-      <Route path="/Newsletter" component={Newsletter} />
+      {/* <Route path="/Newsletter" component={Newsletter} /> */}
       <Route path="/Dashboarduser" component={Dashboarduser} />
       <Route path="/Modifierinfosuser/:id" component={Modifierinfosuser} />
       {/* <Route path="/Ecrirecommentaire/:id" component={Ecrirecommentaire} /> */}
@@ -87,9 +87,9 @@ const myRouter = (
     
 
       </Switch> 
-      
+   <Footer />   
   </Router>
-  <Footer />
+  
   </Provider>
 
 )

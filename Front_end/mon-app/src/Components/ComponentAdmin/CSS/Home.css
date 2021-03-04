@@ -7,29 +7,38 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    
    
 }
 h2.titrecard{
+   
     font-family: 'Cormorant Garamond', serif;
 }
 .cardHome{
-
+border: red 3px solid;
     width: 250px;
     height: 450px;
     box-shadow: none !important;
     border: none !important;
+    position: static;
 
 }
 
 .jpp{
-
-height: 700px;
+border: cadetblue 3px solid;
+height: auto;
 /* display: block; */
 align-content: center;
+display: flex;
 }
 p.paragraphe{
     font-family: 'Nunito', sans-serif;
     margin-top: 10px;
 }
+/* video{
+    height: 500px;
+    width: auto;
+    background-size: cover; 
+} */
 
 

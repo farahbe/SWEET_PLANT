@@ -1,0 +1,73 @@
+.principale{
+    border: green solid 3px;
+    position:absolute;
+	left:50%;
+	top:70%;
+	transform: translate(-50%,-50%);
+    background-color: rgba(0, 0, 0, 0.89);
+	border-radius:3px;
+	padding:60px 100px;
+
+}
+img{
+   
+/* }
+body{
+	background-image: url("https://images.pexels.com/photos/4505464/pexels-photo-4505464.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
+	background-position: center;
+    background-origin: content-box;
+    background-repeat: no-repeat;
+    background-size: cover;
+	min-height:140vh;
+    
+
+	/* font-family: 'Noto Sans', sans-serif; */
+} */
+Form{
+    border: yellow 3px solid;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+h1{
+    color:black;	
+	text-transform:uppercase;
+    font-size: 10px;
+    margin: -50px 0 80px 0;
+    display: block;
+    text-align: center;
+}
+.input-containeur{
+    position:relative;
+	margin-bottom:25px;
+}
+.input-containeur> Label{
+   color: black;
+   position:absolute;
+	top:0px;
+	left:0px;
+	font-size:16px;
+    
+}
+.input-containeur>.input{
+    border: 0 !important;
+    border-bottom:1px solid #555 !important;  
+    background:transparent !important;
+    width:100% !important;
+    padding:8px 0 5px 0;
+    font-size:16px;
+    color:#fff;
+}
+.boutton > .b{
+    background-color:#FFA708 !important;
+   margin-top:20px
+}
+
+
+
+
+

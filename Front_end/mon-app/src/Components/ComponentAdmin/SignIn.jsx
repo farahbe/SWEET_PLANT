@@ -2,13 +2,16 @@ import React, { Component } from 'react';
 import jwt from 'jsonwebtoken'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
+
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import axios from 'axios'
 import { Redirect} from 'react-router-dom';
 // import Header from './Header'
 //--------------STORE----
 import {connect} from 'react-redux'
-import {signinadmin} from '../../store/action/admin'
+import {signinadmin} from '../../store/action/admin';
+import './CSS/SignIn.css'
+// import fff from '../Images/fff.jpg';
 
 
 
@@ -107,8 +110,11 @@ class SignIn extends Component {
             // <Header />
           
         return (
+            <div className='principale'>
+                {/* <img src={fff} alt="fff" /> */}
             <Jumbotron>
                 {this.renderRedirect()}
+
 
                  <h1>SE CONNECTER</h1>
         
@@ -116,23 +122,27 @@ class SignIn extends Component {
                         {/* on appel OnSubmit dans le form */}
 
                         <Form.Group controlId="formBasicEmail">
-                            <Form.Label>Adresse email</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" onChange={this.inputemail} />
+                        
+                            <div className='input-containeur'><Form.Control className="input" type="email"   onChange={this.inputemail} /><Form.Label>Adresse email</Form.Label></div>
                             <Form.Text className="text-muted">
                            Ne partagez votre adresse mail avec personne
                             </Form.Text>
                         </Form.Group>
 
+
                         <Form.Group controlId="formBasicPassword">
-                            <Form.Label>Mot de passe</Form.Label>
-                            <Form.Control type="password" placeholder="Entrer mot de passe" onChange={this.inputpassword} />
+                        
+                       <div className='input-containeur'><Form.Control className="input" type="password"  onChange={this.inputpassword} /><Form.Label>Mot de passe</Form.Label></div>
                         </Form.Group>
                        
-                        <Button variant="primary" type="submit">
-                            Envoyer
+                        <div className='boutton'>
+                        <Button className='b' variant="primary" type="submit">
+                         Entrer
                         </Button>
+                        </div>
                      </Form>
           </Jumbotron>
+          </div>
         )
     }
 }

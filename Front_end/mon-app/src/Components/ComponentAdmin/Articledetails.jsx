@@ -8,6 +8,8 @@ import { enregistrecommentaire } from '../../store/action/commentaires'
 import Ecrirecommentaire from '../ComponentUser/Ecrirecommentaire'
 
 
+
+
 class articlePage extends Component {
     state = {
         article: {},

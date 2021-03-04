@@ -1,10 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Amiri&family=Raleway&display=swap');
 
 
-.footer{
+.contain{
+  
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 40px;
+    /* margin-top: 40px; */
     font-family: 'Amiri', serif;
+    position: static;
+    bottom: 0; 
+    left:450px;
+
 }

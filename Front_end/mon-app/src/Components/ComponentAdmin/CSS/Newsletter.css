@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Amiri&family=Raleway&display=swap');
 
 .div{
- 
+ border: #FFA708 solid 3px;
     background-color:#F2F2F2;
     /* width: 100%; */
     height: auto;

@@ -4,56 +4,57 @@
 @import url('https://fonts.googleapis.com/css2?family=Arvo&family=Cormorant+Garamond:wght@500&display=swap');
 .jumbotron{
     box-shadow: none !important;
+
+    position: relative;
+    height: 70vh;
 }
 .boutton > .button{
+    color: WHITE;
     background-color:#FFA708 !important;
     margin-top:20px
 }
-h2{
+ h2{
     font-family: 'Cormorant Garamond', serif;
     display: flex;
     justify-content: center;
+    margin: 40px; 
 }
-.titre{
-    font-size: 18px;
-    font-family: 'Quicksand', sans-serif;
-    
-    
-}
-.para{
-    font-size: 18px;
-    font-family: 'Quicksand', sans-serif;
-}
-.date{
-    font-size: 18px;
-    font-family: 'Quicksand', sans-serif;
-}
-.texte1{
-    font-family: 'Nunito', sans-serif; 
-    background-color: #F2F2F2 !important;
-    background-clip: none !important;
- 
+.text1{
+    font-family: 'Nunito', sans-serif;
+    background-color: #1D261F!important;
+  border:none !important;
+  opacity: 0.5;
+  padding: none !important;  
 }
 .text2{
     font-family: 'Nunito', sans-serif;
-    background-color: white!important;
+    background-color: #1D261F!important;
   border:none !important;
   opacity: 0.5;
   padding: none !important;
-  
-   
+     
 }
 .text3{
     font-family: 'Nunito', sans-serif;
-    background-color: white!important;
-    border:none !important;
-    opacity: 0.5;
-    padding: none !important;
+    background-color: #1D261F!important;
+  border:none !important;
+  opacity: 0.5;
+  padding: none !important;
+
 }
 .text4{
     font-family: 'Nunito', sans-serif;
-    background-color: white!important;
-    border:none !important;
-    opacity: 0.5;
-    padding: none !important;
+    background-color: #1D261F!important;
+  border:none !important;
+  opacity: 0.5;
+  padding-right: 120px !important;  
+}
+.carte{
+    position:absolute;
+	left:50%;
+	top:50%;
+	transform: translate(-50%,-50%);
+    background-color: #1D261F;
+	border-radius:3px;
+	padding:50px 100px;   
 }

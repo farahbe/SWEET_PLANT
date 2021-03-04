@@ -12,6 +12,7 @@ import { connect } from 'react-redux'
 // import {ajout_email} from '../store/action/newsletter'
 //-----import component
 import Newsletter from './ComponentUser/Newsletter'
+// import video from './Videos/video.mp4'
 
 
 
@@ -37,7 +38,10 @@ class Home extends Component {
         return (
             <div>
                 <header className='header'>
-                    <img class="imagehead" src={green} alt="plantes bananier" width="1100" height="400" />
+                    {/* <img class="imagehead" src={green} alt="plantes bananier" width="1100" height="400" /> */}
+                    {/* <video autoPlay loop muted>
+                        <source src={video} type="video/mp4"/>
+                    </video> */}
                 </header>
 
 
@@ -59,7 +63,7 @@ class Home extends Component {
                                             </Card.Text></p>
                                     </Card.Body>
                                     <hr></hr>
-                                    <Card.Text> 0 comment</Card.Text>
+                                   
                                  
                                 </Card>
 
@@ -67,10 +71,10 @@ class Home extends Component {
                         }
                         )}
                     </CardColumns>
-                    < Newsletter />
+                    
 
                 </div>
-
+< Newsletter />
             </div>
 
         )
