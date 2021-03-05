@@ -19,9 +19,7 @@ import'./ComponentAdmin/CSS/Cards/Cardsbody.css'
 import "./ComponentAdmin/CSS/Cards/Cardstitle.css"
 import "./ComponentAdmin/CSS/Cards/Buttonjaune.css"
 import "./ComponentAdmin/CSS/Cards/Cardstext.css"
-
-
-
+import './ComponentAdmin/CSS/Container/ContainerHome.css'
 
 
 class Home extends Component {
@@ -29,8 +27,6 @@ class Home extends Component {
         articlelist: [],
 
     }
-
-
 
     componentDidMount() {
 
@@ -41,13 +37,12 @@ class Home extends Component {
     render() {
         console.log(this.state.articlelist)
 
-
         return (
             <div>
                 <header className='header'>
-                    {/* <img class="imagehead" src={green} alt="plantes bananier" width="1100" height="400" /> */}
-                    {/* <video autoPlay loop muted>
-                        <source src={video} type="video/mp4"/>
+                    <img class="imagehead" src={green} alt="plantes bananier" width="1180" height="400" /> 
+                     {/* <video autoPlay loop muted>
+                        <source src={video} type="video/mp4" width="1100" height="400"/>
                     </video> */}
                 </header>
 

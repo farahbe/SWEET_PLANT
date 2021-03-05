@@ -8,7 +8,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { creatstorearticle } from '../../store/action/ajout_article';// const dans l'action
 
-// import '../ComponentAdmin/CSS/CreatArticle.css'
+
 
 class CreateArticle extends Component {
     state = {
@@ -97,10 +97,11 @@ class CreateArticle extends Component {
         console.log(this.props.token);
         return(
         <div>
-        <h2>CREER VOTRE ARTICLE</h2>
+        
         
             <div>
                 <Jumbotron>
+                <h2>CREER VOTRE ARTICLE</h2>
                 {this.renderRedirect()}
                     
                     <Form className='carte' onSubmit={this.buttonsubmit}>
@@ -129,8 +130,8 @@ class CreateArticle extends Component {
                             {/* <div className="errorMsg">{this.state.errors.Date_de_publication}</div> */}
                         </Form.Group>
 
-                    <div className='boutton'>
-                    <Button className='button' variant="primary" type="submit">
+                    <div className='bouttonform'>
+                    <Button className='click' variant="primary" type="submit">
                         Entrer
                     </Button>
                     </div>

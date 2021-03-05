@@ -8,6 +8,7 @@ import {Link} from 'react-router-dom';
 //----Store
 import {connect} from 'react-redux'
 import {enregistrecategorie} from '../../store/action/categories'
+import './CSS/Cards/Cardsbodyrechercher.css'
 
 
 
@@ -46,8 +47,8 @@ class Categories extends React.Component {
 
                 <div key={elem.id_nom_categorie} >
 
-                    <Card className='card' style={{ width: '16rem' }}>
-                    <Card.Body className='cardrecherche'>
+                    <Card className='divrechercher' style={{ width: '16rem' }}>
+                    <Card.Body className='cardrechercher'>
                                             
                         <Link to={`/categorie/${elem.id_nom_categorie}`}><Card.Title className='titrerecherche'>{elem.Nom_categorie}</Card.Title>  </Link>
                     </Card.Body>

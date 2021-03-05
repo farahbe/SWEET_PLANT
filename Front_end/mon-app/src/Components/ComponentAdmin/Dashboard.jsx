@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import {Link} from 'react-router-dom';
-// import './CSS/Dashboard.css';
+import './CSS/Container/ContainerDashboard.css'
 
 // import Button from 'react-bootstrap/Button'
 //---STORE
 import {connect} from 'react-redux'
+import './CSS/Container/ContainerHome.css';
+import './CSS/Cards/Buttonvert.css'
 
 
 class Dashboard extends Component {
@@ -47,9 +49,10 @@ class Dashboard extends Component {
                                     <Card.Text>
                                         {elem.paragraphe}
                                     </Card.Text>
-                                   <Link to={`/ModifierArticle/${elem.id_article}`}> <Button className='btn'  variant= 'outline-light' size='sm' outline={true}>Modifier</Button></Link>
+                                    
+                                   <Link to={`/ModifierArticle/${elem.id_article}`}> <Button className="click"  variant= "outline-dark" size='sm' outline={true}>Modifier</Button></Link>
                                     {/* ${elem.id_articles} recupere le id de la bdd et le log dans URL ETAPE 2 */ } 
- 
+                                    
                                 </Card.Body>
                                
                             </Card>

@@ -3,4 +3,5 @@
     position: absolute;
     left:0;
     margin: 10px;
+    box-shadow: none !important;
 }

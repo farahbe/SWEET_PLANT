@@ -13,7 +13,7 @@ ul{
    align-items: baseline;
    padding: 10px;
    font-family: 'Cormorant Infant', serif;
-   position: fixed;
+   position: static;
    top: 0;
 
      
@@ -33,5 +33,14 @@ li{
     text-decoration: none;
     color: black;
     margin-left: 30px;
+}
+.headertitle, .headertitle:visited{
+    color: black !important;
+}
+.headertitle:hover, .headertitle:active {
+    color: #1D261F !important;
+}
+.headertitle.active{
+    color: #FFA708 !important;
 }
 

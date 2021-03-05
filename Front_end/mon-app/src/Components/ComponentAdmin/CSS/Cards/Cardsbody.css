@@ -1,7 +1,7 @@
-/* .card-body{
+.card-body{
     border: saddlebrown 3px solid;
     padding: 1rem 0!important;
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     flex-direction: column;  
-} */
+}

@@ -1,0 +1,7 @@
+.toutarticle{
+    border: red 3px solid;
+    height: auto;
+    display: block;
+    align-content: center;
+    display: flex;
+}

@@ -81,12 +81,12 @@ class headerAdmin extends React.Component {
 
                         <h6>SWEET PLANT</h6>
                         <span>
-                            <li><Link to="/Home" style={{ textDecoration: 'none' }}> Home</Link></li>
-                            <li><Link to="/Dashboard">Dashboard</Link></li>
-                            <li><Link to="/CreateArticle">CreateArticle</Link></li>
-                            <li><Link to="/Galerie">ToutArticle</Link></li>
-                            <li><Link to="/Recherche">Recherche</Link></li>
-                            <li><Link to="/About">About</Link></li>
+                            <li><Link to="/Home" className='headertitle'> Home</Link></li>
+                            <li><Link to="/Dashboard" className='headertitle'>Dashboard</Link></li>
+                            <li><Link to="/CreateArticle" className='headertitle'>CreateArticle</Link></li>
+                            <li><Link to="/Galerie" className='headertitle'>ToutArticle</Link></li>
+                            <li><Link to="/Recherche" className='headertitle'>Recherche</Link></li>
+                            <li><Link to="/About" className='headertitle'>About</Link></li>
 
                             <li onClick={this.logout}>Logout</li>
                         </span>
