@@ -1,0 +1,9 @@
+
+.bouttonform>.click{
+    background-color: #1D261F !important;
+   
+}
+.bouttonform{
+    display: flex;
+    justify-content: center;
+}

@@ -4,6 +4,8 @@ import Form from 'react-bootstrap/Form';
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom';
+import "../ComponentAdmin/CSS/Forms/Jumbotronsignup.css"
+
 
 class SignUpUser extends Component {
     state = {
@@ -176,7 +178,7 @@ class SignUpUser extends Component {
     render() {
         return (
             <div>
-                <Jumbotron>
+                <Jumbotron className='signup'>
                     {this.renderRedirect()}
                     <h1>Inscrivez-vous!</h1>
 
@@ -238,10 +240,11 @@ class SignUpUser extends Component {
                         </Form.Text>
                                 </Form.Group>
 
-                        <Button variant="primary" type="submit">
+                        <div className='bouttonform'>
+                        <Button className="click" variant="primary" type="submit">
                             Submit
-                </Button>
-
+                        </Button>
+                        </div>
                     </Form>
 
                 </Jumbotron>

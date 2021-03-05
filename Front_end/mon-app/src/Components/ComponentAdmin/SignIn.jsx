@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import jwt from 'jsonwebtoken'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import axios from 'axios'
 import { Redirect} from 'react-router-dom';
@@ -10,7 +9,10 @@ import { Redirect} from 'react-router-dom';
 //--------------STORE----
 import {connect} from 'react-redux'
 import {signinadmin} from '../../store/action/admin';
-// import './CSS/SignIn.css'
+import './CSS/Forms/Jumbotron.css'
+import './CSS/H1.css'
+import './CSS/Forms/button.css'
+
 // import fff from '../Images/fff.jpg';
 
 
@@ -115,15 +117,15 @@ class SignIn extends Component {
             <Jumbotron>
                 {this.renderRedirect()}
 
-
+                
                  <h1>SE CONNECTER</h1>
         
                     <Form onSubmit={this.buttonsubmit}>
                         {/* on appel OnSubmit dans le form */}
 
                         <Form.Group controlId="formBasicEmail">
-                        
-                            <div className='input-containeur'><Form.Control className="input" type="email"   onChange={this.inputemail} /><Form.Label>Adresse email</Form.Label></div>
+                        <Form.Label>Adresse email</Form.Label>
+                           <Form.Control className="input" type="email"   onChange={this.inputemail} />
                             <Form.Text className="text-muted">
                            Ne partagez votre adresse mail avec personne
                             </Form.Text>
@@ -131,12 +133,12 @@ class SignIn extends Component {
 
 
                         <Form.Group controlId="formBasicPassword">
-                        
-                       <div className='input-containeur'><Form.Control className="input" type="password"  onChange={this.inputpassword} /><Form.Label>Mot de passe</Form.Label></div>
+                        <Form.Label>Mot de passe</Form.Label>
+                       <Form.Control className="input" type="password"  onChange={this.inputpassword} />
                         </Form.Group>
                        
-                        <div className='boutton'>
-                        <Button className='b' variant="primary" type="submit">
+                        <div className='bouttonform'>
+                        <Button className="click" variant="primary" type="submit">
                          Entrer
                         </Button>
                         </div>

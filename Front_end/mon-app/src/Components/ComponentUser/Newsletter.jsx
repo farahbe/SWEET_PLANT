@@ -12,6 +12,9 @@ import axios from 'axios';
 // import '../ComponentAdmin/CSS/Newsletter.css'
 import "../ComponentAdmin/CSS/Forms/Input.css"
 import '../ComponentAdmin/CSS/Cards/Cardstext.css'
+import '../ComponentAdmin/CSS/Forms/Formtitle.css'
+
+
 
 class Newsletter extends Component {
     state = {
@@ -52,7 +55,7 @@ class Newsletter extends Component {
                     <Form onSubmit={this.buttonsubmit}>
 
                         <Form.Group controlId="formBasicpseudo">
-                        <Form.Label>Newsletter</Form.Label>
+                        <Form.Label>NEWSLETTER</Form.Label>
                        
                         <Form.Control type="text"  name="Email" placeholder="Entez votre Email" onChange={this.inputemail} />
                        <hr></hr>

@@ -5,6 +5,8 @@ import Jumbotron from 'react-bootstrap/Jumbotron'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom';
 import './validateform.css';
+import './CSS/Forms/Jumbotron.css'
+
 
 
 
@@ -94,9 +96,11 @@ renderRedirect = () => {
                         <Form.Control type="password" placeholder="Password" onChange={this.inputpassword} />
                     </Form.Group>
                     
-                    <Button variant="primary" type="submit">
+                    <div className='bouttonform'>
+                   <Button className="click" variant="primary" type="submit">
                         Submit
                     </Button>
+                    </div>
                 </Form>
              
             </Jumbotron>
