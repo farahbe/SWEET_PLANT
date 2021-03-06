@@ -5,6 +5,7 @@ import {Link} from 'react-router-dom';
 //store
 import {connect} from 'react-redux'
 // import {ajout_article} from '../../store/action/ajout_article'
+import "./CSS/Container/ContainerGalerie.css"
 
 
 
@@ -21,16 +22,12 @@ class ToutArticles extends React.Component {
      this.setState({ articlelist: this.props.article });
       // insere les data dans articlelist
 
-       
     }
 
     render() { 
-        console.log(this.state.articlelist)
-
-        
-        return (
-            
-            <div>
+        console.log(this.state.articlelist)   
+        return (       
+            <div className="divgalerie">
                
                 {/* log les produits contenue dans le tableau categorielist */}
 

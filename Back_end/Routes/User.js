@@ -20,8 +20,10 @@ router.post('/sign-up', (req, res) => {
         if (!req.body.password) throw 'NO password';
         // if (!req.body.Date_de_naissance) throw 'NO Date de naissance';
         if (!req.body.Avatar) throw 'NO Avatar';
+        console.log('je suis passer');
         bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
             console.log(hash);
+            console.log(err);
             let NewUser = `INSERT INTO user (pseudo, prenom, Email, Password, Date_de_naissance, Avatar, inscrit_a_la_newsletter) VALUES ('${req.body.pseudo}','${req.body.prenom}','${req.body.email}','${hash}','${req.body.Date_de_naissance}','${req.body.Avatar}','${req.body.inscrit_a_la_newsletter}')`;
             con.query(`SELECT * FROM user WHERE Email = '${req.body.email}'`, function (err, result) {
                 if (result.length) {
@@ -101,7 +103,7 @@ router.put('/user/:id_user', function (req, res) {
         bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
 
         let change_user = `UPDATE user SET pseudo = '${req.body.pseudo}', prenom = '${req.body.prenom}', 
-        email = '${req.body.email}', password = '${hash}', Date_de_naissance = '${req.body.date_de_naissance}', avatar = '${req.body.avatar}', WHERE id_user = '${req.params.id_user}'`;
+        email = '${req.body.email}', password = '${hash}', Date_de_naissance = '${req.body.date_de_naissance}', avatar = '${req.body.avatar}' WHERE id_user = '${req.params.id_user}'`;
 
     con.query(change_user, function(err, result){
         if (err) throw err;

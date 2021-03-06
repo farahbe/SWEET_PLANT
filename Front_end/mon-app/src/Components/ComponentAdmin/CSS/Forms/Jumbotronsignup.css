@@ -2,11 +2,12 @@
     /* border: blue 3px solid; */
     position:absolute;
     left:50%;
-    top:85%;
-    transform: translate(-50%,-50%);
+    top:90%;
+    /* transform: translate(-50%,-50%); */
     /* background-color: rgba(0, 0, 0, 0.89); */
     border-radius:3px;
     /* padding:70px 100px; */
     box-shadow: none !important;
+
 
     }

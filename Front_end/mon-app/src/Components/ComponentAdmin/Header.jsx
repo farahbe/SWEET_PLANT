@@ -79,7 +79,7 @@ class headerAdmin extends React.Component {
                 <div className='headerdiv'>
                     <ul>
 
-                        <h6>SWEET PLANT</h6>
+                    <Link to="/Home"><h6>SWEET PLANT</h6></Link>
                         <span>
                             <li><Link to="/Home" className='headertitle'> Home</Link></li>
                             <li><Link to="/Dashboard" className='headertitle'>Dashboard</Link></li>
@@ -100,13 +100,14 @@ class headerAdmin extends React.Component {
                 <div className='headerdiv'>
                 <ul>
 
-                    <h6>SWEET PLANT</h6>
+                <Link to="/Home"><h6>SWEET PLANT</h6></Link>
                     
                 <span>
-                    <li><Link to="/Home">Page d'Accueil</Link></li>
-                    <li><Link to="/Galerie">Galerie</Link></li>
-                    <li><Link to="/Categories">Categories</Link></li>
-                    <li><Link to="/About">About</Link></li>
+                    <li><Link to="/Home" className='headertitle'>Page d'Accueil</Link></li>
+                    <li><Link to="/Galerie" className='headertitle'>Galerie</Link></li>
+                    <li><Link to="/Categories" className='headertitle'>Categories</Link></li>
+                    <li><Link to="/About" className='headertitle'>About</Link></li>
+                    <li><Link to="/Recherche" className='headertitle'>Recherche</Link></li>
                     <li onClick={this.logout}>Logout</li>
 
 
@@ -118,7 +119,7 @@ class headerAdmin extends React.Component {
             return (
                 <div className="headerdiv">
                     <ul>
-                    <h6>SWEET PLANT</h6>
+                    <Link to="/Home"><h6>SWEET PLANT</h6></Link>
                         {/* recupere le token contenue dans le state du store */}
                         {(this.props.location.pathname === '/SignIn' || this.props.location.pathname === "/SignUp") ? (
                             <span>
@@ -127,11 +128,12 @@ class headerAdmin extends React.Component {
                             </span>
                         ) : (
                                 <span>
-                                    <li><Link to="/SignUpUser">S'enregistrer</Link></li>
-                                    <li><Link to="/SignInUser">Se connecter</Link></li>
-                                    <li><Link to="/Galerie">Galerie</Link></li>
-                                    <li><Link to="/Categories">Categories</Link></li>
-                                    <li><Link to="/About">About</Link></li>
+                                    <li><Link to="/SignUpUser" className='headertitle'>S'enregistrer</Link></li>
+                                    <li><Link to="/SignInUser" className='headertitle'>Se connecter</Link></li>
+                                    <li><Link to="/Galerie" className='headertitle'>Galerie</Link></li>
+                                    <li><Link to="/Categories" className='headertitle'>Categories</Link></li>
+                                    <li><Link to="/About" className='headertitle'>About</Link></li>
+                                    <li><Link to="/Recherche" className='headertitle'>Recherche</Link></li>
                                     <li onClick={this.logout}>Logout</li>
                                 </span>
                             )}

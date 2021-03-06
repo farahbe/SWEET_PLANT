@@ -1,22 +1,15 @@
 .cardrechercher{
+   
     box-shadow: none !important; 
     border: none !important;
     padding: 1rem 0!important;
     display: flex;
     align-items: center;
     flex-direction: column; 
-    border: solid 2px #1D261F;  
+    border: solid 2px #1D261F; 
+     
 }
 .divrechercher{
     margin: 20px;
 }
-.tout{
-    /* border: brown 3px solid; */
-    display: flex;
-    align-items: center;
-    flex-direction: column; 
-    position:absolute;
-	left:40%;
-	top:20%;
-  
-}
+

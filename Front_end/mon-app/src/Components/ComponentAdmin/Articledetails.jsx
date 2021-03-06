@@ -30,19 +30,24 @@ class articlePage extends Component {
 
             })
 
-        this.setState({ commentaire: this.props.usercommentaires })
+        // this.setState({ commentaire: this.props.usercommentaires })
 
         axios.get(`http://localhost:4000/user/commentsbypostid/${id}`)
             .then(res => {
+                // console.log(res.data);
+                 res.data.forEach(async (commentaire) => {
+                    console.log(commentaire);
+                    const user = await axios.get(`http://localhost:4000/user/user/${commentaire.id_user}`)
+                    commentaire.avatar_user=user.data[0].avatar
+                    commentaire.pseudo_user=user.data[0].pseudo
+                    this.setState({commentaire:[...this.state.commentaire,commentaire]})
+                })
                 console.log(res.data);
                 this.props.enregistrecommentaire(res.data)
                 // element recoit les data de lobjet correspondant a lID envoyer 
-                this.setState({ commentaire: res.data });
+                // this.setState({ commentaire: res.data });
             })
-
-        axios.get(`http://localhost:4000/user/:id`)
-  
-
+    
     }
 
     render() {
@@ -74,16 +79,16 @@ class articlePage extends Component {
                     < Ecrirecommentaire />
                    
                 {this.state.commentaire && this.state.commentaire.map((elem, i) => {
-
+                console.log(elem);
                     return (
                          
                         <div key={elem.id_article}>
                             
 
                             <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top" src={elem.avatar} />
+                                <Card.Img variant="top" src={elem.avatar_user} />
                                 <Card.Body>
-                                    <Card.Title>{elem.pseudo}</Card.Title>
+                                    <Card.Title>{elem.pseudo_user}</Card.Title>
                                     <Card.Text>
                                         {elem.commentaire}
                                     </Card.Text>

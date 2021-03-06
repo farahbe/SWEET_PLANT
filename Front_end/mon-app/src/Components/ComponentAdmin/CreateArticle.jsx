@@ -7,7 +7,7 @@ import { Redirect } from 'react-router-dom';
 //------STORE--------
 import { connect } from 'react-redux';
 import { creatstorearticle } from '../../store/action/ajout_article';// const dans l'action
-
+import './CSS/Container/ContainerCreatArticle.css'
 
 
 class CreateArticle extends Component {
@@ -18,6 +18,7 @@ class CreateArticle extends Component {
       paragraphe: '',
       image: '',
       Date_de_publication: '',
+      categorie:0,
       redirect: false
       
     }
@@ -47,6 +48,10 @@ class CreateArticle extends Component {
     inputimage = event => {
         this.setState({ image: event.target.value });
     }
+
+    inputcategorie = event => {
+        this.setState({ categorie: event.target.value });
+    }
     // inputimage = event => {
     //     this.setState({ Date_de_publication: event.target.value });
     // }
@@ -60,9 +65,10 @@ class CreateArticle extends Component {
 
         const article = {
             titre: this.state.titre,
-            paragraphe: this.state.paragraphe,
+            paragraphe: this.state.paragraphe.replaceAll("'"," "),
             image: this.state.image,
             Date_de_publication: this.state.Date_de_publication,
+            id_categorie: this.state.categorie,
             id_admin: this.props.id
            
         };
@@ -71,7 +77,7 @@ class CreateArticle extends Component {
         axios.post('http://localhost:4000/admin/articles',article, {headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }})
         //{headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }} recupere le header du token dans le Adminconnect
         .then(res => {
-            console.log(article);
+            console.log(res.data);
             // console.log(res.data);
             this.setState({titre:''});
             this.setState({paragraphe:''});
@@ -83,7 +89,7 @@ class CreateArticle extends Component {
             //Creation du store pour ajouter un article ajout de la const dans le store action
            this.props.creatstorearticle(article)
 
-           this.setRedirect();
+        //    this.setRedirect();
            //Redirige vers Dashboard
     })
     .catch(error => {
@@ -91,12 +97,10 @@ class CreateArticle extends Component {
     })
 }
 
-
-
     render() {
         console.log(this.props.token);
         return(
-        <div>
+        <div className="divcreatarticle">
         
         
             <div>
@@ -130,6 +134,11 @@ class CreateArticle extends Component {
                             {/* <div className="errorMsg">{this.state.errors.Date_de_publication}</div> */}
                         </Form.Group>
 
+                        <Form.Group controlId="formBasicCategorie">
+                        
+                            <Form.Control className='text3' type="Number"  placeholder="Categorie Id"  onChange={this.inputcategorie} />
+                        </Form.Group> 
+
                     <div className='bouttonform'>
                     <Button className='click' variant="primary" type="submit">
                         Entrer
@@ -154,3 +163,5 @@ const mapStateToProps = (state /*, owmProps*/) => {
 const mapDispatchToProps = {creatstorearticle } //va chercher creatstorearticle
 
 export default connect(mapStateToProps, mapDispatchToProps)(CreateArticle) //=class CreateArticle extends Component;
+
+

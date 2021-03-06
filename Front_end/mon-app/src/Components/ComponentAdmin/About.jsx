@@ -8,7 +8,7 @@ import Aboutimage from '../Images/Aboutimage.png';
 function About() {
     return (
 
-        <div>
+        <div className='about'>
             <h1>About</h1>
 
             <div className='image'>

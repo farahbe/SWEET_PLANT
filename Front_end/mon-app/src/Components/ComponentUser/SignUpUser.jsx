@@ -5,6 +5,7 @@ import Jumbotron from 'react-bootstrap/Jumbotron'
 import axios from 'axios'
 import { Redirect } from 'react-router-dom';
 import "../ComponentAdmin/CSS/Forms/Jumbotronsignup.css"
+import "../ComponentAdmin/CSS/Page/pagesignupuser.css"
 
 
 class SignUpUser extends Component {
@@ -70,7 +71,7 @@ class SignUpUser extends Component {
                 pseudo: this.state.pseudo,
                 prenom: this.state.prenom,
                 // date_de_naissance: this.state.date_de_naissance,
-                avatar: this.state.avatar,
+                Avatar: this.state.avatar,
                 // usersignup contient les data de email et password
 
             };
@@ -177,7 +178,7 @@ class SignUpUser extends Component {
 
     render() {
         return (
-            <div>
+            <div id='signupuserpage'>
                 <Jumbotron className='signup'>
                     {this.renderRedirect()}
                     <h1>Inscrivez-vous!</h1>
@@ -234,7 +235,7 @@ class SignUpUser extends Component {
 
                         <Form.Group controlId="formBasicimage">
                                     <Form.Label>Image</Form.Label>
-                                    <Form.Control type="picture"  />
+                                    <Form.Control type="text" onChange={this.inputavatar}  />
                                     <Form.Text className="text-muted">
                                         Selectionnez votre image
                         </Form.Text>

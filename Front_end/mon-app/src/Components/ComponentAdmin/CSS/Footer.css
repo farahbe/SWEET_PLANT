@@ -2,13 +2,13 @@
 
 
 .contain{
-  
+   border: blueviolet 3px solid;
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-top: 10px;
     font-family: 'Amiri', serif;
-    position: absolute;
+    position: static;
     bottom: 0; 
    width: 90%;
    height: 60px;

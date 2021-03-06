@@ -9,6 +9,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux'
 import {enregistrecategorie} from '../../store/action/categories'
 import './CSS/Cards/Cardsbodyrechercher.css'
+import './CSS/Container/ContainerRechercher.css'
 
 
 

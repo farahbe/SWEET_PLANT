@@ -1,0 +1,11 @@
+.tout{
+    border: brown 3px solid;
+    display: flex;
+    align-items: center;
+    flex-direction: column; 
+    margin-top:50px;
+    /* position:absolute;
+	left:40%;
+	top:20%; */
+  
+}
