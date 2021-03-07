@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form'
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import Button from 'react-bootstrap/Button'
+import {withRouter} from 'react-router'
 
 
 class Modifierinfosuser extends Component {
@@ -139,7 +140,7 @@ axios.put(`http://localhost:4000/user/user/${id}`,modifierinfos)
                         
 
                         <Button variant="primary" type="submit">
-                            Submit
+                            Modifier
                         </Button>
                     </Form>
                 </Jumbotron>
@@ -150,4 +151,4 @@ axios.put(`http://localhost:4000/user/user/${id}`,modifierinfos)
     }
 }
 
-export default Modifierinfosuser;
+export default withRouter(Modifierinfosuser);

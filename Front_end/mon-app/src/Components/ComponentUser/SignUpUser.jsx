@@ -18,7 +18,8 @@ class SignUpUser extends Component {
         avatar: '',
         redirect: false,
         //redirection fausse par defaut
-        errors: {}
+        errors: {},
+        succesMsg: '',
     }
 
  
@@ -88,7 +89,7 @@ class SignUpUser extends Component {
 
                     this.setRedirect();
                     // // Redirige vers SignIn
-
+                    this.setState({succesMsg: 'Votre compte a bien etait creer'})
                 })
                 .catch(error => {
                     console.error(error)
@@ -180,7 +181,11 @@ class SignUpUser extends Component {
         return (
             <div id='signupuserpage'>
                 <Jumbotron className='signup'>
+                    
+                    <p>{this.state.succesMsg}</p>
+
                     {this.renderRedirect()}
+                    
                     <h1>Inscrivez-vous!</h1>
 
                     <Form onSubmit={this.buttonSubmit}>

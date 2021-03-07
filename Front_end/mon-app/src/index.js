@@ -72,7 +72,7 @@ const myRouter = (
       {/* <Route path="/Nav" component={Nav} /> */}
       <Route path="/About" component={About} />
       {/* <Route path="/Newsletter" component={Newsletter} /> */}
-      <Route path="/Dashboarduser" component={Dashboarduser} />
+      <Route path="/Dashboarduser/:id" component={Dashboarduser} />
       <Route path="/Modifierinfosuser/:id" component={Modifierinfosuser} />
       {/* <Route path="/Ecrirecommentaire/:id" component={Ecrirecommentaire} /> */}
 

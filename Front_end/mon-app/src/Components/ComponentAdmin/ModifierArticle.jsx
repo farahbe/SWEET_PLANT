@@ -20,7 +20,8 @@ class ModifierArticle extends Component {
             titre: '',
             paragraphe: '',
             image: '',
-            redirect: false
+            redirect: false,
+            succesMsg: '',
 
         }
     }
@@ -148,6 +149,7 @@ class ModifierArticle extends Component {
                 {this.state.article && (
                     <div>
                         <Jumbotron>
+                        <p>{this.state.succesMsg}</p>
                             {this.renderRedirect()}
                             <h1>Voici l'article selectionner</h1>
 

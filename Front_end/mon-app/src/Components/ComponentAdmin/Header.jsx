@@ -105,7 +105,7 @@ class headerAdmin extends React.Component {
                 <span>
                     <li><Link to="/Home" className='headertitle'>Page d'Accueil</Link></li>
                     <li><Link to="/Galerie" className='headertitle'>Galerie</Link></li>
-                    <li><Link to="/Categories" className='headertitle'>Categories</Link></li>
+                   
                     <li><Link to="/About" className='headertitle'>About</Link></li>
                     <li><Link to="/Recherche" className='headertitle'>Recherche</Link></li>
                     <li onClick={this.logout}>Logout</li>
@@ -130,8 +130,7 @@ class headerAdmin extends React.Component {
                                 <span>
                                     <li><Link to="/SignUpUser" className='headertitle'>S'enregistrer</Link></li>
                                     <li><Link to="/SignInUser" className='headertitle'>Se connecter</Link></li>
-                                    <li><Link to="/Galerie" className='headertitle'>Galerie</Link></li>
-                                    <li><Link to="/Categories" className='headertitle'>Categories</Link></li>
+                                    <li><Link to="/Galerie" className='headertitle'>Galerie</Link></li>                                  
                                     <li><Link to="/About" className='headertitle'>About</Link></li>
                                     <li><Link to="/Recherche" className='headertitle'>Recherche</Link></li>
                                     <li onClick={this.logout}>Logout</li>
