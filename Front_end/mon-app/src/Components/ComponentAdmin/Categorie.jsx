@@ -3,6 +3,7 @@ import React from 'react'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import { connect } from 'react-redux'
+import {Link} from 'react-router-dom';
 
 class articlescategorie extends React.Component {
    
@@ -47,13 +48,13 @@ class articlescategorie extends React.Component {
                   
 
                             <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top" src={elem.image} />
+                                        <Link to={`/Article/${elem.id_article}`}><Card.Img variant="top" src={elem.image} /></Link>
                                 <Card.Body>
                                     <Card.Title>{elem.Titre}</Card.Title>
                                     <Card.Text>
                                         {elem.paragraphe}
                                     </Card.Text>
-                                    <Button variant="primary">Go somewhere</Button>
+                                  
                                 </Card.Body>
                             </Card>
 

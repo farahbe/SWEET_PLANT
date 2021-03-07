@@ -3,8 +3,9 @@ import Card from 'react-bootstrap/Card'
 import Button from 'react-bootstrap/Button'
 import {Link} from 'react-router-dom';
 //store
-import {connect} from 'react-redux'
+import {connect} from 'react-redux';
 // import {ajout_article} from '../../store/action/ajout_article'
+
 import "./CSS/Container/ContainerGalerie.css"
 
 
@@ -31,8 +32,9 @@ class ToutArticles extends React.Component {
                
                 {/* log les produits contenue dans le tableau categorielist */}
 
-                <h1>Galerie d'article</h1>
+                <h1>Galerie d'Images</h1>
 
+                <Link to={`/Recherche`}>Voir toutes les categories</Link>
 
                 {this.props.article && this.props.article.map((elem, i) => {
                  // parcours le tableau article dans le reducer grace a .map et insere dans elem et le products de reducer
@@ -43,14 +45,13 @@ class ToutArticles extends React.Component {
                             {/* Integre a la div du template le id qui figure dans l'element grace a la key */}
 
                             <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top" src={elem.image} />
+                            <Link to={`/Article/${elem.id_article}`}><Card.Img variant="top" src={elem.image} /></Link>
                                 {/* Recupere image dans elem */}
                                 <Card.Body>
                                     <Card.Title>{elem.Titre}</Card.Title>
                                     <Card.Text>
                                         {elem.paragraphe}
                                     </Card.Text>
-                                    <Link to={`/Article/${elem.id_article}`}> <Button variant= "primary"  >Submit</Button></Link>
                                     {/* ${elem.id_articles} recupere le id de la bdd et le log dans URL ETAPE 2 */ } 
 
                                 </Card.Body>

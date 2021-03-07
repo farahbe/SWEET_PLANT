@@ -4,6 +4,7 @@ import Form from 'react-bootstrap/Form'
 import Jumbotron from 'react-bootstrap/Jumbotron'
 import Button from 'react-bootstrap/Button'
 import {withRouter} from 'react-router'
+import { Redirect } from 'react-router-dom';
 
 
 class Modifierinfosuser extends Component {
@@ -17,6 +18,20 @@ class Modifierinfosuser extends Component {
             email: '',
             password:'',
             avatar:'',
+            succesMsg: '',
+        }
+    }
+    setRedirect = () => {
+        this.setState({
+            redirect: true
+            //Quand la redirection est TRUE cad la personne c'est logue correctement
+        })
+    }
+
+    renderRedirect = () => {
+        if (this.state.redirect) {
+            return <Redirect to="/Home" />
+            //Redirige vers Dashboard
         }
     }
     //---ONCHANGE
@@ -85,6 +100,7 @@ axios.put(`http://localhost:4000/user/user/${id}`,modifierinfos)
                 // element recoit les data de lobjet correspondant a lID envoyer 
 
             }
+            this.setRedirect();
         })
         
     }
@@ -103,12 +119,30 @@ axios.put(`http://localhost:4000/user/user/${id}`,modifierinfos)
             })
     }
 
+    deleteRow = (id) => {
+
+
+        axios.delete(`http://localhost:4000/user/user/${id}`)
+            .then(res => {
+                console.log(res);
+                console.log(res.data);
+                this.setState({ msgSuccess: "Compte supprime avec succes" })
+
+
+
+            })
+            this.setRedirect();
+    }
+
     render() {
         return (
+            
             <>
             {this.state.infosuser && (
             <div>
+{this.renderRedirect()}
                 <Jumbotron>
+                
                     <h1> Modifier infos user</h1>
 
                     <Form onSubmit={this.handlesubmit} >
@@ -143,6 +177,10 @@ axios.put(`http://localhost:4000/user/user/${id}`,modifierinfos)
                             Modifier
                         </Button>
                     </Form>
+                    <Button variant="primary" onClick={() => { this.deleteRow(this.state.infosuser.id_user) }}>
+                                Supprimer
+                                </Button>
+
                 </Jumbotron>
             </div>
         )}

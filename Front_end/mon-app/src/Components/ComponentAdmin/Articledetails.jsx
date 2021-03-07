@@ -66,7 +66,7 @@ class articlePage extends Component {
                                 <Card.Text>
                                     {this.state.article.paragraphe}
                                 </Card.Text>
-                                <Button variant="primary">Go somewhere</Button>
+                               
                             </Card.Body>
                         </Card>
 

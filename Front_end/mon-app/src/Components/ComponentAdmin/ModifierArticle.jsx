@@ -179,7 +179,7 @@ class ModifierArticle extends Component {
                                 </Form.Group>
 
                                 <Button variant="primary" type="submit">
-                                    Entrer
+                                    Modifier
                                 </Button>
                             </Form>
 

@@ -13,6 +13,7 @@ import { connect } from 'react-redux'
 //-----import component
 import Newsletter from './ComponentUser/Newsletter'
 // import video from './Videos/video.mp4'
+import {Link} from 'react-router-dom';
 //----CSS
 import './ComponentAdmin/CSS/Cards/Cards.css'
 import'./ComponentAdmin/CSS/Cards/Cardsbody.css'
@@ -59,7 +60,7 @@ class Home extends Component {
 
                                     <Card.Body>
                                         <h2 className='titrecard'><Card.Title>{elem.Titre}</Card.Title></h2>
-                                        <Card.Img variant="top" src={elem.image} />
+                                        <Link to={`/Article/${elem.id_article}`}><Card.Img variant="top" src={elem.image} /></Link>
                                         <p className='paragraphe'><Card.Text>
                                             {elem.paragraphe.slice(0, 22)}...
                                             </Card.Text></p>
