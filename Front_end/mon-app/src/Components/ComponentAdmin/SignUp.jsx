@@ -6,6 +6,7 @@ import axios from 'axios'
 import { Redirect } from 'react-router-dom';
 import './validateform.css';
 import './CSS/Forms/Jumbotron.css'
+import '../ComponentAdmin/validateform.css'
 
 
 
@@ -14,8 +15,9 @@ class SignUp extends Component {
     state = {
         email: '',
         password: '',
-        redirect: false
+        redirect: false,
         // Redirection fausse par defaut
+        errors: {},
     }
 
 
@@ -49,6 +51,7 @@ renderRedirect = () => {
     //---------------Onsubmit
      //onSubmit creer un evenement au moment du clic
      buttonSubmit = (event) => {
+         if(this.validateForm()){
         event.preventDefault();
 
         const adminsignup = {
@@ -72,8 +75,49 @@ renderRedirect = () => {
         .catch(error => {
             console.error(error)
         })
+    }
     
     };
+
+    validateForm = () => {
+
+        // let fields = this.state.fields;
+        let errors = {};
+        let formIsValid = true;
+
+        //----EMAIL
+        if (!this.state.email) {
+            formIsValid = false;
+            errors["email"] = "*Entrez votre email.";
+        }
+
+        if (typeof this.state["email"] !== "undefined") {
+            //regular expression for email validation
+            var pattern = new RegExp(/^(("[\w-\s]+")|([\w-]+(?:\.[\w-]+)*)|("[\w-\s]+")([\w-]+(?:\.[\w-]+)*))(@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$)|(@\[?((25[0-5]\.|2[0-4][0-9]\.|1[0-9]{2}\.|[0-9]{1,2}\.))((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\.){2}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[0-9]{1,2})\]?$)/i);
+            if (!pattern.test(this.state["email"])) {
+                formIsValid = false;
+                errors["email"] = "*svp entrez un email valide.";
+            }
+        }
+        //--PASSWORD
+        if (!this.state.password.length) {
+            formIsValid = false;
+            errors["password"] = "*svp entrez votre mot de passe.";
+        }
+        
+         else if (typeof this.state["password"] !== "undefined") {
+            if (this.state.password.length < 8) {
+                formIsValid = false;
+                errors["password"] = "*Entrez un mot de passe valide.";
+            }
+        }
+
+        this.setState({
+            errors: errors
+        });
+        return formIsValid;
+
+    }
 
     render () {
     return (
@@ -86,6 +130,7 @@ renderRedirect = () => {
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label>Email</Form.Label>
                         <Form.Control type="email" placeholder="Enter email" onChange={this.inputemail} />
+                        <div className="errorMsg">{this.state.errors.email}</div>
                         <Form.Text className="text-muted">
                         We'll never share your email with anyone else.
                         </Form.Text>
@@ -94,6 +139,7 @@ renderRedirect = () => {
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label>Password</Form.Label>
                         <Form.Control type="password" placeholder="Password" onChange={this.inputpassword} />
+                        <div className="errorMsg">{this.state.errors.password}</div>
                     </Form.Group>
                     
                     <div className='bouttonform'>

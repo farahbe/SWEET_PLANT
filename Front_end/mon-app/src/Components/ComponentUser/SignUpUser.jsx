@@ -157,19 +157,7 @@ class SignUpUser extends Component {
             }
         }
 
-        //----Date de naissance
-        // if (!this.state["date_de_naissance"]) {
-        //     formIsValid = false;
-        //     errors["date_de_naissance"] = "*Entrez votre date de naissance.";
-        // }
-
-        // if (typeof this.state["date_de_naissance"] !== "undefined") {
-        //     if (!this.state["date_de_naissance"].match(/^[0-9]{2}-[0-9]{2}-[0-9]{4}$/)) {
-        //         formIsValid = false;
-        //         errors["date_de_naissance"] = "*Entrez une date de naissance valide.";
-        //     }
-        // }
-
+       
         this.setState({
             errors: errors
         });
@@ -231,12 +219,6 @@ class SignUpUser extends Component {
                             <Form.Text className="text-muted"> Veuillez rentrer votre Date de naissance </Form.Text>
                         </Form.Group> */}
 
-                       
-
-                        {/* <Form.Group>
-                        <Form.Label> Avatar </Form.Label>
-                             <Form.File id="exampleFormControlFile1" label="Choisir votre Avatar" />
-                        </Form.Group> */}
 
                         <Form.Group controlId="formBasicimage">
                                     <Form.Label>Image</Form.Label>
