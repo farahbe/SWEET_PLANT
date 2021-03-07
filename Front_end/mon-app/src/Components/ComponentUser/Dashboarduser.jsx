@@ -12,7 +12,7 @@ class Dashboarduser extends Component {
            
             <div>
              < Modifierinfosuser />
-               <h1> Dashboard user</h1>
+               <h1> Votre Dashboard</h1>
             </div>
         )
     }

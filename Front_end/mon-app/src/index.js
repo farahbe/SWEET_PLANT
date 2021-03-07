@@ -72,8 +72,8 @@ const myRouter = (
       {/* <Route path="/Nav" component={Nav} /> */}
       <Route path="/About" component={About} />
       {/* <Route path="/Newsletter" component={Newsletter} /> */}
-      <Route path="/Dashboarduser/:id" component={Dashboarduser} />
-      <Route path="/Modifierinfosuser/:id" component={Modifierinfosuser} />
+      {/* <Route path="/Dashboarduser/:id" component={Dashboarduser} /> */}
+      {/* <Route path="/Modifierinfosuser/:id" component={Modifierinfosuser} /> */}
       {/* <Route path="/Ecrirecommentaire/:id" component={Ecrirecommentaire} /> */}
 
 
@@ -82,9 +82,9 @@ const myRouter = (
       <PrivateRoute path="/Dashboard" component={Dashboard} />
       <PrivateRoute path="/ModifierArticle/:id" component={ModifierArticle} />
 
-        {/* //PRIVATE ROUTE USER */}
-       
-    
+        {/* //PRIVATE ROUTE USER */}     
+        <PrivateRoute path="/Modifierinfosuser/:id" component={Modifierinfosuser} />
+        <PrivateRoute path="/Dashboarduser/:id" component={Dashboarduser} />
 
       </Switch> 
    <Footer />   

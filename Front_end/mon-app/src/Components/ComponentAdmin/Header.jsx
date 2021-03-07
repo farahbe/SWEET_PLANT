@@ -81,12 +81,12 @@ class headerAdmin extends React.Component {
 
                     <Link to="/Home"><h6>SWEET PLANT</h6></Link>
                         <span>
-                            <li><Link to="/Home" className='headertitle'> Home</Link></li>
-                            <li><Link to="/Dashboard" className='headertitle'>Dashboard</Link></li>
+                            <li><Link to="/Home" className='headertitle'> Acceuil</Link></li>
+                            <li><Link to="/Dashboard" className='headertitle'>Profil</Link></li>
                             <li><Link to="/CreateArticle" className='headertitle'>CreateArticle</Link></li>
                             <li><Link to="/Galerie" className='headertitle'>ToutArticle</Link></li>
                             <li><Link to="/Recherche" className='headertitle'>Recherche</Link></li>
-                            <li><Link to="/About" className='headertitle'>About</Link></li>
+                            <li><Link to="/About" className='headertitle'>A propos</Link></li>
 
                             <li onClick={this.logout}>Logout</li>
                         </span>
@@ -103,12 +103,12 @@ class headerAdmin extends React.Component {
                 <Link to="/Home"><h6>SWEET PLANT</h6></Link>
                     
                 <span>
-                    <li><Link to="/Home" className='headertitle'>Page d'Accueil</Link></li>
+                    <li><Link to="/Home" className='headertitle'>Acceuil</Link></li>
                     <li><Link to="/Galerie" className='headertitle'>Galerie</Link></li>
-                   
-                    <li><Link to="/About" className='headertitle'>About</Link></li>
+                    <li><Link to="/Dashboarduser" className='headertitle'>Profil</Link></li>
+                    <li><Link to="/About" className='headertitle'>A propos</Link></li>
                     <li><Link to="/Recherche" className='headertitle'>Recherche</Link></li>
-                    <li onClick={this.logout}>Logout</li>
+                    <li onClick={this.logout}>Deconnexion</li>
 
 
                 </span>
@@ -131,9 +131,9 @@ class headerAdmin extends React.Component {
                                     <li><Link to="/SignUpUser" className='headertitle'>S'enregistrer</Link></li>
                                     <li><Link to="/SignInUser" className='headertitle'>Se connecter</Link></li>
                                     <li><Link to="/Galerie" className='headertitle'>Galerie</Link></li>                                  
-                                    <li><Link to="/About" className='headertitle'>About</Link></li>
+                                    <li><Link to="/About" className='headertitle'>A propos</Link></li>
                                     <li><Link to="/Recherche" className='headertitle'>Recherche</Link></li>
-                                    <li onClick={this.logout}>Logout</li>
+                                    <li onClick={this.logout}>Deconnexion</li>
                                 </span>
                             )}
 
