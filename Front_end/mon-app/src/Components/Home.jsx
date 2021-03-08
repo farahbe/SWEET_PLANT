@@ -21,6 +21,7 @@ import "./ComponentAdmin/CSS/Cards/Cardstitle.css"
 import "./ComponentAdmin/CSS/Cards/Buttonjaune.css"
 import "./ComponentAdmin/CSS/Cards/Cardstext.css"
 import './ComponentAdmin/CSS/Container/ContainerHome.css'
+import './ComponentAdmin/CSS/Container/Containervideo.css'
 
 
 class Home extends Component {
@@ -41,9 +42,9 @@ class Home extends Component {
         return (
             <div>
                 <header className='header'>
-                    <img class="imagehead" src={green} alt="plantes bananier" width="1180" height="400" /> 
+                    <img class="imagehead" src={green} alt="plantes bananier" width="auto" height="400" /> 
                      {/* <video autoPlay loop muted>
-                        <source src={video} type="video/mp4" width="1100" height="400"/>
+                        <source  src={video} type="video/mp4" width="1100" height="400"/>
                     </video> */}
                 </header>
 

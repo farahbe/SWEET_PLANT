@@ -3,12 +3,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Arvo&family=Cormorant+Garamond:wght@500&display=swap');
 
 
-.header{
+header{
+    border: black 10px solid;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    
-   
+
+       
 }
 h2.titrecard{
    
@@ -25,7 +26,7 @@ border: red 3px solid;
 }
 
 .jpp{
-border: cadetblue 3px solid;
+border: pink 3px solid;
 height: auto;
 /* display: block; */
 align-content: center;

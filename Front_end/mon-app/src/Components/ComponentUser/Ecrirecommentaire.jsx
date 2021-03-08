@@ -4,7 +4,10 @@ import { Jumbotron } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import jwt from 'jsonwebtoken'
-import {withRouter} from "react-router-dom"
+import { withRouter } from "react-router-dom"
+import '../ComponentAdmin/CSS/Container/ContainerEcrireArticle.css'
+import '../ComponentAdmin/CSS/Forms/Jumbotroncommentaire.css'
+import '../ComponentAdmin/CSS/Cards/Buttonjaune.css'
 
 
 class Ecrirecommentaire extends Component {
@@ -26,56 +29,51 @@ class Ecrirecommentaire extends Component {
     buttonsubmit = event => {
         event.preventDefault();
 
-const { id } = this.props.match.params
+        const { id } = this.props.match.params
 
-let decodetoken = jwt.decode(localStorage.getItem("token"))
+        let decodetoken = jwt.decode(localStorage.getItem("token"))
         const para = {
             commentaire: this.state.paragraphe,
-            id_article: id, 
-            id_user: decodetoken.id,
+            id_article: id,
+            id_user: decodetoken.id_user,
         }
-        
-        axios.post('http://localhost:4000/user/postcomments',para)
-        .then(res => {
-            this.setState({paragraphe: ''});
 
-            if (res.status === 200) {
-                console.log(res);
-                console.log(res.data);
-                this.setState({ msgSuccess: "commentaire ajoute avec succès" })
+        axios.post('http://localhost:4000/user/postcomments', para, { headers: { Authorization: `Bearer ${localStorage.getItem('token')}` } })
+            .then(res => {
+                this.setState({ paragraphe: '' });
 
-                this.setState({paramodifier: res.data[0] });
-                // element recoit les data de lobjet correspondant a lID envoyer 
+                if (res.status === 200) {
+                    console.log(res);
+                    console.log(res.data);
+                    this.setState({ msgSuccess: "commentaire ajoute avec succès" })
 
-            }
-        })
-        .catch(error => {
-            console.error(error)
-        })
+                    this.setState({ paramodifier: res.data[0] });
+                    // element recoit les data de lobjet correspondant a lID envoyer 
 
+                }
+            })
+            .catch(error => {
+                console.error(error)
+            })
 
     }
 
     render() {
-        return(
-            <div>
-                <Jumbotron>
-                <h1>ecris ton commentaire</h1>
-                <Form onSubmit={this.buttonsubmit}>
-                   
+        return (
+            <div className='ecrirecomments'>
+                <Jumbotron className='Jumbotroncommentaire'>
+                    <h2>Ecris ton commentaire</h2>
+                    <Form onSubmit={this.buttonsubmit}>
 
-                    <Form.Group controlId="formBasicparagraphe">
-                        <Form.Label className='para'>Paragraphe</Form.Label>
-                        <Form.Control className="text2" as="textarea" placeholder="Entrez votre paragraphe" onChange={this.inputparagraphe} />
-                       
-                    </Form.Group>
-
-                    <Button className='button' variant="primary" type="submit">
-                        Entrer
-                    </Button>
-                    
+                        <Form.Group controlId="formBasicparagraphe">
+                            <Form.Control className="text2" as="textarea" placeholder="Entrez votre paragraphe" onChange={this.inputparagraphe} />
+                        </Form.Group>
+                        <div className='boutton'>
+                            <Button className='b' className='button' variant="primary" type="submit">
+                                Entrer
+                        </Button>
+                        </div>
                     </Form>
-                
                 </Jumbotron>
             </div>
         )

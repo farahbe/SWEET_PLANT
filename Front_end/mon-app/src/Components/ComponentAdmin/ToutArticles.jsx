@@ -31,10 +31,10 @@ class ToutArticles extends React.Component {
             <div className="divgalerie">
                
                 {/* log les produits contenue dans le tableau categorielist */}
-
+                <div className='titregalerie'>
                 <h1>Galerie d'Images</h1>
-
-                <Link to={`/Recherche`}>Voir toutes les categories</Link>
+                <Link to={`/Recherche`} className='voircategorie'>Voir toutes les categories</Link>
+                </div>
 
                 {this.props.article && this.props.article.map((elem, i) => {
                  // parcours le tableau article dans le reducer grace a .map et insere dans elem et le products de reducer

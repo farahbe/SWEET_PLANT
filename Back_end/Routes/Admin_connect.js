@@ -13,6 +13,8 @@ router.use("/sign-up", middleware.emailMiddleware)
 
 router.post('/sign-up', (req, res) => {
     try {
+        if (!req.body.email) throw 'NO Email';
+        if (!req.body.password) throw 'NO password';   
         console.log(req.body);
         bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
             console.log(hash);
@@ -34,9 +36,10 @@ router.post('/sign-up', (req, res) => {
 
 
 // Connexion pour l'admin
-
 router.post('/sign-in', function (req, res) {
     try {
+        if (!req.body.email) throw 'NO Email';
+        if (!req.body.password) throw 'NO password';
         console.log('je rentre dans signin');
         con.query(`SELECT*FROM administrateur WHERE Email = '${req.body.email}'`, function (err, result) {
             if (result.length) {
@@ -73,9 +76,12 @@ router.post('/sign-in', function (req, res) {
 
 //Creer un article
 router.use("/articles", middleware.tokenadmin)
-
 router.post('/articles', function (req, res) {
     try {
+        if (!req.body.titre) throw 'NO Email';
+        if (!req.body.paragrphe) throw 'NO password';
+        if (!req.body.image) throw 'NO password';
+        if (!req.body.id_categorie) throw 'NO password';
         console.log(req.body);
         let addarticle = `INSERT INTO articles (titre,paragraphe,image,date_de_publication,id_admin,id_categorie) VALUES ('${req.body.titre}','${req.body.paragraphe}','${req.body.image}','${req.body.date_de_publication}','${req.body.id_admin}','${req.body.id_categorie}')`;
         con.query(addarticle, function (err, result) {
@@ -153,7 +159,7 @@ router.get('/get_article/:id', function (req, res) {
         res.status(203).send(error)
     }
 })
-
+// Recuperer tout les articles
 router.get('/getarticles', function (req, res) {
     con.query('SELECT * FROM articles', function (err, results){
         if (err) res.status(203).send(err)
@@ -167,6 +173,7 @@ router.get('/getarticles', function (req, res) {
 //-----------------------------------CATEGORIE----------------------------------
 
 //poster les categories
+router.use("/categorie", middleware.tokenadmin)
 router.post('/categorie', function (req, res) {
     try {
         let addcategorie = `INSERT INTO categorie (id_nom_categorie,Nom_categorie,Date_de_creation) VALUES ('${req.params.id_nom_categorie}','${req.body.Nom_categorie}','${req.params.Date_de_creation}')`;

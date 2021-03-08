@@ -43,6 +43,8 @@ router.post('/sign-up', (req, res) => {
 //Connecxion au compte de l'utilisateur
 router.post('/sign-in', function (req, res) {
     try {
+        if (!req.body.email) throw 'NO Email';
+        if (!req.body.password) throw 'NO password';
         con.query(`SELECT * FROM user WHERE Email = '${req.body.email}'`, function (err, result) {
             console.log(result);
              
@@ -67,6 +69,8 @@ router.post('/sign-in', function (req, res) {
     }
 })
 
+// Recuperer les infos user a son id
+router.use('/user/:id', middleware.tokenuser)
 router.get('/user/:id', (req, res)=> {
     try {
        
@@ -82,9 +86,8 @@ router.get('/user/:id', (req, res)=> {
     }
 
 })
-
-
 // Suprimmer son compte user
+router.use('/user/:id', middleware.tokenuser)
 router.delete('/user/:id', function (req, res){
     try {
         con.query("DELETE FROM user WHERE id_user = ?", [req.params.id], function (err, result) {
@@ -98,18 +101,18 @@ router.delete('/user/:id', function (req, res){
 })
 
 // Modifier le compte user
+router.use('/user/:id_user', middleware.tokenuser)
 router.put('/user/:id_user', function (req, res) {
     try {
-        bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
 
         let change_user = `UPDATE user SET pseudo = '${req.body.pseudo}', prenom = '${req.body.prenom}', 
-        email = '${req.body.email}', password = '${hash}', Date_de_naissance = '${req.body.date_de_naissance}', avatar = '${req.body.avatar}' WHERE id_user = '${req.params.id_user}'`;
+        email = '${req.body.email}', Date_de_naissance = '${req.body.date_de_naissance}', avatar = '${req.body.avatar}' WHERE id_user = '${req.params.id_user}'`;
 
     con.query(change_user, function(err, result){
         if (err) throw err;
         console.log(result);
         res.status(200).send(result)
-    })
+   
     })      
     } catch (error) {
         res.status(400);
@@ -122,8 +125,7 @@ router.put('/user/:id_user', function (req, res) {
  //------------------------------------------------COMMENTAIRE USER--------------------------------------------
 
 // Poster un commentaire utilisateur
-// router.use('/postcomments', middleware.tokenuser)
-
+router.use('/postcomments', middleware.tokenuser)
 router.post('/postcomments', (req, res)=> {
     try {
         let addcomment = `INSERT INTO commentaires_user (pseudo, commentaire, avatar, date_de_commentaire, id_article, id_user) VALUE ('NULL','${req.body.commentaire}','NULL','${new Date}','${req.body.id_article}','${req.body.id_user}')`;
@@ -140,6 +142,7 @@ router.post('/postcomments', (req, res)=> {
     })
            
 // Modifier le commentaire d'un utilisateur
+router.use('/postcomments/:id_commentaire_user', middleware.tokenuser)
 router.put('/postcomments/:id_commentaire_user', function (req, res) {
     try {
 
@@ -161,6 +164,7 @@ router.put('/postcomments/:id_commentaire_user', function (req, res) {
 
 // Supprimer son commentaire
 
+router.use('/postcomments/:id', middleware.tokenuser)
 router.delete('/postcomments/:id', function (req, res){
     try {
         con.query("DELETE FROM commentaires_user WHERE id_commentaire_user = ?", [req.params.id], function (err, result) {
@@ -174,6 +178,7 @@ router.delete('/postcomments/:id', function (req, res){
 })
 
 // recupere commentaire du user (ID)
+router.use('/postcomments/:id', middleware.tokenuser)
 router.get('/postcomments/:id', (req, res)=> {
     try {
        
@@ -190,6 +195,7 @@ router.get('/postcomments/:id', (req, res)=> {
 
 })
 
+//Commentaires qui correspondent a l'id de l'article
 router.get('/commentsbypostid/:id', (req, res)=> {
     try {
        
@@ -207,7 +213,6 @@ router.get('/commentsbypostid/:id', (req, res)=> {
 })
 
 //recupere tout les commentaires
-
 router.get('/postcomments', function (req, res) {
     con.query(`SELECT * FROM commentaires_user `, (err, result) => {
         if (err) res.send(err)
@@ -247,15 +252,5 @@ router.post('/ajoutadresse', function (req, res) {
 })
   
 
-// router.get('/users', function (req, res) {
-//     try{
-//         con.query('SELECT name, id FROM user', function (err, result) {
-//             if (err) throw (err)
-//             res.send(result)
-//         })
-//     } catch (error){
-//         res.status(203).send(error)
-//     }    
-// })
 
 module.exports = router

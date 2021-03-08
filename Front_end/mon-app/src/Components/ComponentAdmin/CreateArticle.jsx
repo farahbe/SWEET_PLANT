@@ -17,7 +17,7 @@ class CreateArticle extends Component {
      titre: '',
       paragraphe: '',
       image: '',
-      Date_de_publication: '',
+    //   Date_de_publication: '',
       categorie:0,
       redirect: false
       
@@ -52,7 +52,7 @@ class CreateArticle extends Component {
     inputcategorie = event => {
         this.setState({ categorie: event.target.value });
     }
-    // inputimage = event => {
+    // inputdatedepublication = event => {
     //     this.setState({ Date_de_publication: event.target.value });
     // }
     
@@ -67,7 +67,7 @@ class CreateArticle extends Component {
             titre: this.state.titre,
             paragraphe: this.state.paragraphe.replaceAll("'"," "),
             image: this.state.image,
-            Date_de_publication: this.state.Date_de_publication,
+            // Date_de_publication: this.state.Date_de_publication,
             id_categorie: this.state.categorie,
             id_admin: this.props.id
            
@@ -82,7 +82,7 @@ class CreateArticle extends Component {
             this.setState({titre:''});
             this.setState({paragraphe:''});
             this.setState({image:''});
-            this.setState({Date_de_publication:''});
+            // this.setState({Date_de_publication:''});
            //Modifie les donnees et les rboots avec ""
 
 
@@ -128,11 +128,11 @@ class CreateArticle extends Component {
                             <Form.Control className='text3' type="texte"  placeholder="Image"  onChange={this.inputimage} />
                         </Form.Group> 
 
-                    <Form.Group controlId="formBasicDate_de_publication">
+                    {/* <Form.Group controlId="formBasicDate_de_publication">
                            
-                            <Form.Control className='text4' type="date"name="Date_de_publication"  onChange={this.inputDate_de_publication} />
+                            <Form.Control className='text4' type="date"name="Date_de_publication"  onChange={this.inputdatedepublication} />
                             {/* <div className="errorMsg">{this.state.errors.Date_de_publication}</div> */}
-                        </Form.Group>
+                        {/* </Form.Group> */} 
 
                         <Form.Group controlId="formBasicCategorie">
                         

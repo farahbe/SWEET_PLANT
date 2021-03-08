@@ -6,6 +6,7 @@ import Card from 'react-bootstrap/Card'
 import { connect } from 'react-redux'
 import { enregistrecommentaire } from '../../store/action/commentaires'
 import Ecrirecommentaire from '../ComponentUser/Ecrirecommentaire'
+import './CSS/Container/ContainerArticleSelectionner.css'
 
 
 
@@ -55,14 +56,14 @@ class articlePage extends Component {
             <>
             
                 {this.state.article && (
-                    <div>
+                    <div className='articleselectionner'>
                         
-                        <h1>Voici l'article selectionner</h1>
-
-                        <Card style={{ width: '18rem' }}>
-                            <Card.Img variant="top" src={this.state.article.image} />
+                        <Card classname='cardarticle' style={{ width: '18rem' }}>
+                        
+                            
                             <Card.Body>
                                 <Card.Title>{this.state.article.Titre}</Card.Title>
+                                <Card.Img variant="top" src={this.state.article.image} />
                                 <Card.Text>
                                     {this.state.article.paragraphe}
                                 </Card.Text>
@@ -82,12 +83,12 @@ class articlePage extends Component {
                 console.log(elem);
                     return (
                          
-                        <div key={elem.id_article}>
+                        <div  key={elem.id_article}>
                             
 
                             <Card style={{ width: '18rem' }}>
                                 <Card.Img variant="top" src={elem.avatar_user} />
-                                <Card.Body>
+                                <Card.Body  className='cardarticleselectionner'>
                                     <Card.Title>{elem.pseudo_user}</Card.Title>
                                     <Card.Text>
                                         {elem.commentaire}

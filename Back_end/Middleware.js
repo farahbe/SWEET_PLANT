@@ -44,7 +44,7 @@ const emailMiddleware = (req, res, next) => {
         console.log(err);
         if (results.length) {
             // console.log('err email already exist')
-            res.status(203).send("Cet email existe deja")
+            res.status(400).send("Cet email existe deja")
         } else {
             next()
         }

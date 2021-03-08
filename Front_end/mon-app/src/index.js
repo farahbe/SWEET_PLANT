@@ -39,7 +39,7 @@ import 'mdbreact/dist/css/mdb.css';
 
 //------Private Route
 import PrivateRoute from './privateroute.js/privateRouteAdmin'
-// import PrivateRouteUser from './privateroute.js/privateRouteUser'
+import PrivateRouteUser from './privateroute.js/privateRouteUser'
 
 
 
@@ -83,8 +83,8 @@ const myRouter = (
       <PrivateRoute path="/ModifierArticle/:id" component={ModifierArticle} />
 
         {/* //PRIVATE ROUTE USER */}     
-        <PrivateRoute path="/Modifierinfosuser/:id" component={Modifierinfosuser} />
-        <PrivateRoute path="/Dashboarduser/:id" component={Dashboarduser} />
+        <PrivateRouteUser path="/Modifierinfosuser/:id" component={Modifierinfosuser} />
+        <PrivateRouteUser path="/Dashboarduser/:id" component={Dashboarduser} />
 
       </Switch> 
    <Footer />   

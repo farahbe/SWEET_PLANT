@@ -28,7 +28,8 @@ class SignInUser extends Component {
 
     renderRedirect = () => {
         if (this.state.redirect) {
-            return <Redirect to="/Dashboard"/>
+            const decodetoken= jwt.decode(localStorage.getItem('token'))
+            return <Redirect to= {`/Dashboarduser/${decodetoken.id_user}`}/>
             //Redirige vers Dashboard
         }
     }

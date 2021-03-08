@@ -82,7 +82,7 @@ class Modifierinfosuser extends Component {
     const { id } = this.props.match.params
     // On passe les props a la const id_article
 
-axios.put(`http://localhost:4000/user/user/${id}`,modifierinfos)
+axios.put(`http://localhost:4000/user/user/${id}`,modifierinfos, {headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }})
         .then(res => {
             console.log(res.data);
             this.setState({ pseudo: '' });
@@ -111,7 +111,7 @@ axios.put(`http://localhost:4000/user/user/${id}`,modifierinfos)
        
         const { id } = this.props.match.params
 
-        axios.get(`http://localhost:4000/user/user/${id}`)
+        axios.get(`http://localhost:4000/user/user/${id}`,{headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }})
 
             .then(res => {
                 console.log(res.data);
@@ -122,7 +122,7 @@ axios.put(`http://localhost:4000/user/user/${id}`,modifierinfos)
     deleteRow = (id) => {
 
 
-        axios.delete(`http://localhost:4000/user/user/${id}`)
+        axios.delete(`http://localhost:4000/user/user/${id}`,{headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }})
             .then(res => {
                 console.log(res);
                 console.log(res.data);
@@ -161,10 +161,6 @@ axios.put(`http://localhost:4000/user/user/${id}`,modifierinfos)
                             <Form.Control type="email" value={this.state.infosuser.email} onChange={this.inputemail} />
                         </Form.Group>
 
-                        <Form.Group controlId="formBasicpassword">
-                            <Form.Label>Mot de passse</Form.Label>
-                            <Form.Control type="text" value={this.state.infosuser.password} onChange={this.inputpassword} />
-                        </Form.Group>
 
                         <Form.Group controlId="formBasicavatar">
                             <Form.Label>Avatar</Form.Label>

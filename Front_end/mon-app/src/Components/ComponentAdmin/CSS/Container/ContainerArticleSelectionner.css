@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Lateef&display=swap');
+.articleselectionner{
+    border: violet 3px solid;
+    height: auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+   
+    
+}
+.card.cardarticle{
+    border: brown 3px solid;
+}
+h2{
+    font-family: 'Lateef', cursive;
+}

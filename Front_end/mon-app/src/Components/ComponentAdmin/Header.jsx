@@ -96,6 +96,7 @@ class headerAdmin extends React.Component {
             //-------------USER
 
         } else if (this.state.decoded.user === true) {//si tes un user connecter
+        
             return (
                 <div className='headerdiv'>
                 <ul>
@@ -105,7 +106,7 @@ class headerAdmin extends React.Component {
                 <span>
                     <li><Link to="/Home" className='headertitle'>Acceuil</Link></li>
                     <li><Link to="/Galerie" className='headertitle'>Galerie</Link></li>
-                    <li><Link to="/Dashboarduser" className='headertitle'>Profil</Link></li>
+                    <li><Link to={`/Dashboarduser/${this.state.decoded.id_user}`} className='headertitle'>Profil</Link></li>
                     <li><Link to="/About" className='headertitle'>A propos</Link></li>
                     <li><Link to="/Recherche" className='headertitle'>Recherche</Link></li>
                     <li onClick={this.logout}>Deconnexion</li>
