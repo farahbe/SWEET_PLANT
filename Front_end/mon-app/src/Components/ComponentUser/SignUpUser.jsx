@@ -6,6 +6,7 @@ import axios from 'axios'
 import { Redirect } from 'react-router-dom';
 import "../ComponentAdmin/CSS/Forms/Jumbotronsignup.css"
 import "../ComponentAdmin/CSS/Page/pagesignupuser.css"
+import hhh from '../Images/hhh.jpg';
 
 
 class SignUpUser extends Component {
@@ -168,6 +169,8 @@ class SignUpUser extends Component {
     render() {
         return (
             <div id='signupuserpage'>
+            <img class="imagesignup" src={hhh} alt="plantes bananier" width="auto" height="400" /> 
+
                 <Jumbotron className='signup'>
                     
                     <p>{this.state.succesMsg}</p>

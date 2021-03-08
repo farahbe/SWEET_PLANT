@@ -8,6 +8,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { creatstorearticle } from '../../store/action/ajout_article';// const dans l'action
 import './CSS/Container/ContainerCreatArticle.css'
+import lll from '../Images/lll.jpg'
 
 
 class CreateArticle extends Component {
@@ -104,6 +105,8 @@ class CreateArticle extends Component {
         
         
             <div>
+            <img class="imagecreatarticle" src={lll} alt="plantes bananier" width="auto" height="400" /> 
+
                 <Jumbotron>
                 <h2>CREER VOTRE ARTICLE</h2>
                 {this.renderRedirect()}

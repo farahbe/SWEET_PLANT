@@ -9,6 +9,9 @@ import { Redirect } from 'react-router-dom';
 import {connect} from 'react-redux'
 import {signinadmin} from '../../store/action/admin'
 import '../ComponentAdmin/CSS/Forms/Jumbotron.css'
+import '../ComponentAdmin/CSS/Container/ContainerSignIn.css'
+
+import jungle from '../Images/jungle.jpeg';
 
 class SignInUser extends Component {
     state = {
@@ -92,6 +95,9 @@ class SignInUser extends Component {
 
 render() {
     return(
+        <div className='signin'>
+     <img class="imagesignin" src={jungle} alt="plantes bananier" width="auto" height="400" /> 
+
             <Jumbotron>
                  {this.renderRedirect()}
                     <h1>Connectez-vous!</h1>
@@ -119,6 +125,7 @@ render() {
                         </div>
                      </Form>
             </Jumbotron>
+            </div>
         )
     }
 

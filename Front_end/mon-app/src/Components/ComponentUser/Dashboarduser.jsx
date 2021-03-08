@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Modifierinfosuser from './Modifierinfosuser'
+import '../ComponentAdmin/CSS/Container/ContainerDashboardUser.css'
+import qqq from '../Images/qqq.jpg';
 
 
 class Dashboarduser extends Component {
@@ -9,10 +11,13 @@ class Dashboarduser extends Component {
 
     render() {
         return(
-           
-            <div>
+          
+            <div className='dashboarduser'>
+             <h1> Votre Dashboard</h1>       
+            <img class="imagedshboarduser" src={qqq} alt="plantes bananier" width="auto" height="400" /> 
+
              < Modifierinfosuser />
-               <h1> Votre Dashboard</h1>
+            
             </div>
         )
     }

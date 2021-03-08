@@ -69,9 +69,9 @@ class Ecrirecommentaire extends Component {
                             <Form.Control className="text2" as="textarea" placeholder="Entrez votre paragraphe" onChange={this.inputparagraphe} />
                         </Form.Group>
                         <div className='boutton'>
-                            <Button className='b' className='button' variant="primary" type="submit">
+                            <Button className='b' variant="primary" type="submit">
                                 Entrer
-                        </Button>
+                    </Button>
                         </div>
                     </Form>
                 </Jumbotron>

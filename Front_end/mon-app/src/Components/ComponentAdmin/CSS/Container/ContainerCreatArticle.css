@@ -1,9 +1,15 @@
 .divcreatarticle{
-    border: chartreuse 3px solid;
+    
     display: flex;
     align-items: center;
     flex-direction: column; 
-    width: 1200px;
-    height: 440px;
+    width: 1260px;
+    height: 500px;
     position: relative;
+    
+}
+.imagecreatarticle{
+    height: 500px;
+    width: 1250px;
+  
 }

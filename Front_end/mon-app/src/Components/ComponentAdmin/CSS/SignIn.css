@@ -1,5 +1,5 @@
 .principale{
-    border: green solid 3px;
+
     position:absolute;
 	left:50%;
 	top:70%;
@@ -24,7 +24,7 @@ body{
 	/* font-family: 'Noto Sans', sans-serif; */
 } */
 Form{
-    border: yellow 3px solid;
+  
 
 }
 

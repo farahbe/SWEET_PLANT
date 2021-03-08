@@ -4,7 +4,7 @@
 
 
 header{
-    border: black 10px solid;
+  
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -16,7 +16,7 @@ h2.titrecard{
     font-family: 'Cormorant Garamond', serif;
 }
 .cardHome{
-border: red 3px solid;
+
     width: 250px;
     height: 450px;
     box-shadow: none !important;
@@ -26,7 +26,7 @@ border: red 3px solid;
 }
 
 .jpp{
-border: pink 3px solid;
+
 height: auto;
 /* display: block; */
 align-content: center;

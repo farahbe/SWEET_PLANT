@@ -1,3 +1,9 @@
 #signupuserpage{
-    height: 150vh;
+   
+    height: 160vh;
+}
+.imagesignup{
+border: black 3px solid;
+height: 900px;
+width: 1260px;
 }

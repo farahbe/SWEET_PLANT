@@ -2,7 +2,7 @@
 
 
 .contain{
-   border: blueviolet 3px solid;
+  
     display: flex;
     justify-content: space-between;
     align-items: center;

@@ -76,7 +76,7 @@ class articlePage extends Component {
 
                 )}
 
-               <h3>commentaires</h3>
+              
                     < Ecrirecommentaire />
                    
                 {this.state.commentaire && this.state.commentaire.map((elem, i) => {

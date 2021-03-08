@@ -5,6 +5,7 @@ import Jumbotron from 'react-bootstrap/Jumbotron'
 import Button from 'react-bootstrap/Button'
 import {withRouter} from 'react-router'
 import { Redirect } from 'react-router-dom';
+import '../ComponentAdmin/CSS/Forms/h2.css'
 
 
 class Modifierinfosuser extends Component {
@@ -143,7 +144,7 @@ axios.put(`http://localhost:4000/user/user/${id}`,modifierinfos, {headers: { Aut
 {this.renderRedirect()}
                 <Jumbotron>
                 
-                    <h1> Modifier infos user</h1>
+                    <h2> MODIFIER VOS INFOS</h2>
 
                     <Form onSubmit={this.handlesubmit} >
                         <Form.Group controlId="formBasicpseudo">
@@ -167,15 +168,19 @@ axios.put(`http://localhost:4000/user/user/${id}`,modifierinfos, {headers: { Aut
                             <Form.Control type="picture"  value={this.state.infosuser.avatar} onChange={this.inputavatar} />
                         </Form.Group>
 
-                        
 
-                        <Button variant="primary" type="submit">
-                            Modifier
+                        <div className='boutton'>
+                        <Button className='b' variant="primary" type="submit">
+                         mODIFIER
                         </Button>
+                        </div>
+
                     </Form>
-                    <Button variant="primary" onClick={() => { this.deleteRow(this.state.infosuser.id_user) }}>
-                                Supprimer
-                                </Button>
+                    <div className='boutton'>
+                    <Button  className='b'variant="primary" onClick={() => { this.deleteRow(this.state.infosuser.id_user) }}>
+                    Supprimer
+                    </Button>
+                    </div>
 
                 </Jumbotron>
             </div>

@@ -7,6 +7,8 @@ import { Redirect } from 'react-router-dom';
 import './validateform.css';
 import './CSS/Forms/Jumbotron.css'
 import '../ComponentAdmin/validateform.css'
+import './CSS/Container/ContainerSignUpAdmin.css'
+import nnn from '../Images/nnn.jpg';
 
 
 
@@ -121,7 +123,9 @@ renderRedirect = () => {
 
     render () {
     return (
-        <div>
+        <div className='signupAdmin'>
+                <img class="imagesigninadmin" src={nnn} alt="plantes bananier" width="auto" height="400" /> 
+           
             {this.renderRedirect()}
             <Jumbotron>
                 <h1>Creer un compte Admin !</h1>

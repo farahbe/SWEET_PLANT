@@ -79,9 +79,9 @@ router.use("/articles", middleware.tokenadmin)
 router.post('/articles', function (req, res) {
     try {
         if (!req.body.titre) throw 'NO Email';
-        if (!req.body.paragrphe) throw 'NO password';
-        if (!req.body.image) throw 'NO password';
-        if (!req.body.id_categorie) throw 'NO password';
+        if (!req.body.paragrphe) throw 'NO paragraphe';
+        if (!req.body.image) throw 'NO image';
+        if (!req.body.id_categorie) throw 'NO categorie';
         console.log(req.body);
         let addarticle = `INSERT INTO articles (titre,paragraphe,image,date_de_publication,id_admin,id_categorie) VALUES ('${req.body.titre}','${req.body.paragraphe}','${req.body.image}','${req.body.date_de_publication}','${req.body.id_admin}','${req.body.id_categorie}')`;
         con.query(addarticle, function (err, result) {
@@ -173,7 +173,7 @@ router.get('/getarticles', function (req, res) {
 //-----------------------------------CATEGORIE----------------------------------
 
 //poster les categories
-router.use("/categorie", middleware.tokenadmin)
+// router.use("/categorie", middleware.tokenadmin)
 router.post('/categorie', function (req, res) {
     try {
         let addcategorie = `INSERT INTO categorie (id_nom_categorie,Nom_categorie,Date_de_creation) VALUES ('${req.params.id_nom_categorie}','${req.body.Nom_categorie}','${req.params.Date_de_creation}')`;

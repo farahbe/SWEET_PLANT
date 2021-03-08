@@ -12,8 +12,10 @@ import {signinadmin} from '../../store/action/admin';
 import './CSS/Forms/Jumbotron.css'
 import './CSS/H1.css'
 import './CSS/Forms/button.css'
+import './CSS/Container/ContainerSignInAdmin.css'
+import ooo from '../Images/ooo.jpg';
 
-// import fff from '../Images/fff.jpg';
+
 
 
 
@@ -113,7 +115,8 @@ class SignIn extends Component {
           
         return (
             <div className='principale'>
-                {/* <img src={fff} alt="fff" /> */}
+                <img class="imagesigninadmin" src={ooo} alt="plantes bananier" width="auto" height="400" /> 
+
             <Jumbotron>
                 {this.renderRedirect()}
 
