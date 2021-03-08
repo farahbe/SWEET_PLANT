@@ -7,6 +7,7 @@ import { connect } from 'react-redux'
 import { enregistrecommentaire } from '../../store/action/commentaires'
 import Ecrirecommentaire from '../ComponentUser/Ecrirecommentaire'
 import './CSS/Container/ContainerArticleSelectionner.css'
+import './CSS/Image/ImageUser.css'
 
 
 
@@ -59,7 +60,7 @@ class articlePage extends Component {
                     <div className='articleselectionner'>
                         
                         <Card classname='cardarticle' style={{ width: '18rem' }}>
-                        
+                      
                             
                             <Card.Body>
                                 <Card.Title>{this.state.article.Titre}</Card.Title>
@@ -85,9 +86,8 @@ class articlePage extends Component {
                          
                         <div  key={elem.id_article}>
                             
-
                             <Card style={{ width: '18rem' }}>
-                                <Card.Img variant="top" src={elem.avatar_user} />
+                                <Card.Img  className='userimage' variant="top"  src={elem.avatar_user}  />
                                 <Card.Body  className='cardarticleselectionner'>
                                     <Card.Title>{elem.pseudo_user}</Card.Title>
                                     <Card.Text>
