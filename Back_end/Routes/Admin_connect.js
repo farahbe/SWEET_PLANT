@@ -79,7 +79,7 @@ router.use("/articles", middleware.tokenadmin)
 router.post('/articles', function (req, res) {
     try {
         if (!req.body.titre) throw 'NO Email';
-        if (!req.body.paragrphe) throw 'NO paragraphe';
+        if (!req.body.paragraphe) throw 'NO paragraphe';
         if (!req.body.image) throw 'NO image';
         if (!req.body.id_categorie) throw 'NO categorie';
         console.log(req.body);
