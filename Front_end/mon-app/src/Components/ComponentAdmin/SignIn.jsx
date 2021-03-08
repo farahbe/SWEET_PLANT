@@ -110,9 +110,7 @@ class SignIn extends Component {
 
     render() {
         
-            // !this.state.hide &&
-            // <Header />
-          
+                
         return (
             <div className='principale'>
                 <img class="imagesigninadmin" src={ooo} alt="plantes bananier" width="auto" height="400" /> 

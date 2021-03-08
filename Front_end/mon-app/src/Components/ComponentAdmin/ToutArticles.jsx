@@ -50,7 +50,7 @@ class ToutArticles extends React.Component {
                                 <Card.Body>
                                     <Card.Title>{elem.Titre}</Card.Title>
                                     <Card.Text>
-                                        {elem.paragraphe.slice(0, 22)}
+                                        {elem.paragraphe.slice(0, 90)}...
                                     </Card.Text>
                                     {/* ${elem.id_articles} recupere le id de la bdd et le log dans URL ETAPE 2 */ } 
 

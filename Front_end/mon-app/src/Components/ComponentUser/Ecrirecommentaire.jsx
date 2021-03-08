@@ -14,6 +14,7 @@ class Ecrirecommentaire extends Component {
     state = {
         paramodifier: [],
         paragraphe: '',
+        successMsg: '',
 
     }
 
@@ -33,7 +34,7 @@ class Ecrirecommentaire extends Component {
 
         let decodetoken = jwt.decode(localStorage.getItem("token"))
         const para = {
-            commentaire: this.state.paragraphe,
+            commentaire: this.state.paragraphe.replaceAll("'"," "),
             id_article: id,
             id_user: decodetoken.id_user,
         }

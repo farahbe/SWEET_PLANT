@@ -47,7 +47,7 @@ class Dashboard extends Component {
                                 <Card.Body className='body'>
                                     <Card.Title>{elem.Titre}</Card.Title>
                                     <Card.Text>
-                                        {elem.paragraphe}
+                                        {elem.paragraphe.slice(0, 90)}...
                                     </Card.Text>
                                     
                                    <Link to={`/ModifierArticle/${elem.id_article}`}> <Button className="click"  variant= "outline-dark" size='sm' outline={true}>Modifier</Button></Link>

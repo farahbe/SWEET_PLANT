@@ -63,7 +63,7 @@ class Home extends Component {
                                         <h2 className='titrecard'><Card.Title>{elem.Titre}</Card.Title></h2>
                                         <Link to={`/Article/${elem.id_article}`}><Card.Img variant="top" src={elem.image} /></Link>
                                         <p className='paragraphe'><Card.Text>
-                                            {elem.paragraphe.slice(0, 22)}...
+                                            {elem.paragraphe.slice(0, 150)}...
                                             </Card.Text></p>
                                     </Card.Body>
                                     <hr></hr>

@@ -19,6 +19,7 @@ import '../ComponentAdmin/CSS/Forms/Formtitle.css'
 class Newsletter extends Component {
     state = {
         Email: '',
+        successMsg: '',
     }
 
     //onChange
@@ -40,6 +41,9 @@ class Newsletter extends Component {
                 this.setState({ Email: '' });
 
                 this.props.ajout_email(adresseuser)
+
+                this.setState({successMsg: 'EMAIL AJOUTE AVEC SUCCES'})
+
             })
             .catch(error => {
                 console.error(error)
@@ -51,6 +55,8 @@ class Newsletter extends Component {
             <div>
 
                 <div className='div'>
+
+                <h5>{this.state.successMsg}</h5>
 
                     <Form onSubmit={this.buttonsubmit}>
 

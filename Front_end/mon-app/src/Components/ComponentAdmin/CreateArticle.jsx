@@ -8,6 +8,7 @@ import { Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { creatstorearticle } from '../../store/action/ajout_article';// const dans l'action
 import './CSS/Container/ContainerCreatArticle.css'
+import './CSS/H4.css'
 import lll from '../Images/lll.jpg'
 
 
@@ -20,7 +21,8 @@ class CreateArticle extends Component {
       image: '',
     //   Date_de_publication: '',
       categorie:0,
-      redirect: false
+      redirect: false,
+      successMsg: '',
       
     }
 
@@ -86,12 +88,14 @@ class CreateArticle extends Component {
             // this.setState({Date_de_publication:''});
            //Modifie les donnees et les rboots avec ""
 
-
+            this.setState({successMsg: 'ARTICLE AJOUTE AVEC SUCCES'})
             //Creation du store pour ajouter un article ajout de la const dans le store action
            this.props.creatstorearticle(article)
 
-        //    this.setRedirect();
-           //Redirige vers Dashboard
+           this.setRedirect();
+        //    Redirige vers Dashboard
+
+       
     })
     .catch(error => {
         console.error(error)
@@ -108,9 +112,12 @@ class CreateArticle extends Component {
             <img class="imagecreatarticle" src={lll} alt="plantes bananier" width="auto" height="400" /> 
 
                 <Jumbotron>
+                
                 <h2>CREER VOTRE ARTICLE</h2>
+                
+                <h5>{this.state.successMsg}</h5>
+
                 {this.renderRedirect()}
-                    
                     <Form className='carte' onSubmit={this.buttonsubmit}>
                     <Form.Group controlId="formBasictitre">
 
@@ -148,7 +155,11 @@ class CreateArticle extends Component {
                     </Button>
                     </div>
                     </Form>
+                    
+                    
                 </Jumbotron>
+
+
             </div>
             </div>
         )

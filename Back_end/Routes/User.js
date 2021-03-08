@@ -128,7 +128,7 @@ router.put('/user/:id_user', function (req, res) {
 router.use('/postcomments', middleware.tokenuser)
 router.post('/postcomments', (req, res)=> {
     try {
-        let addcomment = `INSERT INTO commentaires_user (pseudo, commentaire, avatar, date_de_commentaire, id_article, id_user) VALUE ('NULL','${req.body.commentaire}','NULL','${new Date}','${req.body.id_article}','${req.body.id_user}')`;
+        let addcomment = `INSERT INTO commentaires_user (commentaire, date_de_commentaire, id_article, id_user) VALUE ('${req.body.commentaire}','${new Date}','${req.body.id_article}','${req.body.id_user}')`;
         con.query(addcomment, function (err, result) {
             if (err) throw err;
             console.log(result);

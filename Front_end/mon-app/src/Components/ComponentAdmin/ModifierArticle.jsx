@@ -8,6 +8,8 @@ import Jumbotron from 'react-bootstrap/Jumbotron'
 import { Redirect } from 'react-router-dom';
 //-------STORE
 import { connect } from 'react-redux';
+import './CSS/Container/ContainerModifierArticle.css'
+import Alocassia from '../Images/Alocassia.jpg';
 // import { creatstorearticle } from '../../store/action/ajout_article';// const dans l'action
 
 
@@ -21,7 +23,7 @@ class ModifierArticle extends Component {
             paragraphe: '',
             image: '',
             redirect: false,
-            succesMsg: '',
+            // succesMsg: '',
 
         }
     }
@@ -105,24 +107,26 @@ class ModifierArticle extends Component {
                 this.setState({ paragraphe: '' });
                 this.setState({ image: '' });
 
+                // ----REDIRECT
+                this.setRedirect();
+                //Redirige vers Dashboard
+
+
                 if (res.status === 200) {
                     console.log(res);
                     console.log(res.data);
-                    this.setState({ msgSuccess: "Produit modifié avec succès" })
+                    // this.setState({ msgSuccess: "Produit modifié avec succès" })
 
                     this.setState({ article: res.data[0] });
                     // element recoit les data de lobjet correspondant a lID envoyer 
 
                 }
-                // ----REDIRECT
-                this.setRedirect();
-                //Redirige vers Dashboard
 
             })
 
 
     }
-//----- FUNCTION DELETE
+    //----- FUNCTION DELETE
     deleteRow = (id) => {
 
 
@@ -131,6 +135,7 @@ class ModifierArticle extends Component {
                 console.log(res);
                 console.log(res.data);
 
+                this.setRedirect();
 
 
             })
@@ -142,16 +147,20 @@ class ModifierArticle extends Component {
     render() {
 
 
-     
+
         console.log(this.state.article);
         return (
             <>
                 {this.state.article && (
-                    <div>
+
+                    <div className='modifierarticle'>
+                        <img class="imagedshboarduser" src={Alocassia} alt="plantes bananier" width="auto" height="400" />
+
                         <Jumbotron>
-                        <p>{this.state.succesMsg}</p>
-                            {this.renderRedirect()}
                             <h1>Voici l'article selectionner</h1>
+                            {/* <h5>{this.state.successMsg}</h5> */}
+
+                            {this.renderRedirect()}
 
                             <Form onSubmit={this.handlesubmit}>
                                 <Form.Group controlId="formBasictitre">
@@ -178,18 +187,20 @@ class ModifierArticle extends Component {
                         </Form.Text>
                                 </Form.Group>
 
-                                <Button variant="primary" type="submit">
-                                    Modifier
+                                <div className='bouttonform'>
+                                    <Button className="click" variant="primary" type="submit">
+                                        Modifier
+                        </Button>
+                                </div>
+                           
+                        </Form>
+                           
+                            <div className='bouttonform'>
+                                <Button className="click" variant="primary" onClick={() => { this.deleteRow(this.state.article.id_article) }}>
+                                    Supprimer
                                 </Button>
-                            </Form>
-
-                            <Button variant="primary" onClick={() => { this.deleteRow(this.state.article.id_article) }}>
-                                Supprimer
-                                </Button>
-
-
-
-
+                            </div>
+                           
                         </Jumbotron>
                     </div>
                 )}

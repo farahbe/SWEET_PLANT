@@ -38,7 +38,7 @@ class articlePage extends Component {
                 // console.log(res.data);
                  res.data.forEach(async (commentaire) => {
                     console.log(commentaire);
-                    const user = await axios.get(`http://localhost:4000/user/user/${commentaire.id_user}`)
+                    const user = await axios.get(`http://localhost:4000/user/user/${commentaire.id_user}`,{headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }})
                     commentaire.avatar_user=user.data[0].avatar
                     commentaire.pseudo_user=user.data[0].pseudo
                     this.setState({commentaire:[...this.state.commentaire,commentaire]})
@@ -78,7 +78,7 @@ class articlePage extends Component {
 
               
                     < Ecrirecommentaire />
-                   
+                   <h4>Commentaire</h4>
                 {this.state.commentaire && this.state.commentaire.map((elem, i) => {
                 console.log(elem);
                     return (

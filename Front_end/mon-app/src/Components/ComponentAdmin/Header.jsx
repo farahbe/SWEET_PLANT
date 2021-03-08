@@ -84,9 +84,9 @@ class headerAdmin extends React.Component {
                             <li><Link to="/Home" className='headertitle'> Acceuil</Link></li>
                             <li><Link to="/Dashboard" className='headertitle'>Profil</Link></li>
                             <li><Link to="/CreateArticle" className='headertitle'>CreateArticle</Link></li>
-                            <li><Link to="/Galerie" className='headertitle'>ToutArticle</Link></li>
-                            <li><Link to="/Recherche" className='headertitle'>Recherche</Link></li>
-                            <li><Link to="/About" className='headertitle'>A propos</Link></li>
+                            
+                            
+                           
 
                             <li onClick={this.logout}>Logout</li>
                         </span>
