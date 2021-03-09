@@ -21,10 +21,10 @@ class articlePage extends Component {
     componentDidMount() {
 
         const { id } = this.props.match.params
-        // On passe les props a la const id_article
+        // id represente les parametres de l'id url
 
         axios.get(`http://localhost:4000/admin/get_article/${id}`)
-            // Recupere article + ${id_article} correspondant
+            // Recupere article demander grace  ${id_article} 
             .then(res => {
                 // console.log(res.data);
                 this.setState({ article: res.data[0] });
@@ -35,14 +35,19 @@ class articlePage extends Component {
         // this.setState({ commentaire: this.props.usercommentaires })
 
         axios.get(`http://localhost:4000/user/commentsbypostid/${id}`)
+        //recupere tout les commentaires qui appartiennent a l'article
             .then(res => {
-                // console.log(res.data);
+               
+                //savoir qui a poster
                  res.data.forEach(async (commentaire) => {
+                     //pour chaque commentaire
                     console.log(commentaire);
                     const user = await axios.get(`http://localhost:4000/user/user/${commentaire.id_user}`,{headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }})
-                    commentaire.avatar_user=user.data[0].avatar
-                    commentaire.pseudo_user=user.data[0].pseudo
+                    // recupere a la route user id du user (bdd)
+                    commentaire.avatar_user=user.data[0].avatar //envoie l'avatar
+                    commentaire.pseudo_user=user.data[0].pseudo //envoie le pseudo
                     this.setState({commentaire:[...this.state.commentaire,commentaire]})
+                    
                 })
                 console.log(res.data);
                 this.props.enregistrecommentaire(res.data)

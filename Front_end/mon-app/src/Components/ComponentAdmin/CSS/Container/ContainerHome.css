@@ -1,5 +1,9 @@
+body{
+    border: brown 3px solid;
+    width: auto;
+}
 .jpp{
-
+border: blueviolet 3px solid;
     height: auto;
 display: block;
 align-content: center;
@@ -7,4 +11,8 @@ display: flex;
 }
 .header{
    
+}
+
+@media all and (max-width: 1024px){
+  
 }

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Amiri&family=Raleway&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Infant:wght@500&display=swap');
 
+
 h6{
     font-family: 'Amiri', serif;
 }
@@ -41,7 +42,7 @@ ul{
      
 }
 span{
-   
+   border: cadetblue 3px solid;
     display: flex;
     justify-content: space-between;
    align-items: center;
@@ -56,5 +57,56 @@ li{
     color: black;
     margin-left: 30px;
 }
+.headerdiv{
+    border: red 3px solid;
+    width: auto;
+}
 
+
+
+
+
+@media all and (max-width: 1024px){
+    ul{
+border: chocolate 3px solid;
+        width: auto;
+        height: auto;
+        display: flex;
+        justify-content: center;
+       align-items: center;
+       padding: 10px;
+       font-family: 'Cormorant Infant', serif;
+       position: static;
+       top: 0;
+       flex-direction: column;
+    
+         
+    }
+    span{
+       border: cadetblue 3px solid;
+        display: flex;
+        justify-content: space-between;
+       align-items: center;
+       width: auto;
+       flex-direction: column;
+       
+    }
+    li{
+        border: yellow 3px solid;
+       font-size: 20px;
+        width: auto;
+        display: flex;
+        justify-content: center;
+        text-decoration: none;
+        color: black;
+        margin-left: 30px;
+    }
+    .headerdiv{
+        border: red 3px solid;
+        width: auto;
+    }
+    h6{
+    border:yellowgreen 3px solid;
+    }
+}
 

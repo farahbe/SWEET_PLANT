@@ -4,12 +4,12 @@ const DB = require('./Database/DB')
 //--------Token Admin
 const tokenadmin = (req, res, next) => {
   
-    //  let token = req.headers.authorization.split(" ")[1]
-
     let token;
     if (req && req.headers.authorization) {
         token = req.headers.authorization.split(" ")[1];
     }
+    //si il ya bien autorisation dans le front au niveau de la route  on stock le res dans token
+    
 
      console.log(token);
     
@@ -20,6 +20,7 @@ const tokenadmin = (req, res, next) => {
         } else {
             res.status(403).send("Vous n'etes pas l'admin")
         }
+        //si le token de decoded est true alors 'next'
 }
 
 //------------Token User

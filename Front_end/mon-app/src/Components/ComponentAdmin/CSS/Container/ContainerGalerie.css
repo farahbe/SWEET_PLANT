@@ -12,7 +12,7 @@
 
 }
 .titregalerie{
-   
+   border: springgreen solid 3px;
     width: 1200px;
     height: 50px;
 position: absolute;
@@ -27,4 +27,24 @@ color:#FFA708 !important;
 }
 .voircategorie.active{
  color: black !important;
+}
+
+@media all and (max-width: 1024px){
+    .titregalerie{
+        border: springgreen solid 3px;
+         width: auto;
+         height: auto;
+     position: relative;
+     left: 0%;
+     top:20%
+     }
+     .voircategorie, .voircategorie:visited{
+     color:#FFA708 !important;
+     }
+     .voircategorie:hover, .voircategorie:active{
+         color: black !important;
+     }
+     .voircategorie.active{
+      color: black !important;
+     }
 }

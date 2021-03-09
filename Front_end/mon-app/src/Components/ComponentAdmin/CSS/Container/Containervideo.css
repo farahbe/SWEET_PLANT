@@ -4,7 +4,16 @@ video{
     width: 1250px;
 }
 .imagehead{
-    border:black 5px solid;
+    
     height: 400px;
-    width: 1260px;
+    width: 100vw;
+}
+
+@media all and (max-width: 1024px){
+    .imagehead{
+     
+        height: 50vh;
+        width: 100vw;
+        /* padding: 20px; */
+    }
 }

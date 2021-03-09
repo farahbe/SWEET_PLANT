@@ -4,7 +4,7 @@
 
 
 header{
-  
+  border: chartreuse 3px solid;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -22,6 +22,8 @@ h2.titrecard{
     box-shadow: none !important;
     border: none !important;
     position: static;
+    display: flex;
+    flex-wrap: wrap;
 
 }
 
@@ -43,4 +45,11 @@ p.paragraphe{
     background-size: cover; 
 } */
 
+
+/* Media Querie */
+@media all and (max-width: 1024px){
+  .imagehead{
+      border: chartreuse 3px solid;
+  }
+}
 

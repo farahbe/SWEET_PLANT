@@ -121,6 +121,7 @@ class ModifierArticle extends Component {
                     // element recoit les data de lobjet correspondant a lID envoyer 
 
                 }
+                
 
             })
 

@@ -24,7 +24,8 @@ router.post('/sign-up', (req, res) => {
         bcrypt.hash(req.body.password, saltRounds, function (err, hash) {
             console.log(hash);
             console.log(err);
-            let NewUser = `INSERT INTO user (pseudo, prenom, Email, Password, Date_de_naissance, Avatar, inscrit_a_la_newsletter) VALUES ('${req.body.pseudo}','${req.body.prenom}','${req.body.email}','${hash}','${req.body.Date_de_naissance}','${req.body.Avatar}','${req.body.inscrit_a_la_newsletter}')`;
+            let NewUser = `INSERT INTO user (pseudo, prenom, Email, Password, Date_de_naissance, Avatar, inscrit_a_la_newsletter) VALUES 
+            ('${req.body.pseudo}','${req.body.prenom}','${req.body.email}','${hash}','${req.body.Date_de_naissance}','${req.body.Avatar}','${req.body.inscrit_a_la_newsletter}')`;
             con.query(`SELECT * FROM user WHERE Email = '${req.body.email}'`, function (err, result) {
                 if (result.length) {
                     res.status(400).json("Cette email existe deja");
@@ -200,7 +201,9 @@ router.get('/commentsbypostid/:id', (req, res)=> {
     try {
        
         let idarticle = req.params.id
+        //recupere les parametres de l'i de l'article du front stocker dans l'url
         let commentaireuser = `SELECT * FROM commentaires_user WHERE id_article = '${idarticle}'`
+        //recupere a la tab commentaire_user l'id de l'article et on regarde si il est egale a ce que l'on a recu du front
         con.query(commentaireuser, function (err, results){
             if (err) res.status(203).send(err)
             res.send(results)
