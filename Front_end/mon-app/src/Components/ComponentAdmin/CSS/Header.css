@@ -42,7 +42,7 @@ ul{
      
 }
 span{
-   border: cadetblue 3px solid;
+  
     display: flex;
     justify-content: space-between;
    align-items: center;
@@ -58,7 +58,7 @@ li{
     margin-left: 30px;
 }
 .headerdiv{
-    border: red 3px solid;
+    
     width: auto;
 }
 
@@ -68,7 +68,7 @@ li{
 
 @media all and (max-width: 1024px){
     ul{
-border: chocolate 3px solid;
+
         width: auto;
         height: auto;
         display: flex;
@@ -83,7 +83,7 @@ border: chocolate 3px solid;
          
     }
     span{
-       border: cadetblue 3px solid;
+      
         display: flex;
         justify-content: space-between;
        align-items: center;
@@ -92,7 +92,7 @@ border: chocolate 3px solid;
        
     }
     li{
-        border: yellow 3px solid;
+      
        font-size: 20px;
         width: auto;
         display: flex;
@@ -102,11 +102,11 @@ border: chocolate 3px solid;
         margin-left: 30px;
     }
     .headerdiv{
-        border: red 3px solid;
+    
         width: auto;
     }
     h6{
-    border:yellowgreen 3px solid;
+ 
     }
 }
 

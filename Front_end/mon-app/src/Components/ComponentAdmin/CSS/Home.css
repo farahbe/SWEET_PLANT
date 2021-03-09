@@ -4,7 +4,7 @@
 
 
 header{
-  border: chartreuse 3px solid;
+ 
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -49,7 +49,7 @@ p.paragraphe{
 /* Media Querie */
 @media all and (max-width: 1024px){
   .imagehead{
-      border: chartreuse 3px solid;
+     
   }
 }
 

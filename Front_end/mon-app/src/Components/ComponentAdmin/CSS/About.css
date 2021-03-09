@@ -71,3 +71,72 @@ align-items: flex-start;
 
 }
 
+
+@media all and (max-width: 1024px){
+    body {
+        background-color:white;
+        color: black;
+        /* padding: 40px; */ 
+        }
+        
+        h1{
+            text-align: center;
+            font-family: 'Cormorant Garamond', serif;
+        }
+           
+        .image .txt1{
+        
+        height: 300px;
+        width: 600px;
+        font-family: Arial;
+        /* text-align: left;   */
+         font-size: 26px;
+          font-family: 'Tajawal', sans-serif; 
+          display: flex;
+          /* margin-right: 100px; */
+          position: absolute;
+          z-index: 1;
+          text-align: justify;
+        }
+        .image .txt2{
+           
+            height: 450px;
+            width: 800px;
+            font-family: 'Tajawal', sans-serif; 
+            font-size: 18px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center; 
+            z-index: 1;
+            margin-left: 60px;
+            text-align: justify;
+        }
+        .image{
+        
+        height: auto;
+        display: flex;
+        /* justify-content: flex-end; */
+        align-items: flex-start;
+        
+        
+        }
+        .image .imageplante{
+          
+            display: flex;
+            position: absolute;
+            margin-left: 600px; 
+            opacity: 0.5;   
+        }
+        .about{
+          
+            margin-top:40px;
+            margin-left: 50px;
+            margin-right: 50px;
+            height: 650px;
+           
+            
+        
+        }
+}
+

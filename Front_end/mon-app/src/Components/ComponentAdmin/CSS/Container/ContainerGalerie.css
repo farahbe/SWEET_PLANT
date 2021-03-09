@@ -12,7 +12,7 @@
 
 }
 .titregalerie{
-   border: springgreen solid 3px;
+  
     width: 1200px;
     height: 50px;
 position: absolute;
@@ -31,7 +31,7 @@ color:#FFA708 !important;
 
 @media all and (max-width: 1024px){
     .titregalerie{
-        border: springgreen solid 3px;
+      
          width: auto;
          height: auto;
      position: relative;
